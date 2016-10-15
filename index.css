@@ -1,0 +1,272 @@
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+   min-height: 100%;
+}
+.container{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  min-height:100%;
+  position:relative;
+}
+#container {
+   min-height:100%;
+   position:relative;
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+#header {
+   background:#ff0;
+   padding:10px;
+}
+.body {
+   padding:10px;
+   padding-bottom: 60px;
+   /* Height of the footer */
+}
+footer {
+    position:relative;
+    clear: both;
+    z-index: 10;
+  bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#4733b7;;
+}
+label{
+  cursor: pointer;
+  font-weight: bolder;
+  color: #4733b7;
+}
+ul{
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+.img-comment{
+  width: 846px;
+  height: 400px;
+}
+.li-rts
+{
+  list-style: none;
+  text-align: -webkit-match-parent;
+  float: left;
+  margin-left: 20px;
+  font-size: 20px;
+}
+.rts-category{
+  margin-top: 10px;
+  margin-left: 100px;
+}
+.contact-us
+{
+
+  width: 100%;
+  background: #4733b7;
+  color: white;
+  top:50%;
+
+}
+.review{
+  border-width: 1px;
+  border-color:rgb(245, 245, 245);
+  border-style: solid;
+  overflow: hidden;
+  clear: both;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rating-point{
+  float: left;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.rating-number{
+  float: left;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-left: 135px;
+}
+.comment-number{
+  float: right;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.fd-container {
+    padding: 0.01em 16px;
+    padding-top: 0.01em;
+    padding-right: 16px;
+    padding-bottom: 0.01em;
+    padding-left: 16px;
+}
+.top {
+    position: relative;
+    background-color: #ffffff;
+    height: 68px;
+    line-height: 50px;
+    z-index: 2;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.fd-logo {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-decoration: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 37px;
+    letter-spacing: 3px;
+    color: #4733b7;
+    display: block;
+    position: absolute;
+    top: 17px;
+}
+.fd-right{
+    float: right!important;
+}
+.fd-wide{
+    letter-spacing: 2px;
+    color: blue;
+    font-family:  "Courier New", Courier, monospace;
+    font-size: 20px;
+
+
+}
+.fd-inf{
+    height: 15px;
+    text-align: center;
+    padding-top: 1px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 0px;
+}
+
+.dotcom{
+    color: red;
+}
+.w3-card-12{
+    padding-bottom:  20px;
+    display: block;
+    position: static;
+}
+.w3-card-12 a{
+    text-decoration: none;
+    color: white;
+
+    float:inherit;
+    text-align: center;
+    padding-bottom: 15px;
+}
+.fd-search{
+    width: 750px;
+}
+.fd-input{
+    width: 600px;
+}
+.blue-border{
+    border-color: blue;
+    border-width: 3px;
+    border-style: double;
+}
+.search-bar{
+    padding-top: 5px;
+    padding-bottom: 20px;
+
+}
+.btn{
+    display: inline-block;
+}
+.login-top{
+    float: right;
+}
+.login{
+    display: none;
+}
+.search-bar{
+    float: right;
+}
+
+.card{
+    padding-left: 10px;
+}
+@media (max-width:800px)
+{
+    .toptext{
+        display: none;
+    }
+    .login-top{
+        display: none;
+
+    }
+    .login{
+        display: block;
+    }
+
+}
+@media only screen and (max-width: 370px) {
+
+   .fd-logo { font-size: 1.5em; }
+
+}
+.topBar {
+    margin: 0;
+}
+nav.navbar.navbar-default {
+    margin-bottom: 0;
+}
+
+.row {
+  height: inherit;
+}
+
+#listViewContainer{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#mapContainer{
+    margin: 0;
+    padding: 0;
+    height: inherit;
+}
+/*
+.contentContainer.row {
+    display: table;
+}
+
+.left-side {
+    background-color: blue;
+    float: none;
+    display: table-cell;
+}
+
+.right-side {
+    background-color: red;
+    float: none;
+    display: table-cell;
+}
+
+//=========
+.row {
+  overflow: hidden;
+}
+
+[class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+*/
