@@ -50,9 +50,41 @@ ul{
     -webkit-margin-end: 0px;
     -webkit-padding-start: 40px;
 }
+iframe{
+  position: absolute;;
+}
+a .member{
+  text-decoration: none;
+
+}
+.fa-comments-o:before {
+    content: "\f0e6";
+    padding-left: 25px;
+}
+.rating-heart{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  float: left;
+}
+.member-name{
+  font-weight: bolder;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+.img-responsive{
+  border-radius: 50%;
+  height: 55px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+}
+.comment{}
 .img-comment{
   width: 846px;
   height: 400px;
+}
+.list-group{
+  margin-top: 0;
 }
 .li-rts
 {
