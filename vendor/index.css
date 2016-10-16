@@ -4,6 +4,28 @@ body {
    height:100%;
    min-height: 100%;
 }
+.btnmap{
+  margin-top: 10px;
+  color: white;
+  background-color: #4733b7;
+}
+#map{
+  height: 400px;;
+}
+.map{
+  height: 400px;
+}
+#map_canvas {
+           width: 99%;
+           height: 400px;
+           border:solid 1px #ccc;
+       }
+
+
+
+.modal-content{
+  height: 500px;
+}
 .container{
   margin: 0;
   padding: 0;
@@ -28,14 +50,17 @@ body {
    padding-bottom: 60px;
    /* Height of the footer */
 }
-footer {
-    position:relative;
+.site-footer {
+
     clear: both;
-    z-index: 10;
-  bottom:0;
-   width:100%;
-   height:60px;   /* Height of the footer */
-   background:#4733b7;;
+    position: relative;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    background:#4733b7;
+    margin-top: 10px;
+    padding-top:10px;
+    color: white;
 }
 label{
   cursor: pointer;
@@ -56,6 +81,35 @@ iframe{
 a .member{
   text-decoration: none;
 
+}
+.box-img{
+  overflow: hidden;
+    clear: both;
+    white-space: normal;
+}
+.album-img{
+  float: left;
+  width: 190px;
+  height: 190px;
+font-size: 12px;
+color: #555;
+position: relative;
+margin: 0 10px 10px 0;
+}
+.menu{
+  width: 416px;
+  height: 140px;
+}
+.menu-img{
+  width: 120px;
+  height: 120px;
+  float: left;
+
+  margin: 10px;
+}
+.dish-name{
+  margin-top: 10px;
+  margin-left: 10px;
 }
 .fa-comments-o:before {
     content: "\f0e6";
