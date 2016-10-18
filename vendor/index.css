@@ -4,6 +4,13 @@ body {
    height:100%;
    min-height: 100%;
 }
+a:hover{
+  color: #FAFAFA;
+}
+.container-fluid{
+  padding-left: 40px;
+  padding-right: 40px;
+}
 .btnmap{
   margin-top: 10px;
   color: white;
@@ -56,12 +63,34 @@ body {
     position: relative;
     bottom:0;
     width:100%;
-    height:60px;   /* Height of the footer */
+
     background:#4733b7;
     margin-top: 10px;
     padding-top:10px;
     color: white;
 }
+.footer-a{
+  text-decoration: none;
+  color: white;
+}
+.footer-nav {
+  text-align: right;
+  list-style: none;
+}
+.footer-nav li {
+  display: inline;
+
+}
+.footer-nav li:not(:first-child):before  {
+  padding: 0 10px;
+  content: '|';
+}
+.bottom-footer{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #b2b2b2;
+}
+
 label{
   cursor: pointer;
   font-weight: bolder;
