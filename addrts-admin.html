@@ -114,7 +114,56 @@
 
   </header>
 
+  <div class="container">
+    <div class="col-lg-2" style="margin-top:15px;">
+      <ul class="list-group" style="position:fixed;">
+        <li class="list-group-item" style="disabled;color:white;background-color:#4733b7;">Dành cho admin</li>
+        <li class="list-group-item"><a href="profileEditor.html"><span class="glyphicon glyphicon-arrow-left"></span> Quay lại</a></li>
+        <li class="list-group-item"><a href="#">Xem thông báo</a></li>
+        <li class="list-group-item"><a href="#">Chỉnh sửa thông tin cá nhân</a></li>
+      </ul>
+    </div>
+    <div class="col-lg-10">
+        <form class="form-horizontal" action="index.html" method="post">
+          <h3 style="disabled;color:white;background-color:#4733b7;text-align:center; padding:10px;"><b>Thêm quán ăn</b></h3>
+            <div class="form-group">
+              <label for="rts-name">Tên quán ăn</label>
+              <input type="text" class="form-control" id="rts" placeholder="Nhập tên quán ăn">
+            </div>
+            <div class="form-group">
+              <label for="address">Địa chỉ</label>
+                <form class="form-inline" action="index.html" method="post">
+                  <div class="form-group">
+                    <label for="number" style="font-size:15px;">Số nhà</label>
+                    <input type="text" class="form-control form-inline" id="rtsnumber" placeholder="Số nhà" style="max-width:150px;">
+                  </div>
+                </form>
+                <div class="form-group">
+                  <label for="street" style="font-size:15px;">Tên đường</label>
+                  <select class="street" name="str">
+                    <option>Võ Văn Ngân</option>
+                    <option>Đặng Văn Bi</option>
+                    <option>Kha Vạn Cân</option>
+                    <option>Phạm Văn Đồng</option>
+                    <option>Xa lộ Hà Nội</option>
+                  </select>
+                </div>
 
+                <div class="form-group">
+                  <label for="street" style="font-size:15px;">Quận</label>
+                  <select class="street" name="str">
+                    <option>Thủ Đức</option>
+                    <option>Bình Thạnh</option>
+                    <option>Gò Vấp</option>
+                    <option>Quận 9</option>
+                    <option>Quận 2</option>
+                  </select>
+                </div>
+
+            </div>
+        </form>
+    </div>
+  </div>
   <footer class="site-footer">
     <div class="container-fluid">
       <div class="row">

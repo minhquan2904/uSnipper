@@ -4,7 +4,7 @@ body {
    height:100%;
    min-height: 100%;
 }
-a:hover{
+footer a:hover{
   color: #FAFAFA;
 }
 .container-fluid{
@@ -345,7 +345,13 @@ nav.navbar.navbar-default {
 .row {
   height: inherit;
 }
-
+.form-horizontal label{
+  font-size: 20px;
+}
+.form-horizontal .form-group{
+  margin-left:20px;
+  margin-right: 50px;
+}
 #listViewContainer{
     margin: 0;
     padding: 0;
