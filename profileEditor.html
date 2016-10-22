@@ -21,6 +21,7 @@
 
 <link rel="stylesheet" href="vendor/index.css">
 </head>
+<div class ="container">
 <body>
   <header>
     <!-- Heading -->
@@ -29,7 +30,6 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 fd-container top">
           <a href="index.html" class="fd-logo">utesnipper<span class="dotfirebase">.firebaseapp</span><span class="dotcom">.com</span></a>
-
           <div class="login-top">
             <span><a href="">Sign in |</a></span><span><a href="">Sign up |</a></span><span><a href="">About</a></span>
           </div>
@@ -114,86 +114,92 @@
 
   </header>
 
-  <div class="signin-register" style="margin-top:20px;">
-		<div class="container">
-			<div class="row">
-				<div class="signin">
-					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-
-						<form action="signin.html" method="POST" role="form">
-							<legend>Sign in</legend>
-							<div class="form-group">
-								<label>Email</label>
-								<input name="email" type="text" class="form-control" id="" placeholder="Email">
-								<label>Password</label>
-								<input name="password"type="password" class="form-control" id="" placeholder="Password">
-							</div>
-							<div class="row text-center">
-								<label class="radio-inline"><input type="radio" value="view" name="users" checked="checked"> Viewer</label>
-								<label class="radio-inline"><input type="radio" value="editor" name="users">Editor</label>
-								<label class="radio-inline"><input type="radio" value="admin" name="users">Admin</label>
-							</div>
-							<button type="submit" class="btn btn-primary" value="login" name="command">Submit</button>
-
-              <a href="profileEditor.html">Đăng nhập vào quản trị viên (test)</a>
-
-						</form>
-
-
-					</div>
-				</div>
-				<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-					<div class="or text-center">
-						<h1>Or</h1>
-					</div>
-				</div>
-				<div class="register">
-					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-						<form action="signin.html" method="POST" role="form">
-							<legend>Register</legend>
-
-							<div class="form-group">
-								<label for="">Email</label>
-								<input name="email" type="text" class="form-control" id="" placeholder="Email">
-								<label for="">Password</label>
-								<input name="password" type="password" class="form-control" id="" placeholder="Password">
-								<label for="">Confirm password</label>
-								<input name="confirm" type="password" class="form-control" id="" placeholder="Confirm Password">
-							</div>
-							<button type="submit" class="btn btn-primary" value="register" name="command">Submit</button>
-
-						</form>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-  <footer class="site-footer" style="position:absolute;">
-    <div class="container-fluid">
+  <div class="container">
+    <div class="col-lg-2"><!-- List function -->
       <div class="row">
-      <div class="col-md-5">
-        <address class="">
-          484, Le Van Viet Street, Dist 9 <br>
-          HoChiMinh city.<br>
-            VietNam
-        </address>
-      </div>
-      </div>
-      <div class="bottom-footer">
-          <div class="col-md-5">
-                Copyright © 2016. All rights reserved.
-          </div>
-          <div class="col-md-7">
-              <ul class="footer-nav">
-                <li><a href="index.html" class="footer-a">Trang chủ</a></li>
-                <li><a href="#" class="footer-a">Liên hệ với chúng tôi</a></li>
-                <li><a href="#" class="footer-a">About</a></li>
-              </ul>
-          </div>
-      </div>
-    </div>
-  </footer>
+        <ul class="list-group" style="position:fixed;">
+          <li class="list-group-item" style="disabled;color:white;background-color:#4733b7;">Dành cho quẩn trị viên</li>
+          <li class="list-group-item"><a href="addrts-admin.html">Thêm quán ăn mới</a></li>
+          <li class="list-group-item"><a href="list-rts.html">Quản lý thông tin quán ăn</a></li>
 
+
+        </ul>
+      </div>
+    </div><!-- /List function -->
+    <div class="col-lg-10" >
+        <div class="row" style="margin-top:20px;"><!-- profile info -->
+          <div class="panel panel-default"><!-- Panel -->
+            <div class="panel-heading">
+              <h3 class="panel-title">Thông tin cá nhân</h3>
+            </div>
+            <div class="panel-body">
+              <div class="col-lg-3">
+                  <div class="avt"><!-- avt -->
+                    <img src="images/mqavt.jpg" alt=""  />
+                  </div><!-- avt -->
+              </div>
+              <div class="col-lg-7">
+                <fieldset>
+                  <form class="form-inline" action="index.html" method="post">
+                    <div class="form-group" style="width:400px;"><!-- ID -->
+                      <label for="id">Mã số nhân viên</label>
+                      <input type="text" class="form-control" id="emp-id" placeholder="" value="32145">
+                    </div><!-- /ID -->
+
+                    <div class="form-group" style="width:400px; margin-top:20px;"><!-- name -->
+                      <label for="name">Họ và tên</label>
+                      <input type="text" class="form-control" id="emp-name" placeholder="" value="Bùi Minh Quân" style="margin-left: 48px;">
+                    </div><!-- name -->
+
+                    <div class="form-group" style="width:400px; margin-top:20px;"><!-- date  -->
+                      <label for="name">Ngày tham gia</label>
+                      <input type="text" class="form-control" id="emp-name" placeholder="" value="1/1/2016" style="margin-left: 15px;">
+                    </div><!-- name -->
+
+                  </form>
+                </fieldset>
+              </div>
+
+            </div>
+            <div class="panel-footer">
+
+            </div>
+          </div><!-- /Panel -->
+
+        </div><!-- /profile info -->
+    </div>
+
+  </div>
+
+
+
+</div>
+
+<footer class="site-footer" style="position:absolute;">
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-5">
+      <address class="">
+        484, Le Van Viet Street, Dist 9 <br>
+        HoChiMinh city.<br>
+          VietNam
+      </address>
+    </div>
+    </div>
+    <div class="bottom-footer">
+        <div class="col-md-5">
+              Copyright © 2016. All rights reserved.
+        </div>
+        <div class="col-md-7">
+            <ul class="footer-nav">
+              <li><a href="index.html" class="footer-a">Trang chủ</a></li>
+              <li><a href="#" class="footer-a">Liên hệ với chúng tôi</a></li>
+              <li><a href="#" class="footer-a">About</a></li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</footer>
 </body>
+
+</html>
