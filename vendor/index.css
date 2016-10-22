@@ -3,13 +3,32 @@ body {
    padding:0;
    height:100%;
    min-height: 100%;
+   overflow-x: hidden;
 }
 footer a:hover{
   color: #FAFAFA;
 }
+hr{
+  max-width: 800px;
+}
+.active{
+  
+}
+.clk:hover{
+  background-color: #E0E0E0;
+  cursor: pointer;
+}
 .container-fluid{
   padding-left: 40px;
   padding-right: 40px;
+}
+.row{
+  margin: 0;
+
+}
+.container{
+  margin: 0;
+
 }
 .btnmap{
   margin-top: 10px;
@@ -24,6 +43,9 @@ footer a:hover{
   float: left;
   background-color: #4733b7;
   color: white;
+}
+.form-group{
+
 }
 .btn-gr button:hover{
   float: left;
@@ -44,8 +66,12 @@ footer a:hover{
 
 
 
-.modal-content{
-  height: 500px;
+#mymodal .modal-content{
+  height: 800px;
+  width: 800px;
+}
+#myModal1 .modal-content{
+  height: 100%;
 }
 .container{
   margin: 0;
@@ -154,6 +180,9 @@ margin: 0 10px 10px 0;
   margin-top: 10px;
   margin-left: 10px;
 }
+.form-group{
+
+}
 .fa-comments-o:before {
     content: "\f0e6";
     padding-left: 25px;
@@ -194,6 +223,15 @@ margin: 0 10px 10px 0;
 .rts-category{
   margin-top: 10px;
   margin-left: 100px;
+}
+.rts-avt label{
+  margin-left: 15px;
+}
+.info .form-group{
+  margin-top: 10px;
+}
+.info .form-group label{
+  margin-left: 40px;
 }
 .contact-us
 {
@@ -283,7 +321,13 @@ img {
 }
 
 .dotcom{
-    color: red;
+    color: #FFAB40;
+}
+.dotfirebase{
+  color: #F44336;
+}
+.list-group{
+  margin-top: 20px;
 }
 .w3-card-12{
     padding-bottom:  20px;
@@ -330,6 +374,10 @@ img {
 .card{
     padding-left: 10px;
 }
+.mn-rts-info{
+  margin-left: 10px;
+}
+
 @media (max-width:800px)
 {
     .toptext{
@@ -413,6 +461,23 @@ nav.navbar.navbar-default {
     padding: 0;
     height: inherit;
 }
+#btndetail
+{
+  margin-left: 40px;
+  margin-top: 10px;
+}
+#btnedit
+{
+  margin-left: 40px;
+  margin-top: 10px;
+}
+#btnsave
+{
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+
 /*
 .contentContainer.row {
     display: table;

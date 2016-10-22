@@ -32,6 +32,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 fd-container top">
           <a href="index.html" class="fd-logo">utesnipper<span class="dotfirebase">.firebaseapp</span><span class="dotcom">.com</span></a>
 
+
           <div class="login-top">
             <span><a href="">Sign in |</a></span><span><a href="">Sign up |</a></span><span><a href="">About</a></span>
           </div>
@@ -118,6 +119,36 @@
 
   <div class="container">
     <div class="row" style="margin:20px 100px; ">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin:10px;">
+        <a href="addrts-admin.html" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Quay lại</a>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal1" style="float:right;margin-right:20p">Xác nhận</button>
+        <!-- set up the modal to start hidden and fade in and out -->
+        <div id="myModal1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Xác nhận</h4>
+            </div>
+            <div class="modal-body">
+              <p><i>Bạn xác nhận thêm quán ăn?</i><br></p>
+              <p>
+                Bấm Confirm để xác nhận, bấm Close để thoát.
+              </p>
+
+            </div>
+            <div class="modal-footer">
+              <a href="demo.html" class="btn btn-default">Confirm</a>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </div>
       <div class="col-lg-5"><!-- image restaurant -->
         <a href="#"><img src="images/launuong.jpg" alt="" /></a>
       </div><!-- /image rts -->
@@ -140,7 +171,7 @@
           <div class="rating-point" >
             <div class="">
               <p style="text-align:center;">
-                6.9
+                0
               </p>
             </div>
             <div class="label" style="color: #4733b7;  margin-left:10px;">
@@ -150,7 +181,7 @@
           <div class="rating-number" >
             <div class="">
               <p style="text-align:center;">
-                69
+                0
               </p>
             </div>
             <div class="label" style="color: #4733b7;">
@@ -160,7 +191,7 @@
           <div class="comment-number" >
             <div class="">
               <p style="text-align:center;">
-                96
+                0
               </p>
             </div>
             <div class="label" style="color: #4733b7;">
@@ -177,7 +208,7 @@
           <i class="fa fa-cutlery"></i> 150.000 - 250.000
         </div>
         <div class="mymap">
-          <button type="button" class="btn btn-default btnmap" data-toggle="modal" data-target="#myModal" class="btnmap">Bản đồ</button>
+          <button type="button" class="btn btn-default btnmap" data-toggle="modal" data-target="#myModal" >Bản đồ</button>
         <div id="myModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
 
@@ -212,43 +243,13 @@
 
       </div>
 
-      <div class="col-lg-8 " style="margin-top:20px;"><!-- Comment -->
-        <div class="row" style="background-color:white; ">
-            <h3>Thực đơn</h3>
-            <div class="col-lg-4" style="width:410px;">
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
+      <div class="col-lg-8" style="margin-top:20px;"><!-- Comment -->
+        <div class="row" style="background-color:white; height:500px; ">
 
-            </div>
-            <div class="col-lg-4 "  style="width:410px;">
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
 
-            </div>
+
 
         </div>
-
-
       </div><!-- /comment -->
       <div class="col-lg-4" style="margin-top:20px;">
 
@@ -261,19 +262,57 @@
 
 
 
-<footer>
-  <div class="contact-us" >
-    <div class="container">
+  <footer class="site-footer">
+    <div class="container-fluid">
       <div class="row">
-        <div class="text text-center">
-          <p>Copyright © 2016. All rights reserved.</p>
-          Nhóm xx - 0962123874 - minhquan2904@outlook.com
-        </div>
+      <div class="col-md-5">
+        <address class="">
+          484, Le Van Viet Street, Dist 9 <br>
+          HoChiMinh city.<br>
+            VietNam
+        </address>
+      </div>
+      </div>
+      <div class="bottom-footer">
+          <div class="col-md-5">
+                Copyright © 2016. All rights reserved.
+          </div>
+          <div class="col-md-7">
+              <ul class="footer-nav">
+                <li><a href="index.html" class="footer-a">Trang chủ</a></li>
+                <li><a href="#" class="footer-a">Liên hệ với chúng tôi</a></li>
+                <li><a href="#" class="footer-a">About</a></li>
+              </ul>
+          </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script>
+  $(document).ready(
+
+    $("#myModal1").on("show", function() {    // wire up the OK button to dismiss the modal when shown
+        $("#myModal1 a.btn").on("click", function(e) {
+            console.log("button pressed");   // just as an example...
+            $("#myModal1").modal('hide');     // dismiss the dialog
+        });
+    });
+    $("#myModal1").on("hide", function() {    // remove the event listeners when the dialog is dismissed
+        $("#myModal a.btn").off("click");
+    });
+
+    $("#myModal1").on("hidden", function() {  // remove the actual elements from the DOM when fully hidden
+        $("#myModal1").remove();
+    });
+
+    $("#myModal1").modal({                    // wire up the actual modal functionality and show the dialog
+      "backdrop"  : "static",
+      "keyboard"  : true,
+      "show"      : true                     // ensure the modal is shown immediately
+    });
+
+  )
+</script>
     <script>
         function initialize() {
             var myLatlng = new google.maps.LatLng(10.849301, 106.773904);
@@ -298,6 +337,9 @@
 
 
     </script>
+
+
+
 </body>
 
 </html>
