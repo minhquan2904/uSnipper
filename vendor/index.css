@@ -14,9 +14,18 @@ hr{
 .active{
 
 }
+.add-editor{
+  margin: 20px;
+}
+.add-editor input{
+  max-width: 450px;
+}
 .clk:hover{
   background-color: #E0E0E0;
   cursor: pointer;
+}
+.col-lg-12.col-md-12.col-sm-12.fd-container.top {
+    background-color: #E8EAF6;
 }
 .container-fluid{
   padding-left: 40px;
@@ -52,23 +61,18 @@ hr{
   background-color:white ;
   color: #4733b7;
 }
-#map{
-  height: 400px;;
+.dish-table{
+  margin: 20px;
 }
-.map{
-  height: 400px;
-}
-#map_canvas {
-           width: 99%;
-           height: 400px;
-           border:solid 1px #ccc;
-       }
 
+.edit-dish .form-group{
+  padding-left: 40px;
+}
 
 
 #mymodal .modal-content{
-  height: 800px;
-  width: 800px;
+  height: 1200px;
+  width: 1200px;
 }
 #myModal1 .modal-content{
   height: 100%;
@@ -97,10 +101,103 @@ hr{
    padding-bottom: 60px;
    /* Height of the footer */
 }
+.addcmt {
+  background-color: white;
+  padding: 10px;
+  background: none repeat scroll 0 0 #f5f5f5;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+float: left;
+width: 100%;
+}
+.addcmt form textarea {
+background: none repeat scroll 0 0 #fff;
+border: medium none;
+-webkit-border-radius: 4px 4px 0 0;
+-moz-border-radius: 4px 4px 0 0;
+-ms-border-radius: 4px 4px 0 0;
+-o-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+color: #777777;
+float: left;
+font-family: Lato;
+font-size: 14px;
+height: 142px;
+letter-spacing: 0.3px;
+padding: 20px;
+width: 100%;
+resize:vertical;
+outline:none;
+border: 1px solid #F2F2F2;
+}
+.addcmt ul {
+float: left;
+list-style: none outside none;
+margin: 0;
+padding: 0 0 0 15px;
+width: auto;
+}
+.addcmt ul > li {
+float: left;
+}
+.addcmt ul > li > a {
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+color: #777777;
+float: left;
+font-size: 14px;
+height: 30px;
+line-height: 30px;
+margin: 10px 0 10px 10px;
+text-align: center;
+-webkit-transition: all 0.4s ease 0s;
+-moz-transition: all 0.4s ease 0s;
+-ms-transition: all 0.4s ease 0s;
+-o-transition: all 0.4s ease 0s;
+transition: all 0.4s ease 0s;
+width: 30px;
+cursor: pointer;
+}
+.addcmt ul > li > a:hover {
+background: none repeat scroll 0 0 #606060;
+color: #fff;
+}
+.addcmt form button {
+border: medium none;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+color: #fff;
+float: right;
+font-family: Lato;
+font-size: 14px;
+letter-spacing: 0.3px;
+margin-right: 9px;
+margin-top: 9px;
+padding: 6px 15px;
+}
+.dropdown > a > span.green:before {
+border-left-color: #2dcb73;
+}
+.addcmt form button > i {
+margin-right: 7px;
+}
+.search-box{
+  padding: 10px;
+  border: 0.5px solid gray;
+}
 .site-footer {
 
     clear: both;
-  
+
     bottom:0;
     width:100%;
 
@@ -129,6 +226,17 @@ hr{
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid #b2b2b2;
+}
+.login-top{
+  color:#4733b7;
+}
+.carousel-caption p{
+  font-size: 20px;
+}
+.sp-body{
+  margin-left: 100px;
+  margin-right: 100px;
+  padding-top: 20px;
 }
 
 label{

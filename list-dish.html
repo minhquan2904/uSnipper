@@ -113,8 +113,7 @@
     </div>
 
   </header>
-
-  <div class="container">
+  <div class="container"><!-- container -->
     <div class="col-lg-2"><!-- List function -->
       <div class="row">
         <ul class="list-group" style="position:fixed;">
@@ -129,56 +128,110 @@
         </ul>
       </div>
     </div><!-- /List function -->
-    <div class="col-lg-10" >
-        <div class="row" style="margin-top:20px;"><!-- profile info -->
-          <div class="panel panel-default"><!-- Panel -->
-            <div class="panel-heading">
-              <h3 class="panel-title">Thông tin cá nhân</h3>
-            </div>
-            <div class="panel-body">
-              <div class="col-lg-3">
-                  <div class="avt"><!-- avt -->
-                    <img src="images/mqavt.jpg" alt=""  />
-                  </div><!-- avt -->
+    <div class="col-lg-10">
+      <div class="dish-table"><!-- dish area -->
+        <div class="panel panel-default"><!-- panel add dish -->
+          <div class="panel-heading">
+            <h3 class="panel-title">Thêm món ăn mới</h3>
+          </div>
+          <div class="panel-body">
+            <div class="new-dish"><!-- edit -->
+              <form class="form-inline" action="index.html" method="post">
+                <div class="form-group">
+                  <label for="Id">Mã món ăn</label>
+                  <input type="text" class="form-control" id="new-dish-id">
+                </div>
+                <div class="form-group">
+                  <label for="dish-name">Tên món ăn</label>
+                  <input type="text" class="form-control" id="new-dish-name">
+                </div>
+                <button type="button" class="btn btn-default" id="btncheck" style="margin:0;">
+                  Kiểm tra
+                </button>
+                <button type="button" class="btn btn-default" id="btnnewsave" style="margin:0;" disabled="disabled">
+                  Lưu
+                </button>
+
+
+              </form>
+
+            </div><!-- /edit -->
+          </div>
+        </div><!-- /panel add dish -->
+        <div class="panel panel-default">
+          <div class="panel-heading"><!-- panel heading -->
+            <h3 class="panel-title">Danh sách món ăn</h3>
+          </div><!-- /panel heading -->
+          <div class="panel-body"><!-- Dish-Table -->
+              <div class="table-info">
+                <table class="table table-bordered">
+                  <thead><!-- T head -->
+                    <tr>
+                      <td>STT</td>
+                      <td>Mã số món ăn</td>
+                      <td>Tên món ăn</td>
+                    </tr>
+                  </thead><!-- /T head -->
+                  <tbody>
+                    <tr class="clk">
+                      <td>1</td>
+                      <td>001</td>
+                      <td>Cơm gà</td>
+                    </tr>
+                    <tr class="clk">
+                      <td>2</td>
+                      <td>002</td>
+                      <td>Cơm bò xào</td>
+                    </tr>
+                    <tr class="clk">
+                      <td>3</td>
+                      <td>003</td>
+                      <td>Cơm tấm</td>
+                    </tr>
+                    <tr class="clk">
+                      <td>4</td>
+                      <td>004</td>
+                      <td>Cơm chay</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="col-lg-7">
-                <fieldset>
-                  <form class="form-inline" action="index.html" method="post">
-                    <div class="form-group" style="width:400px;"><!-- ID -->
-                      <label for="id">Mã số nhân viên</label>
-                      <input type="text" class="form-control" id="emp-id" placeholder="" value="32145">
-                    </div><!-- /ID -->
+          </div><!--/ Dish-Table -->
+          <div class="panel-footer"><!-- panel footer -->
+              <div class="edit-dish"><!-- edit -->
+                <form class="form-inline" action="index.html" method="post">
+                  <div class="form-group">
+                    <label for="Id">Mã món ăn</label>
+                    <input type="text" class="form-control" id="input-dish-id" value = "001" disabled="disabled">
+                  </div>
+                  <div class="form-group">
+                    <label for="dish-name">Tên món ăn</label>
+                    <input type="text" class="form-control" id="input-dish-name" value="Cơm gà" disabled="disabled" >
+                  </div>
+                  <button type="button" class="btn btn-default" id="btnedit" style="margin:0;">
+                    Chỉnh sửa
+                  </button>
+                  <button type="button" class="btn btn-default" id="btnsave" style="margin:0;" disabled="disabled">
+                    Lưu
+                  </button>
+                  <button type="button" class="btn btn-default" id="btndelete" style="margin:0;" >
+                    Xóa
+                  </button>
 
-                    <div class="form-group" style="width:400px; margin-top:20px;"><!-- name -->
-                      <label for="name">Họ và tên</label>
-                      <input type="text" class="form-control" id="emp-name" placeholder="" value="Bùi Minh Quân" style="margin-left: 48px;">
-                    </div><!-- name -->
+                </form>
 
-                    <div class="form-group" style="width:400px; margin-top:20px;"><!-- date  -->
-                      <label for="name">Ngày tham gia</label>
-                      <input type="text" class="form-control" id="emp-name" placeholder="" value="1/1/2016" style="margin-left: 15px;">
-                    </div><!-- name -->
+              </div><!-- /edit -->
 
-                  </form>
-                </fieldset>
-              </div>
-
-            </div>
-            <div class="panel-footer">
-
-            </div>
-          </div><!-- /Panel -->
-
-        </div><!-- /profile info -->
+          </div><!--/ panel footer -->
+        </div>
+      </div><!-- /dish area -->
     </div>
-
-  </div>
+  </div><!-- /container -->
 
 
 
 </div>
-
-<footer class="site-footer" style="position:absolute;">
+<footer class="site-footer">
   <div class="container-fluid">
     <div class="row">
     <div class="col-md-5">
@@ -203,6 +256,60 @@
     </div>
   </div>
 </footer>
+<script type="text/javascript">
+function change()
+{
+  var btnsave = document.getElementById("btnsave");
+  btnsave.removeAttribute("disabled");
+
+  var btnedit = document.getElementById("btnedit");
+  btnedit.setAttribute("disabled","disabled");
+
+  var inputId = document.getElementById("input-dish-id");
+  inputId.removeAttribute("disabled");
+
+  var inputName = document.getElementById("input-dish-name");
+  inputName.removeAttribute("disabled");
+}
+
+function save()
+{
+  var btnsave = document.getElementById("btnsave");
+  btnsave.setAttribute("disabled","disabled");
+
+  var btnedit = document.getElementById("btnedit");
+  btnedit.removeAttribute("disabled");
+
+  var inputId = document.getElementById("input-dish-id");
+  inputId.setAttribute("disabled","disabled");
+
+  var inputName = document.getElementById("input-dish-name");
+  inputName.setAttribute("disabled","disabled");
+
+}
+$("#btnedit").click(function()
+  {
+    change();
+
+  }
+);
+$("#btnsave").click(function(){
+  save();
+});
+$(".clk").click(function()
+{
+  var $row = $(this);       // Finds the closest row <tr>
+  $tds = $row.find("td");             // Finds all children <td> elements
+
+
+  $('input[id=input-dish-id]').val($tds[1].innerHTML);
+  $('input[id=input-dish-name]').val($tds[2].innerHTML);
+
+
+  $row.addClass("active");
+  $row.siblings().removeClass("active");
+});
+</script>
 </body>
 
 </html>
