@@ -20,6 +20,9 @@ hr{
 .add-editor input{
   max-width: 450px;
 }
+.address-rts{
+  text-align: center;
+}
 .clk:hover{
   background-color: #E0E0E0;
   cursor: pointer;
@@ -234,11 +237,14 @@ margin-right: 7px;
   font-size: 20px;
 }
 .sp-body{
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
   padding-top: 20px;
 }
-
+.img-info {
+  padding: 5px;
+  text-align: center;
+}
 label{
   cursor: pointer;
   font-weight: bolder;
@@ -333,6 +339,9 @@ margin: 0 10px 10px 0;
   margin-left: 100px;
 }
 .rts-avt label{
+  margin-left: 15px;
+}
+.rts-item{
   margin-left: 15px;
 }
 .info .form-group{

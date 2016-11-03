@@ -15,14 +15,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/javascript" src="vendor/bootstrap.js"></script>
-<script type="text/javascript" src="1.js"></script>
+<script type="text/javascript" src="js/1.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+
 <link rel="stylesheet" href="vendor/bootstrap.css">
 
 
 <link rel="stylesheet" href="vendor/index.css">
 </head>
 <div class ="container">
-<body>
+<body ng-app="ungdungdautien">
   <header>
     <!-- Heading -->
     <div class="topBar">
@@ -30,8 +32,13 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 fd-container top">
           <a href="index.html" class="fd-logo">utesnipper<span class="dotfirebase">.firebaseapp</span><span class="dotcom">.com</span></a>
+
           <div class="login-top">
-            <span><a href="">Sign in |</a></span><span><a href="">Sign up |</a></span><span><a href="">About</a></span>
+            <ul class="footer-nav">
+              <li><a href="login.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
+              <li><a href="#" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-send"></span> Đăng kí</a></li>
+              <li><a href="#" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-earphone"></span> Liên hệ</a></li>
+            </ul>
           </div>
 
         </div>
@@ -47,15 +54,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Home</a>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> Trang chủ</a>
         </div>
       <!-- Search bar -->
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Page1</a></li>
-            <li><a href="#">Page2</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Tìm quanh đây</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Đóng góp quán ăn mới</a></li>
           </ul>
     <div class="row nav navbar-nav navbar-right">
       <div class = "col-lg-12 col-md-12 col-sm-12 search-bar fd-search">
@@ -101,7 +108,7 @@
     </div>
 
             <ul class="nav navbar-nav navbar-right login">
-            <li><a href="#">Sign in</a></li>
+            <li><a href="login.html" >Sign in</a></li>
             <li><a href="#">Sign up</a></li>
             <li><a href="#">About</a></li>
 
@@ -113,8 +120,21 @@
     </div>
 
   </header>
-    <h1>Have a nice day !!!!!</h1>
+  <div ng-controller="ViduController" >
+     <h2>Chao mung ban den voi {{xinchao.tieude}} tai VietJack.com!</h2>
+  </div>
+  <div ng-app = "" ng-init = "cacquocgia = [{locale:'en-VN',ten:'CH XHCN Viet Nam'},
+                          {locale:'en-GB',ten:'Vuong Quoc Anh'}, {locale:'en-FR',ten:'Cong Hoa Phap'}]"> 
+        <p>Nhap ten cua ban: <input type = "text" ng-model = "ten"></p>
+        <p>Xin chao <span ng-bind = "ten"></span>!</p>
+        <p>Danh sach cac quoc gia va locale tuong ung:</p>
 
+        <ol>
+           <li ng-repeat = "quocgia in cacquocgia">
+              {{ 'Quoc Gia: ' + quocgia.ten + ', Locale: ' + quocgia.locale }}
+           </li>
+        </ol>
+     </div>
   <footer class="site-footer">
     <div class="container-fluid">
       <div class="row">
@@ -142,6 +162,14 @@
   </footer>
 
 </div>
+
+<script>
+   angular.module("ungdungdautien", [])
+   .controller("ViduController", function($scope) {
+      $scope.xinchao = {};
+      $scope.xinchao.tieude = "AngularJS";
+    });
+</script>
 </body>
 
 </html>

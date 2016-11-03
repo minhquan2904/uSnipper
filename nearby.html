@@ -15,15 +15,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/javascript" src="vendor/bootstrap.js"></script>
-<script type="text/javascript" src="1.js"></script>
+<script type="text/javascript" src="js/1.js"></script>
+
 <link rel="stylesheet" href="vendor/bootstrap.css">
 
 
 <link rel="stylesheet" href="vendor/index.css">
 </head>
-
-<body>
-
+<div class ="container">
+<body >
   <header>
     <!-- Heading -->
     <div class="topBar">
@@ -119,146 +119,76 @@
     </div>
 
   </header>
+  <div class="container-fluid">
+    <input type="text" id="address" />
+  <!--   <button id="search">Tìm kiếm</button> -->
 
-  <div class="container">
-    <div class="row" style="margin:20px 100px; ">
-      <div class="col-lg-5"><!-- image restaurant -->
-        <a href="#"><img src="images/launuong.jpg" alt="" /></a>
-      </div><!-- /image rts -->
-      <div class="col-lg-7">
-        <ol class="breadcrumb"><!-- Area -->
-          <li><a href="#">Thủ Đức</a></li>
-          <li><a href="#">Linh Chiểu</a></li>
-          <li class="active">Võ Văn Ngân</li>
-        </ol><!-- /Area -->
-
-        <h3><i class="fa fa-check-circle" style="color:#4733b7;"></i> Lẩu nướng</h3>
-        <p>
-          <span class="glyphicon glyphicon-tags"></span>
-          <a>Quán ăn</a>
-          -
-          <a>Món nướng</a>
-
-        </p>
-        <div class="review"><!-- Review -->
-          <div class="rating-point" >
-            <div class="">
-              <p style="text-align:center;">
-                6.9
-              </p>
-            </div>
-            <div class="label" style="color: #4733b7;  margin-left:10px;">
-              Điểm đánh giá
-            </div>
-          </div>
-          <div class="rating-number" >
-            <div class="">
-              <p style="text-align:center;">
-                69
-              </p>
-            </div>
-            <div class="label" style="color: #4733b7;">
-              Lượt đánh giá
-            </div>
-          </div>
-          <div class="comment-number" >
-            <div class="">
-              <p style="text-align:center;">
-                96
-              </p>
-            </div>
-            <div class="label" style="color: #4733b7;">
-              Bình luận
-            </div>
-          </div>
-        </div><!-- /review -->
-        <div class="address">
-          <address class="">
-          <i class="fa fa-location-arrow"></i>  01 , <a href="#">Võ Văn Ngân</a> - <a href="#">Linh Chiểu</a> - <a href="#">Thủ Đức</a> - TP HCM
-          </address>
-        </div>
-        <div class="money">
-          <i class="fa fa-cutlery"></i> 150.000 - 250.000
-        </div>
-
-        </div>
-      </div>
-    </div><!-- End row -->
-
-    <div class="row" style="background-color: rgb(245, 245, 245); margin-bottom:10px; padding-left:50px;">
-      <div class="rts-category">
-        <ul>
-          <li class="li-rts"><a href="viewrts.html"><label for="comment">Bình luận</label></a></li>
-          <li class="li-rts"><a href="view-rts-menu.html"><label for="menu">Thực đơn</label></a></li>
-          <li class="li-rts"><a href="view-rts-img.html"><label for="picture-list">Hình ảnh</label></a></li>
-          <li class="li-rts"><a href="viewrtsmap.html"><label for="map-list">Bản đồ</label></a></li>
-
-
-
-        </ul>
-
-      </div>
-
-      <div class="col-lg-8 " style="margin-top:20px;"><!-- Comment -->
-        <div class="row" style="background-color:white; ">
-            <h3>Thực đơn</h3>
-            <div class="col-lg-4" style="width:410px;">
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-
-            </div>
-            <div class="col-lg-4 "  style="width:410px;">
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-
-            </div>
-
-        </div>
-
-
-      </div><!-- /comment -->
-      <div class="col-lg-4" style="margin-top:20px;">
-
-      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthongtindoanhoiute%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
-      </iframe>
-      </div>
-    </div>
+    <div id="googleMap" style="width: 1000px; height: 500px;">Google Map</div>
   </div>
 
-
-
-
-<footer>
-  <div class="contact-us" >
-    <div class="container">
+  <footer class="site-footer">
+    <div class="container-fluid">
       <div class="row">
-        <div class="text text-center">
-          <p>Copyright © 2016. All rights reserved.</p>
-          Nhóm xx - 0962123874 - minhquan2904@outlook.com
-        </div>
+      <div class="col-md-5">
+        <address class="">
+          484, Le Van Viet Street, Dist 9 <br>
+          HoChiMinh city.<br>
+            VietNam
+        </address>
+      </div>
+      </div>
+      <div class="bottom-footer">
+          <div class="col-md-5">
+                Copyright © 2016. All rights reserved.
+          </div>
+          <div class="col-md-7">
+              <ul class="footer-nav">
+                <li><a href="index.html" class="footer-a">Trang chủ</a></li>
+                <li><a href="#" class="footer-a">Liên hệ với chúng tôi</a></li>
+                <li><a href="#" class="footer-a">About</a></li>
+              </ul>
+          </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
+
+<script>
+
+    var placeKeyword;
+    var myLatLng = new google.maps.LatLng(10.849301, 106.773904);
+
+    function initialize()
+    {
+
+      var mapOptions = {
+        center : myLatLng,
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+      var marker = new google.maps.Marker({
+        position : myLatLng,
+        map : map
+      });
+      var addressInput = $("#address")[0];
+      var addressAutocomplete = new google.maps.places.Autocomplete(addressInput);
+      addressAutocomplete.bindTo("bounds",map);
+      google.maps.event.addListener(addressAutocomplete,"place_changed",function(){
+          var placeObj = addressAutocomplete.getPlace();
+          marker.setPosition(placeObj.geometry.location);
+          map.setCenter(placeObj.geometry.location)
+      });
+    }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+</script>
+</body>
 
 </html>

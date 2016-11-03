@@ -33,7 +33,11 @@
           <a href="index.html" class="fd-logo">utesnipper<span class="dotfirebase">.firebaseapp</span><span class="dotcom">.com</span></a>
 
           <div class="login-top">
-            <span><a href="">Sign in |</a></span><span><a href="">Sign up |</a></span><span><a href="">About</a></span>
+            <ul class="footer-nav">
+              <li><a href="login.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
+              <li><a href="#" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-send"></span> Đăng kí</a></li>
+              <li><a href="#" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-earphone"></span> Liên hệ</a></li>
+            </ul>
           </div>
 
         </div>
@@ -49,15 +53,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Home</a>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> Trang chủ</a>
         </div>
       <!-- Search bar -->
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Page1</a></li>
-            <li><a href="#">Page2</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Tìm quanh đây</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cutlery"></span> Đóng góp quán ăn mới</a></li>
           </ul>
     <div class="row nav navbar-nav navbar-right">
       <div class = "col-lg-12 col-md-12 col-sm-12 search-bar fd-search">
@@ -103,7 +107,7 @@
     </div>
 
             <ul class="nav navbar-nav navbar-right login">
-            <li><a href="#">Sign in</a></li>
+            <li><a href="login.html" >Sign in</a></li>
             <li><a href="#">Sign up</a></li>
             <li><a href="#">About</a></li>
 
@@ -176,25 +180,7 @@
         <div class="money">
           <i class="fa fa-cutlery"></i> 150.000 - 250.000
         </div>
-        <div class="mymap">
-          <button type="button" class="btn btn-default btnmap" data-toggle="modal" data-target="#myModal" class="btnmap">Bản đồ</button>
-        <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Vị trí quán ăn</h4>
-              </div>
-              <div class="modal-body">
-                <div id="map_canvas"></div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
         </div>
       </div>
     </div><!-- End row -->
@@ -202,9 +188,10 @@
     <div class="row" style="background-color: rgb(245, 245, 245); margin-bottom:10px; padding-left:50px;">
       <div class="rts-category">
         <ul>
-          <li class="li-rts"><a href="view-rts.html"><label for="comment">Bình luận</label></a></li>
+          <li class="li-rts"><a href="viewrts.html"><label for="comment">Bình luận</label></a></li>
           <li class="li-rts"><a href="view-rts-menu.html"><label for="menu">Thực đơn</label></a></li>
           <li class="li-rts"><a href="view-rts-img.html"><label for="picture-list">Hình ảnh</label></a></li>
+          <li class="li-rts"><a href="viewrtsmap.html"><label for="map-list">Bản đồ</label></a></li>
 
 
 
@@ -304,29 +291,4 @@
   </div>
 </footer>
 </body>
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script>
-        function initialize() {
-            var myLatlng = new google.maps.LatLng(10.849301, 106.773904);
-            var mapOptions = {
-                zoom: 15,
-                center: myLatlng
-            };
-
-            var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-
-
-
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-
-            });
-            infowindow.open(map, marker);
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-
-
-    </script>
 </html>
