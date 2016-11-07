@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang ="en">
 <head>
@@ -28,8 +29,20 @@
 
         <div class="login-top">
           <ul class="footer-nav">
-            <li><a href="login.jsp" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
-            <li><a href="login.jsp" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-send"></span> Đăng kí</a></li>
+          
+           <c:choose>
+				<c:when test="${empty sessionScope.username }">
+	                      		<li><a href="signin.html" class="footer-a" style="color: #4733b7;"> <span class="glyphicon glyphicon-user"> Đăng nhập</a></li>
+	                      		<li><a href="signin.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-send"></span> Đăng kí</a></li>
+	                      	</c:when>
+				<c:otherwise>
+	                  			<li><a href="profile.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-user"> ${sessionScope.username }</a></li>
+	                  			<li><a href="signout.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-send"></span> Đăng xuất</a></li>
+	                  			
+	                  					</c:otherwise>
+			</c:choose>
+            
+            
             <li><a href="Index.jsp" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-earphone"></span> Liên hệ</a></li>
           </ul>
         </div>

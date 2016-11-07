@@ -5,19 +5,15 @@
 			<div class="row">
 				<div class="signin">
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-						<form action="signin.jsp" method="POST" role="form">
+						<form action="signin.html" method="POST" role="form">
 							<legend>Sign in</legend>
 							<div class="form-group">
 								<label>Email</label>
-								<input name="email" type="text" class="form-control" id="" placeholder="Email">
+								<input name="username" type="text" class="form-control" id="" placeholder="Email">
 								<label>Password</label>
 								<input name="password"type="password" class="form-control" id="" placeholder="Password">
 							</div>
-							<div class="row text-center">
-								<label class="radio-inline"><input type="radio" value="view" name="users" checked="checked"> Viewer</label>
-								<label class="radio-inline"><input type="radio" value="editor" name="users">Editor</label>
-								<label class="radio-inline"><input type="radio" value="admin" name="users">Admin</label>
-							</div>
+							
 							<button type="submit" class="btn btn-primary" value="login" name="command">Submit</button>
               <a href="profileEditor.jsp">Đăng nhập vào quản trị viên (test)</a>
               <a href="profileAdmin.jsp">Đăng nhập vào Admin (test)</a>
