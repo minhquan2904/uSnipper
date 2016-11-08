@@ -48,9 +48,15 @@ public class signinController extends HttpServlet {
 		}
 		else {
 			User user = null;
-			user = UserDAO.getInfo(username);
+			UserDAO dao = new UserDAO();
+			user = dao.Login(username, password);
 			if (user != null){
 				HttpSession session = req.getSession();
+				session.setAttribute("user", user);
+				
+				
+				
+				
 				session.setAttribute("username", user.getuserName());
 				session.setAttribute("tenNguoiDung", user.gettenNguoiDung());
 				session.setAttribute("Quyen", user.getQuyen());

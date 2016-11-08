@@ -27,17 +27,17 @@
                   <form class="form-inline" action="index.jsp" method="post">
                     <div class="form-group" style="width:400px;"><!-- ID -->
                       <label for="id">Mã số nhân viên</label>
-                      <input type="text" class="form-control" id="emp-id" placeholder="" value="32145">
+                      <input type="text" class="form-control" id="emp-id" placeholder="" value="${user.id}">
                     </div><!-- /ID -->
 
                     <div class="form-group" style="width:400px; margin-top:20px;"><!-- name -->
                       <label for="name">Họ và tên</label>
-                      <input type="text" class="form-control" id="emp-name" placeholder="" value="Bùi Minh Quân" style="margin-left: 48px;">
+                      <input type="text" class="form-control" id="emp-name" placeholder="" value="${user.userName}" style="margin-left: 48px;">
                     </div><!-- name -->
 
                     <div class="form-group" style="width:400px; margin-top:20px;"><!-- date  -->
                       <label for="name">Ngày tham gia</label>
-                      <input type="text" class="form-control" id="emp-name" placeholder="" value="1/1/2016" style="margin-left: 15px;">
+                      <input type="text" class="form-control" id="emp-name" placeholder="" value="${user.ngayDangKy}" style="margin-left: 15px;">
                     </div><!-- name -->
 
                   </form>

@@ -8,33 +8,48 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class signoutController
- */
-@WebServlet("/signout.html")
-public class signoutController extends HttpServlet {
+
+@WebServlet("/profile.html")
+public class profileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public signoutController() {
+    
+    public profileController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession httpSession = req.getSession();		
-		httpSession.invalidate();
-		resp.sendRedirect("signin.html");
+		HttpSession session = req.getSession();
+		Integer role = (Integer) session.getAttribute("Quyen");
+		String url = "";
+		if(role == null)
+		{
+			url="/site/login.jsp";
+			req.getRequestDispatcher(url).forward(req, resp);
+			return;
+		}
+		else
+		{
+			switch(role)
+			{
+			case 1:
+				url="/site/profileView.jsp";
+				break;
+			case 2:
+				url="/site/profileAdmin.jsp";
+				break;
+			case 3:
+				url="/site/profileEditor.jsp";
+				break;
+			}
+			req.getRequestDispatcher(url).forward(req, resp);
+			
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

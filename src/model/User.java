@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -11,12 +12,14 @@ public class User {
 	private String tenNguoiDung;
 	private Integer Quyen;
 	private String email;
+	private String hinhAnh;
+	private Date ngayDangKy;
 	
 	public User() {
 		super();
 	}
 	
-	public User(Integer id,String userName,String pass,String soThich,String tenNguoiDung,Integer Quyen,String email) {
+	public User(Integer id,String userName,String pass,String soThich,String tenNguoiDung,Integer Quyen,String email,String hinhAnh,Date ngayDangKy) {
 		super();
 		
 		this.id = id;
@@ -26,6 +29,8 @@ public class User {
 		this.pass = pass;
 		this.Quyen = Quyen;
 		this.soThich = soThich;
+		this.hinhAnh = hinhAnh;
+		this.ngayDangKy = ngayDangKy;
 	}
 	//
 	public Integer getId() {
@@ -33,6 +38,24 @@ public class User {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	//
+	public String gethinhAnh()
+	{
+		return hinhAnh;
+	}
+	public void sethinhAnh(String hinhAnh)
+	{
+		this.hinhAnh = hinhAnh;
+	}
+	// 
+	public Date getngayDangKy()
+	{
+		return ngayDangKy;
+	}
+	public void setngayDangKy(Date ngayDangKy)
+	{
+		this.ngayDangKy = ngayDangKy;
 	}
 	//
 	public Integer getQuyen() {

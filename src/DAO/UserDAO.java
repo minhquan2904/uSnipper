@@ -81,6 +81,9 @@ public class UserDAO {
 				user.setId(rs.getInt("id"));
 				user.setuserName(rs.getString("userName"));
 				user.setPass(rs.getString("pass"));
+				user.settenNguoiDung(rs.getString("tenNguoiDung"));
+				user.sethinhAnh(rs.getString("hinhAnh"));
+				user.setngayDangKy(rs.getDate("ngayDangKy"));
 				user.setQuyen(rs.getInt("Quyen"));
 				conn.close();
 				return user;
