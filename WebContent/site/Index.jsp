@@ -1,3 +1,6 @@
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
 <%@ page pageEncoding="utf-8"%>
 <jsp:include page="Layout/_header.jsp" />
   <style media="screen">
@@ -18,37 +21,20 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div class="item active">
-            <a href="viewrts.jsp"><img src="images/launuong.jpg" alt="" class="itclk"></a>
+          	<c:forEach var="l" items="${listRts }">
+          	<div class="item ">
+              <a href="viewrts.jsp"><img src="${l.hinhAnh}" alt="" class="itclk"></a>
               <div class="carousel-caption">
-                <h3>Lẩu nướng</h3>
+                <h3>${l.tenQuanAn}</h3>
                 <p>01 - Lê Văn Việt - Quận 9</p>
               </div>
             </div>
+          	
+          	</c:forEach>         
 
-            <div class="item ">
-              <a href="viewrts.jsp"><img src="images/rts1.jpg" alt="" class="itclk"></a>
-              <div class="carousel-caption">
-                <h3>Lẩu nướng</h3>
-                <p>01 - Lê Văn Việt - Quận 9</p>
-              </div>
-            </div>
 
-            <div class="item itclk">
-              <a href="viewrts.jsp"><img src="images/rts2.jpg" alt="" class="itclk"></a>
-              <div class="carousel-caption">
-                <h3>Lẩu nướng</h3>
-                <p>01 - Lê Văn Việt - Quận 9</p>
-              </div>
-            </div>
 
-            <div class="item itclk">
-              <a href="viewrts.jsp"><img src="images/rts3.jpg" alt="" class="itclk"></a>
-              <div class="carousel-caption">
-                <h3>Lẩu nướng</h3>
-                <p>01 - Lê Văn Việt - Quận 9</p>
-              </div>
-            </div>
+           
           </div>
 
           <!-- Left and right controls -->
@@ -173,6 +159,9 @@
     </div>
   </div><!-- /body -->
     <script type="text/javascript">
+    $( document ).ready(function() {
+    	document.getElementsByClassName("item")[0].setAttribute("class","item active");
+    	});
       function move(){
         window.location("viewrts.jsp")
       }

@@ -1,6 +1,4 @@
-/controller/
-/dao/
-/DAO/
-/DBConect/
-/model/
 /Connect/
+/DAO/
+/controller/
+/model/
