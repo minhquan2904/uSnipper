@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row" style="margin:20px 100px; ">
       <div class="col-lg-5"><!-- image restaurant -->
-        <a href="#"><img src="images/launuong.jpg" alt="" /></a>
+        <a href="#"><img src="${rts.hinhAnh}" alt="" /></a>
       </div><!-- /image rts -->
       <div class="col-lg-7">
         <ol class="breadcrumb"><!-- Area -->
@@ -11,15 +11,11 @@
           <li><a href="#">Linh Chiểu</a></li>
           <li class="active">Võ Văn Ngân</li>
         </ol><!-- /Area -->
-
-        <h3><i class="fa fa-check-circle" style="color:#4733b7;"></i> Lẩu nướng</h3>
-        <p>
-          <span class="glyphicon glyphicon-tags"></span>
-          <a>Quán ăn</a>
-          -
-          <a>Món nướng</a>
-
-        </p>
+		
+		<div class="rname"><h3><i class="fa fa-check-circle" style="color:#4733b7;"></i> ${rts.tenQuanAn}</h3></div>
+        
+        <div class="rname"> <span class="glyphicon glyphicon-tags" style="padding-right:15px;"> </span>Quán ăn - ${type}</div>        
+      
         <div class="review"><!-- Review -->
           <div class="rating-point" >
             <div class="">
@@ -54,7 +50,7 @@
         </div><!-- /review -->
         <div class="address">
           <address class="">
-          <i class="fa fa-location-arrow"></i>  01 , <a href="#">Võ Văn Ngân</a> - <a href="#">Linh Chiểu</a> - <a href="#">Thủ Đức</a> - TP HCM
+          <i class="fa fa-location-arrow"></i>  ${rts.soNha} - <a href="#">${rts.tenDuong}</a> - <a href="#">${rts.tenPhuong}</a> - <a href="#">${rts.tenQuan} </a> - TP HCM
           </address>
         </div>
         <div class="money">

@@ -14,6 +14,18 @@ hr{
 .active{
 
 }
+.panel-default > .panel-heading {
+  
+    background-color: #3F51B5;
+    border-color: white;
+    color: white;
+    font-weight: bolder;
+    font-style: italic;
+}
+.img-item{
+	width:400px;
+	height:213px;
+}
 .add-editor{
   margin: 20px;
 }
@@ -21,7 +33,12 @@ hr{
   max-width: 450px;
 }
 .address-rts{
-  text-align: center;
+  
+}
+address {
+   
+    font-style: normal;
+    line-height: 1.42857143;
 }
 .clk:hover{
   background-color: #E0E0E0;
@@ -242,7 +259,7 @@ margin-right: 7px;
   padding-top: 20px;
 }
 .img-info {
-  padding: 5px;
+  padding: 20px;
   text-align: center;
 }
 label{
@@ -334,6 +351,9 @@ margin: 0 10px 10px 0;
   margin-left: 20px;
   font-size: 20px;
 }
+img.img-item {
+    padding: 15px;
+}
 .rts-category{
   margin-top: 10px;
   margin-left: 100px;
@@ -343,6 +363,9 @@ margin: 0 10px 10px 0;
 }
 .rts-item{
   margin-left: 15px;
+  margin-bottom:15px;
+  border-style:ridge;
+  border-width: 2px;
 }
 .info .form-group{
   margin-top: 10px;
@@ -538,6 +561,15 @@ nav.navbar.navbar-default {
 }
 .checkbox-inline label{
   font-size: 15px;
+}
+.rname{
+	margin-bottom:20px;
+}
+.rfamous{
+	margin-bottom:20px;
+}
+.rdate{
+	margin-bottom:20px;
 }
 #div-list .file-preview {
     border-radius: 5px;

@@ -17,16 +17,20 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
             <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+            <li data-target="#myCarousel" data-slide-to="6"></li>
           </ol>
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
           	<c:forEach var="l" items="${listRts }">
           	<div class="item ">
-              <a href="viewrts.jsp"><img src="${l.hinhAnh}" alt="" class="itclk"></a>
+              <a href="viewrts.html?id=${l.id}"><img src="${l.hinhAnh}" alt="" class="itclk" style="width:910px;height:400px;"></a>
               <div class="carousel-caption">
                 <h3>${l.tenQuanAn}</h3>
-                <p>01 - Lê Văn Việt - Quận 9</p>
+               
+                <p>Lượt xem: ${l.luotTraCuu}</p>
               </div>
             </div>
           	
@@ -47,6 +51,8 @@
             <span class="sr-only">Next</span>
           </a>
         </div><!-- /carousel -->
+        
+        
         <div class="new-rts"><!-- New rts -->
           <div class="panel panel-default" style="margin-top:20px;">
             <div class="panel-heading">
@@ -54,45 +60,39 @@
             </div>
             <div class="panel-body">
               <div class="row"><!-- RTS -->
-                <div class="rts-item" style="max-width:200px; max-height:200px;float:left"><!-- RTS Item -->
-                  <img src="images/han1.png" alt="" />
-                  <p class= "img-info">
-                    Lẩu nướng <br>
-                    <address class="address-rts">
-                      <span class="number">01</span>-<span class="street">Le Van Viet</span>-<span class="dist">Q.9</span>
-                    </address>
-                  </p>
-                </div><!-- /RTS Item -->
-
-                <div class="rts-item" style="max-width:200px; max-height:200px;float:left"><!-- RTS Item -->
-                  <img src="images/han1.png" alt="" />
-                  <p class= "img-info">
-                    Lẩu nướng <br>
-                    <address class="address-rts">
-                      <span class="number">01</span>-<span class="street">Le Van Viet</span>-<span class="dist">Q.9</span>
-                    </address>
-                  </p>
-                </div><!-- /RTS Item -->
-
-                <div class="rts-item" style="max-width:200px; max-height:200px;float:left"><!-- RTS Item -->
-                  <img src="images/han1.png" alt="" />
-                  <p class= "img-info">
-                    Lẩu nướng <br>
-                    <address class="address-rts">
-                      <span class="number">01</span>-<span class="street">Le Van Viet</span>-<span class="dist">Q.9</span>
-                    </address>
-                  </p>
-                </div><!-- /RTS Item -->
-
-                <div class="rts-item" style="max-width:200px; max-height:200px;float:left"><!-- RTS Item -->
-                  <img src="images/han1.png" alt="" />
-                  <p class= "img-info">
-                    Lẩu nướng <br>
-                    <address class="address-rts">
-                      <span class="number">01</span>-<span class="street">Le Van Viet</span>-<span class="dist">Q.9</span>
-                    </address>
-                  </p>
-                </div><!-- /RTS Item -->
+                
+                <c:forEach var="i" items="${listnew}">
+                	
+	                 <div class="rts-item" style="height:220px;"><!-- RTS Item -->
+	                	 <div class="col-lg-6">
+                			<a href="#"><img src="${i.hinhAnh}" alt="" class="img-item" /></a> 
+                		 </div>
+	                 	<div class="col-lg-6">
+	                 		<div class= "img-info" style="text-align: left;">
+	                 			<div class="rname">
+	                 				<b>${i.tenQuanAn}</b> <br>
+	                 			</div>
+			                    <address class="address-rts">
+			                      <i><span class="number">${i.soNha}</span> -
+			                      <span class="street">${i.tenDuong }</span> -
+			                      <span class="dist">${i.tenQuan}
+			                      Thành phố Hồ Chí Minh</span></i>
+			                    </address>
+			                    <div class="rfamous">
+			                    	<b>Món nổi tiếng: ${i.monNoiTieng }</b>
+			                    </div>
+			                    <div class="rdate">
+			                    	<label for="date" style="margin-right:15px;">Ngày thêm</label>
+			                    	<input type="date" disabled="disabled" value="${i.ngayThem}">
+			                    </div>
+		                    	
+	                 		</div>              	 	
+		               </div>	
+	                  
+	                </div><!-- /RTS Item -->
+                </c:forEach>
+                
+               
               </div><!-- /RTS -->
 
             </div>

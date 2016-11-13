@@ -28,8 +28,11 @@ public class homeController extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		RestaurantDAO rdao = new RestaurantDAO();
-		ArrayList<Restaurant> listRts = rdao.getTop4RTS();
-		session.setAttribute("listRts", listRts);
+		ArrayList<Restaurant> listRts = rdao.getTopRTS();
+		req.setAttribute("listRts", listRts);
+		
+		ArrayList<Restaurant> listnew = rdao.getNewRts();
+		req.setAttribute("listnew", listnew);
 		req.getRequestDispatcher("/site/Index.jsp").forward(req, resp);
 	}
 

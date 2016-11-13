@@ -1,13 +1,13 @@
 package model;
 
-public class typeRts {
+public class Type {
 	private Integer id;
 	private String tenLoai;
-	public typeRts() {
+	public Type() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public typeRts(Integer id, String tenLoai) {
+	public Type(Integer id, String tenLoai) {
 		super();
 		this.id = id;
 		this.tenLoai = tenLoai;
@@ -24,6 +24,7 @@ public class typeRts {
 	public void setTenLoai(String tenLoai) {
 		this.tenLoai = tenLoai;
 	}
+	
 	
 	
 }
