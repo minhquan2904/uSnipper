@@ -30,6 +30,8 @@ public class viewrtsController extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		RestaurantDAO rdao = new RestaurantDAO();
+		rdao.updateView(id);
+		Integer total = rdao.getTotalcommentById(id);
 		TypeDAO tdao = new TypeDAO();
 		Restaurant rts = rdao.getInfoById(id);
 		Integer tid = rts.getIdLoaiQuanAn();
@@ -37,6 +39,7 @@ public class viewrtsController extends HttpServlet {
 		String type = t.getTenLoai();
 		req.setAttribute("rts", rts);
 		req.setAttribute("type", type);
+		req.setAttribute("total", total);
 		req.getRequestDispatcher("/site/viewrts.jsp").forward(req, resp);
 	}
 

@@ -18,13 +18,15 @@ public class Restaurant {
 	private String hinhAnh;
 	private Integer luotTraCuu;
 	private Date ngayThem;
+	private Integer luotDanhGia;
+	private Float diemTB;
 	public Restaurant() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Restaurant(Integer id, String tenQuanAn, Integer soNha, String tenDuong, String tenPhuong, String tenQuan,
 			String lat, String lng, Integer idLoaiQuanAn, String monNoiTieng, String moTa, String hinhAnh,
-			Integer luotTraCuu, Date ngayThem) {
+			Integer luotTraCuu, Date ngayThem, Integer luotDanhGia, Float diemTB) {
 		super();
 		this.id = id;
 		this.tenQuanAn = tenQuanAn;
@@ -40,6 +42,8 @@ public class Restaurant {
 		this.hinhAnh = hinhAnh;
 		this.luotTraCuu = luotTraCuu;
 		this.ngayThem = ngayThem;
+		this.luotDanhGia = luotDanhGia;
+		this.diemTB = diemTB;
 	}
 	public Integer getId() {
 		return id;
@@ -124,6 +128,18 @@ public class Restaurant {
 	}
 	public void setNgayThem(Date ngayThem) {
 		this.ngayThem = ngayThem;
+	}
+	public Integer getLuotDanhGia() {
+		return luotDanhGia;
+	}
+	public void setLuotDanhGia(Integer luotDanhGia) {
+		this.luotDanhGia = luotDanhGia;
+	}
+	public Float getDiemTB() {
+		return diemTB;
+	}
+	public void setDiemTB(Float diemTB) {
+		this.diemTB = diemTB;
 	}
 	
 	

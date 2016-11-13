@@ -30,7 +30,9 @@
               <div class="carousel-caption">
                 <h3>${l.tenQuanAn}</h3>
                
-                <p>Lượt xem: ${l.luotTraCuu}</p>
+                <p>Lượt xem: ${l.luotTraCuu}</p><br>
+                <p>Đánh giá: ${l.diemTB }/10</p>
+                
               </div>
             </div>
           	

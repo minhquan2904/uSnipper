@@ -20,7 +20,7 @@ public class TypeDAO {
 		Connection connection = DBConnect.getConnection();
 		String sql ="SELECT * FROM loaiquanan WHERE loaiquanan.id="+id;
 		try {
-			PreparedStatement ps = connection.prepareStatement(sql);
+			PreparedStatement ps = connection.prepareCall(sql);
 			ResultSet rs = ps.executeQuery();
 			Type t = new Type();
 			if(rs.next())
