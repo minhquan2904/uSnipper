@@ -3,7 +3,7 @@ package model;
 public class Dish {
 
 		private Integer id;
-		private String tenMonAn;		
+		private String tenMonAn;	
 		public Dish() {
 			super();
 			// TODO Auto-generated constructor stub

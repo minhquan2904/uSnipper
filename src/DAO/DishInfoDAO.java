@@ -7,11 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Connect.DBConnect;
+import model.Dish;
 import model.DishInfo;
 
 public class DishInfoDAO {
 	public ArrayList<DishInfo>  getImgByRtsId(Integer id)
 	{
+		DishDAO dao = new DishDAO();
 		Connection connection = DBConnect.getConnection();
 		String sql = "SELECT * FROM quanan_monan WHERE quanan_monan.idQuanAn ="+id;
 		ArrayList<DishInfo> list = new ArrayList<>();
@@ -25,8 +27,9 @@ public class DishInfoDAO {
 				dish.setIdMonAn(rs.getInt("idMonAn"));
 				dish.setHinhAnh(rs.getString("hinhAnh"));
 				dish.setMoTa(rs.getString("moTa"));
-				dish.setGiaTien(rs.getDouble("giaTien"));
-				
+				dish.setGiaTien(rs.getInt("giaTien"));
+				Dish dishId = dao.getDishById(rs.getInt("idMonAn"));
+				dish.setDishId(dishId);
 				list.add(dish);
 			}
 			

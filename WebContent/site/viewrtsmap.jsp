@@ -1,79 +1,14 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
 <%@ page pageEncoding="utf-8"%>
 <jsp:include page="Layout/_header.jsp"/>
  <div class="container">
-    <div class="row" style="margin:20px 100px; ">
-      <div class="col-lg-5"><!-- image restaurant -->
-        <a href="#"><img src="images/launuong.jpg" alt="" /></a>
-      </div><!-- /image rts -->
-      <div class="col-lg-7">
-        <ol class="breadcrumb"><!-- Area -->
-          <li><a href="#">Thủ Đức</a></li>
-          <li><a href="#">Linh Chiểu</a></li>
-          <li class="active">Võ Văn Ngân</li>
-        </ol><!-- /Area -->
-
-        <h3><i class="fa fa-check-circle" style="color:#4733b7;"></i> Lẩu nướng</h3>
-        <p>
-          <span class="glyphicon glyphicon-tags"></span>
-          <a>Quán ăn</a>
-          -
-          <a>Món nướng</a>
-
-        </p>
-        <div class="review"><!-- Review -->
-          <div class="rating-point" >
-            <div class="">
-              <p style="text-align:center;">
-                6.9
-              </p>
-            </div>
-            <div class="label" style="color: #4733b7;  margin-left:10px;">
-              Điểm đánh giá
-            </div>
-          </div>
-          <div class="rating-number" >
-            <div class="">
-              <p style="text-align:center;">
-                69
-              </p>
-            </div>
-            <div class="label" style="color: #4733b7;">
-              Lượt đánh giá
-            </div>
-          </div>
-          <div class="comment-number" >
-            <div class="">
-              <p style="text-align:center;">
-                96
-              </p>
-            </div>
-            <div class="label" style="color: #4733b7;">
-              Bình luận
-            </div>
-          </div>
-        </div><!-- /review -->
-        <div class="address">
-          <address class="">
-          <i class="fa fa-location-arrow"></i>  01 , <a href="#">Võ Văn Ngân</a> - <a href="#">Linh Chiểu</a> - <a href="#">Thủ Đức</a> - TP HCM
-          </address>
-        </div>
-        <div class="money">
-          <i class="fa fa-cutlery"></i> 150.000 - 250.000
-        </div>
-
-      </div>
-    </div><!-- End row -->
+   
+    <jsp:include page="Layout/_rtsinfo.jsp"/>
 
     <div class="row" style="background-color: rgb(245, 245, 245); margin-bottom:10px; padding-left:50px;">
-      <div class="rts-category">
-        <ul>
-          <li class="li-rts"><a href="viewrts.jsp"><label for="comment">Bình luận</label></a></li>
-          <li class="li-rts"><a href="view-rts-menu.jsp"><label for="menu">Thực đơn</label></a></li>
-          <li class="li-rts"><a href="view-rts-img.jsp"><label for="picture-list">Hình ảnh</label></a></li>
-          <li class="li-rts"><a href="viewrtsmap.jsp"><label for="map-list">Bản đồ</label></a></li>
-        </ul>
-
-      </div>
+   	  
+	<jsp:include page="Layout/_category.jsp"/>
 
       <div class="col-lg-8" style="margin-top:20px;"><!-- Comment -->
         <div id="googleMap" style="width: 800px; height: 300px;">Google Map</div>
@@ -86,14 +21,14 @@
       </div>
     </div>
   </div>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBwTYGP_-vrJ6AAmCuYPY8mFRso4jfCUsQ&sensor=false"></script>
   <script type="text/javascript">
-  var gmap = new google.maps.LatLng(10.849301, 106.773904);
+  var gmap = new google.maps.LatLng(${rts.lat},  ${rts.lng});
   var marker;
   function initialize()
   {
           var mapProp = {
-               center:new google.maps.LatLng(10.849301, 106.773904),
+               center:new google.maps.LatLng(${rts.lat}, ${rts.lng}),
                zoom:16,
               mapTypeId:google.maps.MapTypeId.ROADMAP
           };
@@ -145,7 +80,7 @@
         });
 
         var infoWindow = new google.maps.InfoWindow({
-          content : "DH SPKT!!!!"
+          content : "${rts.tenQuanAn}"
         });
 
 

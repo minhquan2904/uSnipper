@@ -14,6 +14,9 @@ hr{
 .active{
 
 }
+
+	
+
 .panel-default > .panel-heading {
   
     background-color: #3F51B5;
@@ -299,6 +302,8 @@ margin: 0 10px 10px 0;
 .menu{
   width: 416px;
   height: 140px;
+  border: 1px solid #1A237E;
+  border-right:0px; 
 }
 .menu-img{
   width: 120px;

@@ -1,117 +1,32 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
 <%@ page pageEncoding="utf-8"%>
 <jsp:include page="Layout/_header.jsp"/>
   <div class="container">
-    <div class="row" style="margin:20px 100px; ">
-      <div class="col-lg-5"><!-- image restaurant -->
-        <a href="#"><img src="images/launuong.jpg" alt="" /></a>
-      </div><!-- /image rts -->
-      <div class="col-lg-7">
-        <ol class="breadcrumb"><!-- Area -->
-          <li><a href="#">Thủ Đức</a></li>
-          <li><a href="#">Linh Chiểu</a></li>
-          <li class="active">Võ Văn Ngân</li>
-        </ol><!-- /Area -->
-
-        <h3><i class="fa fa-check-circle" style="color:#4733b7;"></i> Lẩu nướng</h3>
-        <p>
-          <span class="glyphicon glyphicon-tags"></span>
-          <a>Quán ăn</a>
-          -
-          <a>Món nướng</a>
-
-        </p>
-        <div class="review"><!-- Review -->
-          <div class="rating-point" >
-            <div class="">
-              <p style="text-align:center;">
-                6.9
-              </p>
-            </div>
-            <div class="label" style="color: #4733b7;  margin-left:10px;">
-              Điểm đánh giá
-            </div>
-          </div>
-          <div class="rating-number" >
-            <div class="">
-              <p style="text-align:center;">
-                69
-              </p>
-            </div>
-            <div class="label" style="color: #4733b7;">
-              Lượt đánh giá
-            </div>
-          </div>
-          <div class="comment-number" >
-            <div class="">
-              <p style="text-align:center;">
-                96
-              </p>
-            </div>
-            <div class="label" style="color: #4733b7;">
-              Bình luận
-            </div>
-          </div>
-        </div><!-- /review -->
-        <div class="address">
-          <address class="">
-          <i class="fa fa-location-arrow"></i>  01 , <a href="#">Võ Văn Ngân</a> - <a href="#">Linh Chiểu</a> - <a href="#">Thủ Đức</a> - TP HCM
-          </address>
-        </div>
-        <div class="money">
-          <i class="fa fa-cutlery"></i> 150.000 - 250.000
-        </div>
-
-        </div>
-      </div>
-    </div><!-- End row -->
+    <jsp:include page="Layout/_rtsinfo.jsp"/>
 
     <div class="row" style="background-color: rgb(245, 245, 245); margin-bottom:10px; padding-left:50px;">
-      <div class="rts-category">
-        <ul>
-          <li class="li-rts"><a href="viewrts.jsp"><label for="comment">Bình luận</label></a></li>
-          <li class="li-rts"><a href="view-rts-menu.jsp"><label for="menu">Thực đơn</label></a></li>
-          <li class="li-rts"><a href="view-rts-img.jsp"><label for="picture-list">Hình ảnh</label></a></li>
-          <li class="li-rts"><a href="viewrtsmap.jsp"><label for="map-list">Bản đồ</label></a></li>
-
-
-
-        </ul>
-
-      </div>
+        <jsp:include page="Layout/_category.jsp"/>
 
       <div class="col-lg-8 " style="margin-top:20px;"><!-- Comment -->
         <div class="row" style="background-color:white; ">
             <h3>Thực đơn</h3>
-            <div class="col-lg-4" style="width:410px;">
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
+            
+            <c:forEach var="l" items="${list}">
+            	 <div class="col-lg-4" style="width:405px;padding:10px;">
+		              <div class="menu">
+		                <img src="${l.hinhAnh}" alt="" class="menu-img" />
+		                <label for="dish-name" class="dish-name">${l.dishId.tenMonAn }</label>
+		                <hr>
+		                <label for="dish-price" class="dish-name">Giá: ${l.giaTien }</label>
+		              </div>
+             
 
-            </div>
-            <div class="col-lg-4 "  style="width:410px;">
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-              <div class="menu">
-                <img src="images/deadline.jpg" alt="" class="menu-img" />
-                <label for="dish-name" class="dish-name">Deadline</label>
-              </div>
-
-            </div>
+           		 </div>
+            </c:forEach>
+            
+           
+            
 
         </div>
 

@@ -10,31 +10,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.CommentDAO;
+import DAO.DishInfoDAO;
 import DAO.RestaurantDAO;
 import DAO.TypeDAO;
-import model.Comment;
+import model.DishInfo;
 import model.Restaurant;
 import model.Type;
-import model.User;
 
-@WebServlet("/viewrts.html")
-public class viewrtsController extends HttpServlet {
+
+@WebServlet("/viewMap.html")
+public class viewMapController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-    public viewrtsController() {
+    public viewMapController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id = Integer.parseInt( req.getParameter("id"));
 		HttpSession session = req.getSession();
-		
+		Integer id = (Integer) session.getAttribute("id");
 		RestaurantDAO rdao = new RestaurantDAO();
-		rdao.updateView(id);
+		
 		
 		Integer total = rdao.getTotalcommentById(id);
 		TypeDAO tdao = new TypeDAO();
@@ -44,22 +43,19 @@ public class viewrtsController extends HttpServlet {
 		Type t = tdao.getTypeNameById(tid);
 		String type = t.getTenLoai();
 		
-		CommentDAO cdao = new CommentDAO();
-		ArrayList<Comment> list=new ArrayList<>();
-		list = cdao.loadCommentByRtsId(id);
+		
 		
 		req.setAttribute("rts", rts);
-		session.setAttribute("id", id);
 		req.setAttribute("type", type);
 		req.setAttribute("total", total);
-		req.setAttribute("list", list);
 		
-		req.getRequestDispatcher("/site/viewrts.jsp").forward(req, resp);
-	}
+		
+		req.getRequestDispatcher("/site/viewrtsmap.jsp").forward(req, resp);
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
+		doGet(request, response);
 	}
 
 }
