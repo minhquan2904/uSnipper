@@ -51,9 +51,13 @@
           <i class="fa fa-location-arrow"></i>  ${rts.soNha} - <a href="#">${rts.tenDuong}</a> - <a href="#">${rts.tenPhuong}</a> - <a href="#">${rts.tenQuan} </a> - TP HCM
           </address>
         </div>
+        <div class="Details address" style="font-family: R">
+        	${rts.moTa }
+        </div>
         <div class="money">
           <i class="fa fa-cutlery"></i> 150.000 - 250.000
         </div>
+        
         </div>
       </div>
     </div><!-- End row -->

@@ -14,89 +14,77 @@ public class User {
 	private String email;
 	private String hinhAnh;
 	private Date ngayDangKy;
-	
 	public User() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	
-	public User(Integer id,String userName,String pass,String soThich,String tenNguoiDung,Integer Quyen,String email,String hinhAnh,Date ngayDangKy) {
+	public User(Integer id, String userName, String pass, String soThich, String tenNguoiDung, Integer quyen,
+			String email, String hinhAnh, Date ngayDangKy) {
 		super();
-		
 		this.id = id;
-		this.email = email;
-		this.tenNguoiDung= tenNguoiDung;
 		this.userName = userName;
 		this.pass = pass;
-		this.Quyen = Quyen;
 		this.soThich = soThich;
+		this.tenNguoiDung = tenNguoiDung;
+		Quyen = quyen;
+		this.email = email;
 		this.hinhAnh = hinhAnh;
 		this.ngayDangKy = ngayDangKy;
 	}
-	//
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	//
-	public String gethinhAnh()
-	{
-		return hinhAnh;
+	public String getUserName() {
+		return userName;
 	}
-	public void sethinhAnh(String hinhAnh)
-	{
-		this.hinhAnh = hinhAnh;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	// 
-	public Date getngayDangKy()
-	{
-		return ngayDangKy;
-	}
-	public void setngayDangKy(Date ngayDangKy)
-	{
-		this.ngayDangKy = ngayDangKy;
-	}
-	//
-	public Integer getQuyen() {
-		return Quyen;
-	}
-	public void setQuyen(Integer Quyen) {
-		this.Quyen = Quyen;
-	}
-	//
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	//
-	public String gettenNguoiDung() {
-		return tenNguoiDung;
-	}
-	public void settenNguoiDung(String tenNguoiDung) {
-		this.tenNguoiDung = tenNguoiDung;
-	}
-	//
 	public String getPass() {
 		return pass;
 	}
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	//
-	public String getsoThich() {
+	public String getSoThich() {
 		return soThich;
 	}
-	public void setsoThich(String soThich) {
+	public void setSoThich(String soThich) {
 		this.soThich = soThich;
 	}
-	//
-	public String getuserName() {
-		return userName;
+	public String getTenNguoiDung() {
+		return tenNguoiDung;
 	}
-	public void setuserName(String userName) {
-		this.userName = userName;
+	public void setTenNguoiDung(String tenNguoiDung) {
+		this.tenNguoiDung = tenNguoiDung;
 	}
+	public Integer getQuyen() {
+		return Quyen;
+	}
+	public void setQuyen(Integer quyen) {
+		Quyen = quyen;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getHinhAnh() {
+		return hinhAnh;
+	}
+	public void setHinhAnh(String hinhAnh) {
+		this.hinhAnh = hinhAnh;
+	}
+	public Date getNgayDangKy() {
+		return ngayDangKy;
+	}
+	public void setNgayDangKy(Date ngayDangKy) {
+		this.ngayDangKy = ngayDangKy;
+	}
+	
+	
 }

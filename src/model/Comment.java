@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.Date;
+
 public class Comment {
 
 	private Integer id;
@@ -7,17 +9,25 @@ public class Comment {
 	private Integer idQuanAn;
 	private Integer idNguoiDung;
 	private String ghiChu;
-	public Comment() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Comment(Integer id, String noiDung, Integer idQuanAn, Integer idNguoiDung, String ghiChu) {
+	private Date ngayThem;
+	private User user;
+	
+	
+	public Comment(Integer id, String noiDung, Integer idQuanAn, Integer idNguoiDung, String ghiChu, Date ngayThem,
+			User user) {
 		super();
 		this.id = id;
 		this.noiDung = noiDung;
 		this.idQuanAn = idQuanAn;
 		this.idNguoiDung = idNguoiDung;
 		this.ghiChu = ghiChu;
+		this.ngayThem = ngayThem;
+		this.user = user;
+	}
+	
+	public Comment() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public Integer getId() {
 		return id;
@@ -49,6 +59,19 @@ public class Comment {
 	public void setGhiChu(String ghiChu) {
 		this.ghiChu = ghiChu;
 	}
+	public Date getNgayThem() {
+		return ngayThem;
+	}
+	public void setNgayThem(Date ngayThem) {
+		this.ngayThem = ngayThem;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	
 	
 }

@@ -17,16 +17,17 @@ public class UserDAO {
 		Connection connection=DBConnect.getConnection();
 		User user=new User();
 		
-		String sql="Select * from user Where id="+id;
+		String sql="Select * from nguoidung Where nguoidung.id="+id;
 		PreparedStatement ps=connection.prepareCall(sql);
 		ResultSet rs=ps.executeQuery();
 		if(rs.next()){
 			user.setId(rs.getInt("id"));
-			user.setuserName(rs.getString("userName"));
+			user.setUserName((rs.getString("userName")));
 			user.setEmail(rs.getString("email"));
-			user.settenNguoiDung(rs.getString("tenNguoiDung"));
+			user.setTenNguoiDung(rs.getString("tenNguoiDung"));
 			user.setPass(rs.getString("pass"));
-			user.setsoThich(rs.getString("soThich"));
+			user.setHinhAnh(rs.getString("hinhAnh"));
+			user.setSoThich(rs.getString("soThich"));
 			user.setQuyen(rs.getInt("Quyen"));
 			
 			return user;
@@ -50,8 +51,8 @@ public class UserDAO {
 			stm=con.createStatement();
 			rs=stm.executeQuery("SELECT * FROM nguoidung WHERE userName='"+userName+"'");
 			if(rs.next()){
-				user.setuserName(userName);
-				user.settenNguoiDung(rs.getString("tenNguoiDung"));
+				user.setUserName(userName);
+				user.setTenNguoiDung(rs.getString("tenNguoiDung"));
 				
 				int roleid = rs.getInt("Quyen");
 				ResultSet rsRole = stm.executeQuery("SELECT * FROM Quyen WHERE id='"+roleid+"'");
@@ -79,11 +80,11 @@ public class UserDAO {
 			if(rs.next()){
 				User user=new User();
 				user.setId(rs.getInt("id"));
-				user.setuserName(rs.getString("userName"));
+				user.setUserName(rs.getString("userName"));
 				user.setPass(rs.getString("pass"));
-				user.settenNguoiDung(rs.getString("tenNguoiDung"));
-				user.sethinhAnh(rs.getString("hinhAnh"));
-				user.setngayDangKy(rs.getDate("ngayDangKy"));
+				user.setTenNguoiDung(rs.getString("tenNguoiDung"));
+				user.setHinhAnh(rs.getString("hinhAnh"));
+				user.setNgayDangKy(rs.getDate("ngayDangKy"));
 				user.setQuyen(rs.getInt("Quyen"));
 				conn.close();
 				return user;

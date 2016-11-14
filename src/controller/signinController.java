@@ -57,8 +57,8 @@ public class signinController extends HttpServlet {
 				
 				
 				
-				session.setAttribute("username", user.getuserName());
-				session.setAttribute("tenNguoiDung", user.gettenNguoiDung());
+				session.setAttribute("username", user.getUserName());
+				session.setAttribute("tenNguoiDung", user.getTenNguoiDung());
 				session.setAttribute("Quyen", user.getQuyen());
 				resp.sendRedirect("home.html");
 				
