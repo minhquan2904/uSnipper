@@ -28,12 +28,14 @@
 				</div>
 				<div class="register">
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-						<form action="signin.jsp" method="POST" role="form">
+						<form action="signin.html" method="POST" role="form">
 							<legend>Register</legend>
 
 							<div class="form-group">
-								<label for="">Email</label>
-								<input name="email" type="text" class="form-control" id="" placeholder="Email">
+								<label for="">User Name</label>
+								<input name="username" type="text" class="form-control" id="" placeholder="user name">
+								<label for="">Full name</label>
+								<input name="fullname" type="text" class="form-control" id="" placeholder="full name">
 								<label for="">Password</label>
 								<input name="password" type="password" class="form-control" id="" placeholder="Password">
 								<label for="">Confirm password</label>

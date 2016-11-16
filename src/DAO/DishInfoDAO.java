@@ -42,4 +42,26 @@ public class DishInfoDAO {
 		return null;
 		
 	}
+	public void insertNewInfo(Integer idQuanAn,Integer idMonAn,String hinhAnh,String moTa, Integer giaTien)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="INSERT INTO quanan_monan(idQuanAn,idMonAn,hinhAnh,moTa,giaTien) values (?,?,?,?,?)";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ps.setInt(1, idQuanAn);
+			ps.setInt(2, idMonAn);
+			ps.setString(3, hinhAnh);
+			ps.setString(4, moTa);
+			ps.setInt(5, giaTien);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
 }

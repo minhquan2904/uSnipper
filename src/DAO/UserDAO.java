@@ -1,15 +1,19 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import Connect.*;
+import Connect.DBConnect;
+//import dao.UserDAO;
+//import connect.DBConnect;
 import model.Role;
 import model.User;
+
 
 public class UserDAO {
 
@@ -121,7 +125,25 @@ public class UserDAO {
 		}
 		return false;
 	}
-	
+	public boolean  insertUser(User user) {
+		
+		Connection connection=DBConnect.getConnection();
+		String sql= "INSERT INTO NguoiDung (userName,Pass,tenNguoiDung,Quyen) VALUES(?,?,?,?)";
+		 try {
+	            PreparedStatement ps = (PreparedStatement)connection.prepareCall(sql);         
+	            ps.setString(1, user.getUserName());	          
+	            ps.setString(2, user.getPass());
+	            ps.setString(3, user.getTenNguoiDung());
+	            ps.setInt(4,user.getQuyen());	            
+	            ps.executeUpdate();
+	            ps.close();
+	            return true;
+	        } catch (SQLException ex) {
+	            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+	        }
+		 return false;
+	        
+	}
 	public static boolean hasEmail(String email) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

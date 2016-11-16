@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
@@ -29,6 +30,34 @@ public class DishDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
+		
+	}
+	
+	public ArrayList<Dish> getListDish()
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="SELECT * FROM monan";
+		PreparedStatement ps;
+		try {
+			ps = connection.prepareCall(sql);
+			ResultSet rs = ps.executeQuery();
+			ArrayList<Dish> list = new ArrayList<>();
+			while(rs.next())
+			{
+				Dish dish = new Dish(); 
+				dish.setId(rs.getInt("id"));
+				dish.setTenMonAn(rs.getString("tenMonAn"));
+				
+				list.add(dish);
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		return null;
 		
 	}

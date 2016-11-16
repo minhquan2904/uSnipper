@@ -186,4 +186,70 @@ public class RestaurantDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void insertRts(String tenQuanAn,Integer idLoaiQuanAn, Integer soNha, String tenDuong, String tenPhuong, String tenQuan,String lat,String lng,String pic)
+	{
+		
+		Connection connection = DBConnect.getConnection();
+		String sql = "INSERT INTO quanan(tenQuanAn,soNha,tenDuong,tenPhuong,tenQuan,lat,lng,idLoaiQuanAn,hinhAnh,ngayThem) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?,CURDATE())";
+		
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ps.setString(1, tenQuanAn);
+			ps.setInt(2, soNha);
+			ps.setString(3, tenDuong);
+			ps.setString(4, tenPhuong);
+			ps.setString(5, tenQuan);
+			ps.setString(6, lat);
+			ps.setString(7, lng); 
+			ps.setInt(8, idLoaiQuanAn);
+			ps.setString(9, pic);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public Boolean hasRts(String tenQuanAn)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql = "SELECT * FROM quanan WHERE quanan.tenQuanAn ='"+tenQuanAn+"'";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+	
+	public Integer getIdByName(String tenQuanAn)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql = "SELECT quanan.id FROM quanan WHERE quanan.tenQuanAn ='"+tenQuanAn+"'";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+			{
+				Integer id = rs.getInt("id");
+				
+				return id;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
