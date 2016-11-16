@@ -42,6 +42,24 @@ public class DishInfoDAO {
 		return null;
 		
 	}
+	public Boolean hasDish(Integer idQuanAn, Integer idMonAn)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="SELECT * FROM quanan_monan "
+				+ "WHERE quanan_monan.idQuanAn = '"+idQuanAn+"' and quanan_monan.idMonAn= '"+idMonAn+"' ";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 	public void insertNewInfo(Integer idQuanAn,Integer idMonAn,String hinhAnh,String moTa, Integer giaTien)
 	{
 		Connection connection = DBConnect.getConnection();

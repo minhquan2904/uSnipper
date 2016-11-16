@@ -1,7 +1,7 @@
   <%@ page pageEncoding="utf-8"%>
   <div class="row" style="margin:20px 100px; ">
       <div class="col-lg-5"><!-- image restaurant -->
-        <a href="#"><img src="${rts.hinhAnh}" alt="" /></a>
+        <a href="#"><img src="images/${rts.hinhAnh}" alt="" /></a>
       </div><!-- /image rts -->
       <div class="col-lg-7">
         <ol class="breadcrumb"><!-- Area -->

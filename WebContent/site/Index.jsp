@@ -26,7 +26,7 @@
           <div class="carousel-inner" role="listbox">
           	<c:forEach var="l" items="${listRts }">
           	<div class="item ">
-              <a href="viewrts.html?id=${l.id}"><img src="${l.hinhAnh}" alt="" class="itclk" style="width:910px;height:400px;"></a>
+              <a href="viewrts.html?id=${l.id}"><img src="images/${l.hinhAnh}" alt="" class="itclk" style="width:910px;height:400px;"></a>
               <div class="carousel-caption">
                 <h3>${l.tenQuanAn}</h3>
                
@@ -67,7 +67,7 @@
                 	
 	                 <div class="rts-item" style="height:220px;"><!-- RTS Item -->
 	                	 <div class="col-lg-6">
-                			<a href="#"><img src="${i.hinhAnh}" alt="" class="img-item" /></a> 
+                			<a href="viewrts.html?id=${i.id}"><img src="images/${i.hinhAnh}" alt="" class="img-item" /></a> 
                 		 </div>
 	                 	<div class="col-lg-6">
 	                 		<div class= "img-info" style="text-align: left;">

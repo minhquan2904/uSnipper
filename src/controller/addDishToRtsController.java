@@ -1,21 +1,32 @@
 package controller;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import DAO.DishDAO;
+import DAO.DishInfoDAO;
 import DAO.RestaurantDAO;
 import model.Dish;
+import model.DishInfo;
 
 
 @WebServlet("/addDishToRts.html")
+@MultipartConfig
+
 public class addDishToRtsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,14 +44,61 @@ public class addDishToRtsController extends HttpServlet {
 		String rname = (String) session.getAttribute("rname");
 		RestaurantDAO rdao = new RestaurantDAO();
 		Integer id =  rdao.getIdByName(rname);
+		session.setAttribute("idR", id);
+		
+		DishInfoDAO ddao = new DishInfoDAO();
+		ArrayList<DishInfo> listDish = ddao.getImgByRtsId(id);
+		if(listDish != null)
+		{
+			req.setAttribute("listDish", listDish);
+		}
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("/site/add-dish-torst.jsp").forward(req, resp);
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		String rname = (String) session.getAttribute("rname");
+		RestaurantDAO rdao = new RestaurantDAO();
+		Integer idRts =  rdao.getIdByName(rname);
+		session.removeAttribute("hasDish");
+		
+		Integer idDish = Integer.parseInt(req.getParameter("idDish"));
+		String describe = (String) req.getParameter("describe");
+		Integer price = Integer.parseInt(req.getParameter("price")) ;
+		DishInfoDAO dao = new DishInfoDAO();
+		if(dao.hasDish(idRts, idDish))
+		{
+			session.setAttribute("hasDish", "Quán ăn đã có món ăn này!!!!!!!");
+			resp.sendRedirect("addDishToRts.html");
+			
+		}
+		else
+		{
+			ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+			Part filePart = req.getPart("pic"); 
+			 String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); 
+			    InputStream fileContent = filePart.getInputStream();
+			  
+				byte[] block = new byte[10*1024];
+				while(true){
+					int n = fileContent.read(block);
+					if(n <= 0) break; // hết dữ liệu
+					buffer.write(block, 0, n);
+				}
+				fileContent.close();
+				
+				buffer.writeTo(new FileOutputStream(req.getServletContext().getRealPath("/images")
+		        										+ File.separator + fileName));
+				//gán giá trị  hiện tại
+				dao.insertNewInfo(idRts, idDish, fileName, describe, price);
+				session.removeAttribute("hasDish");
+				resp.sendRedirect("addDishToRts.html");
+		}
+		
+		
+		
 	}
 
 }

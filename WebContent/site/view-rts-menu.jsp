@@ -15,7 +15,7 @@
             <c:forEach var="l" items="${list}">
             	 <div class="col-lg-4" style="width:405px;padding:10px;">
 		              <div class="menu">
-		                <img src="${l.hinhAnh}" alt="" class="menu-img" />
+		                <img src="images/${l.hinhAnh}" alt="" class="menu-img" />
 		                <label for="dish-name" class="dish-name">${l.dishId.tenMonAn }</label>
 		                <hr>
 		                <label for="dish-price" class="dish-name">Giá: ${l.giaTien }</label>

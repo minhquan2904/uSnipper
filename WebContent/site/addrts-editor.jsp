@@ -67,7 +67,7 @@
         <div class="form-group" style="width:1400px;"><!-- Images -->
           <label for="" style="font-size:20px;">Hình ảnh quán ăn</label>
        	  File to upload:  <input type="file" name="upfile" accept="image/*">
-		
+			
           </div><!-- /Btn function -->
         <button type="submit" class="btn btn-primary" style="margin-left:40px;">Thêm</button>
       </form><!-- /Address -->
