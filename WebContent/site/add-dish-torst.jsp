@@ -10,15 +10,19 @@
       <fieldset disabled="disabled">
         <label for="rts-name"  style="font-size: 20px;">Tên quán ăn</label>
         <input type="text" class="form-control" id="rts" placeholder="Nhập tên quán ăn" name="rname" value="${rname}">
-        <textarea rows="4" cols="40">Hướng dẫn: thêm lần lươt: id món ăn, mô tả và giá tiền. Click tiếp tục để thêm món ăn tiếp theo.Click hoàn tất để hoàn thành.
-        </textarea>
+        
       </fieldset>
+      
       <font size="12" color="red"><c:if test="${not empty hasDish }">Món ăn đã tồn tại !!!!</c:if></font>
      	 <label for="rts-name"  style="font-size: 20px;">Thêm món ăn</label>
        <form action="addDishToRts.html" method="post" enctype="multipart/form-data">
-       	 <input type="text" class="form-control"  placeholder="Nhập idMonAn" name="idDish" value="">
-       	  <input type="text" class="form-control" placeholder="Nhập mô tả" name="describe" value="">
-       	  <input type="number" class="form-control" placeholder="Nhập giá tiền" name="price" value="">
+       	 <input type="text" class="form-control"  placeholder="Nhập idMonAn" name="idDish" value="" style="margin-top: 20px;">
+       	 <p id="passwordHelpBlock" class="form-text text-muted">
+		 Hướng dẫn: Điền thông tin tương ứng vào các input. Thông tin các món ăn xem table Danh sách món ăn. Nếu món ăn chưa tồn tại, chọn thêm món ăn mới trước khi thêm món ăn đó vào quán ăn 
+		</p>
+		<button type="button" class="btn btn-primary">Thêm món ăn mới</button>
+       	  <input type="text" class="form-control" placeholder="Nhập mô tả" name="describe" value="" style="margin-top: 20px;">
+       	  <input type="number" class="form-control ip-mg" placeholder="Nhập giá tiền" name="price" value="" style="margin-top: 20px;">
        	   Hình ảnh món ăn  <input type="file" name="pic" accept="image/x-png,image/gif,image/jpeg">
        	  <button type="submit" class="btn btn-primary" style="margin-top:10px;" >Tiếp tục</button>
        </form>

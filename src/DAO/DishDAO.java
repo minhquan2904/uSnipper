@@ -33,7 +33,38 @@ public class DishDAO {
 		return null;
 		
 	}
-	
+	public Boolean hasDish(Integer tenMonAn)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql ="SELECT * FROM monan WHERE monan.tenMonAn='"+tenMonAn+"'";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public void insertDish(String tenMonAn, String moTa)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="INSERT INTO monan(tenMonAn,moTa) VALUES(?,?)";
+		try {
+			PreparedStatement ps =connection.prepareCall(sql);
+			ps.setString(1,tenMonAn);
+			ps.setString(2, moTa);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public ArrayList<Dish> getListDish()
 	{
 		Connection connection = DBConnect.getConnection();
