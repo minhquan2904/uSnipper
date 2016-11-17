@@ -33,7 +33,7 @@ public class DishDAO {
 		return null;
 		
 	}
-	public Boolean hasDish(Integer tenMonAn)
+	public Boolean hasDish(String tenMonAn)
 	{
 		Connection connection = DBConnect.getConnection();
 		String sql ="SELECT * FROM monan WHERE monan.tenMonAn='"+tenMonAn+"'";
@@ -50,20 +50,36 @@ public class DishDAO {
 		}
 		return false;
 	}
-	public void insertDish(String tenMonAn, String moTa)
+	public void insertDish(String tenMonAn)
 	{
 		Connection connection = DBConnect.getConnection();
-		String sql="INSERT INTO monan(tenMonAn,moTa) VALUES(?,?)";
+		String sql="INSERT INTO monan(tenMonAn) VALUES(?)";
 		try {
 			PreparedStatement ps =connection.prepareCall(sql);
 			ps.setString(1,tenMonAn);
-			ps.setString(2, moTa);
+			
 			
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public void updateDish(Integer id, String tenMonAn)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="UPDATE monan SET monan.tenMonAn =N'"+tenMonAn+"' WHERE monan.id ="+id;
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			
+			ps.executeUpdate();
+			ps.close();
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	public ArrayList<Dish> getListDish()
 	{
@@ -79,7 +95,7 @@ public class DishDAO {
 				Dish dish = new Dish(); 
 				dish.setId(rs.getInt("id"));
 				dish.setTenMonAn(rs.getString("tenMonAn"));
-				
+			
 				list.add(dish);
 			}
 			return list;

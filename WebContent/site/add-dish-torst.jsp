@@ -13,23 +13,34 @@
         
       </fieldset>
       
-      <font size="12" color="red"><c:if test="${not empty hasDish }">Món ăn đã tồn tại !!!!</c:if></font>
+      <font size="12" color="red"><c:if test="${not empty hasDish }">Món ăn đã tồn tại !!!!</c:if>
+      							
+      </font>
      	 <label for="rts-name"  style="font-size: 20px;">Thêm món ăn</label>
        <form action="addDishToRts.html" method="post" enctype="multipart/form-data">
        	 <input type="text" class="form-control"  placeholder="Nhập idMonAn" name="idDish" value="" style="margin-top: 20px;">
+       	 
        	 <p id="passwordHelpBlock" class="form-text text-muted">
 		 Hướng dẫn: Điền thông tin tương ứng vào các input. Thông tin các món ăn xem table Danh sách món ăn. Nếu món ăn chưa tồn tại, chọn thêm món ăn mới trước khi thêm món ăn đó vào quán ăn 
 		</p>
-		<button type="button" class="btn btn-primary">Thêm món ăn mới</button>
+		
+		<button type="button" class="btn btn-primary" id="abtn">Thêm món ăn mới</button>
+		
        	  <input type="text" class="form-control" placeholder="Nhập mô tả" name="describe" value="" style="margin-top: 20px;">
+       	  
        	  <input type="number" class="form-control ip-mg" placeholder="Nhập giá tiền" name="price" value="" style="margin-top: 20px;">
        	   Hình ảnh món ăn  <input type="file" name="pic" accept="image/x-png,image/gif,image/jpeg">
+       	   
        	  <button type="submit" class="btn btn-primary" style="margin-top:10px;" >Tiếp tục</button>
+       	  
        </form>
        <button type="submit" class="btn btn-primary" id="scs" style="margin-top:10px;">Hoàn tất</button>
        <script type="text/javascript">
        	$("#scs").click(function(){
        		window.location.replace("profile.html");
+       	});
+       	$("#abtn").click(function(){
+       		window.location.replace("add-new-dish.html");
        	});
        </script>
        
