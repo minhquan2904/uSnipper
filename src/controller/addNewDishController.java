@@ -51,7 +51,16 @@ public class addNewDishController extends HttpServlet {
 			
 			dao.insertDish(tenMonAn);
 			session.setAttribute("scs", "thêm thành công");
-			resp.sendRedirect("profile.html");
+			String adding =  (String) session.getAttribute("adding");
+			if(adding != null)
+			{
+				resp.sendRedirect("addDishToRts.html");
+			}
+			else
+			{
+				resp.sendRedirect("add-new-dish.html");
+			}
+			
 		}
 	}
 

@@ -56,6 +56,7 @@ public class addRtsController extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		RestaurantDAO rdao = new RestaurantDAO();
 		String tenQuanAn = req.getParameter("rname");
+		
 		if(rdao.hasRts(tenQuanAn) == true)
 		{
 			req.setAttribute("errorMs", "Đã tồn tại quán ăn!!!!!!!!!");
@@ -94,6 +95,7 @@ public class addRtsController extends HttpServlet {
 			dao.insertRts(tenQuanAn, idLoaiQuanAn, soNha, tenDuong, tenPhuong, tenQuan, lat, lng, fileName );
 			HttpSession session = req.getSession();
 			session.setAttribute("rname", tenQuanAn);
+			session.setAttribute("adding", "adding"); // dang them quan an
 			resp.sendRedirect("addDishToRts.html");
 		}
 	

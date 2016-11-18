@@ -60,17 +60,14 @@
               <div class="table-info">
                 <table class="table table-bordered">
                   <thead><!-- T head -->
-                    <tr>
-                      <td>STT</td>
+                    <tr>                     
                       <td>Mã số món ăn</td>
                       <td>Tên món ăn</td>
-                      <td>Mô tả </td>
                     </tr>
                   </thead><!-- /T head -->
                   <tbody>
                     <c:forEach var="l" items="${list}" varStatus="loop">
-	     				<tr class="clk">
-	     					<td>${loop.index +1}</td>
+	     				<tr class="clk">	     					
 	     					<td>${l.id}</td>
 	     					<td>${l.tenMonAn}</td>
 	     					
@@ -91,6 +88,7 @@
       </div><!-- /dish area -->
     </div>
   </div><!-- /container -->
+ 
  <script type="text/javascript">
 function change()
 {
@@ -134,8 +132,8 @@ $(".clk").click(function()
   $tds = $row.find("td");             // Finds all children <td> elements
 
 
-  $('input[id=input-dish-id]').val($tds[1].innerHTML);
-  $('input[id=input-dish-name]').val($tds[2].innerHTML);
+  $('input[id=input-dish-id]').val($tds[0].innerHTML);
+  $('input[id=input-dish-name]').val($tds[1].innerHTML);
 
 
   $row.addClass("active");

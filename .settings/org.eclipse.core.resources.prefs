@@ -3,6 +3,7 @@ encoding//WebContent/site/Index.jsp=UTF-8
 encoding//WebContent/site/Layout/_category.jsp=UTF-8
 encoding//WebContent/site/Layout/_rtsinfo.jsp=UTF-8
 encoding//WebContent/site/login.jsp=UTF-8
+encoding//src/DAO/RestaurantDAO.java=UTF-8
 encoding//src/controller/addDishToRtsController.java=UTF-8
 encoding//src/controller/addNewDishController.java=UTF-8
 encoding//src/controller/addRtsController.java=UTF-8
