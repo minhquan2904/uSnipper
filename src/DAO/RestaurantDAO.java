@@ -275,7 +275,27 @@ public class RestaurantDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	public void updateInfo(Integer id, String tenQuanAn, Integer soNha, String tenDuong, String tenPhuong, String moTa, String monNoiTieng)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="UPDATE quanan "
+				+ "SET tenQuanAn=?,soNha=?,tenDuong=?,tenPhuong=?,moTa=?,monNoiTieng=? "
+				+ " WHERE quanan.id ="+id;
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ps.setString(1, tenQuanAn);
+			ps.setInt(2, soNha);
+			ps.setString(3, tenDuong);
+			ps.setString(4, tenPhuong);
+			ps.setString(5, moTa);
+			ps.setString(6, monNoiTieng);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void insertRts(String tenQuanAn,Integer idLoaiQuanAn, Integer soNha, String tenDuong, String tenPhuong, String tenQuan,String lat,String lng,String pic)
 	{
 		

@@ -27,6 +27,8 @@ public class listRestaurantController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		
+		
+		
 		Integer role = (Integer) session.getAttribute("Quyen");
 		if(role == 3)
 		{
@@ -35,7 +37,9 @@ public class listRestaurantController extends HttpServlet {
 			req.setAttribute("listTD", listTD);
 			ArrayList<Restaurant> listQ9 = rdao.getListRtsQ9();
 			req.setAttribute("listQ9", listQ9);
+			
 			req.getRequestDispatcher("/site/list-rts.jsp").forward(req, resp);
+			session.removeAttribute("success");
 		}
 		else
 		{
@@ -45,9 +49,24 @@ public class listRestaurantController extends HttpServlet {
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html;charset=UTF-8"); 
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		HttpSession session = req.getSession();
+		RestaurantDAO dao = new RestaurantDAO();
+		Integer id = Integer.parseInt(req.getParameter("id")) ;
+		String tenQuanAn = req.getParameter("tenQuanAn");
+		Integer soNha = Integer.parseInt(req.getParameter("soNha"));
+		String tenDuong = req.getParameter("tenDuong");
+		String tenPhuong = req.getParameter("tenPhuong");
+		String moTa = req.getParameter("moTa");
+		String monNoiTieng = req.getParameter("monNoiTieng");
+		
+		dao.updateInfo(id, tenQuanAn, soNha, tenDuong, tenPhuong, moTa, monNoiTieng);
+		session.setAttribute("success", "success");
+		resp.sendRedirect("listRestaurant.html");
+		
 	}
 
 }

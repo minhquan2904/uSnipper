@@ -13,41 +13,66 @@
           <div class="row"><!-- Row -->
             <div class="panel panel-default"><!-- Panel info -->
               <div class="panel-body">
-                  <div class="col-lg-2"><!-- RTS Avatar -->
+                  <div class="col-lg-4"><!-- RTS Avatar -->
                     <div class="rts-avt">
-                      <img src="" alt="" class="img-rts-avt"  id="imgRts"/>
+                      <img src="" alt="" class="img-rts-avt"  id="imgRts" style="width: 400px; height: 200px;"/>
                       
                     </div>
                   </div><!-- /RTS Avatar -->
-                  <div class="col-lg-8">
+                  <div class="col-lg-6">
+                  <font size="12" color="green">
+                  	<c:if test="${not empty success }">Chỉnh sửa thành công</c:if>
+                  </font>
                     <div class="info"><!-- Each Info -->
-                      <form class="form-inline" action="index.jsp" method="post">
-                        <fieldset id="inputfield">
-                          <div class="form-group"  ><!-- ID -->
+                      <form class="form-inline" action="listRestaurant.html" method="post">
+                        <fieldset id="inputfield" style="    width: 800px;">
+                          <div class="form-group" style="margin-left: 0px;"  ><!-- ID -->
                             <label for="rts-id">Mã Quán ăn</label>
-                            <input type="text" class="form-control" id="inputRtsID" placeholder="" readonly="readonly" style="margin-left: 5px;">
+                            <input type="text" class="form-control" id="inputRtsID" placeholder="" readonly="readonly" style="margin-left: 5px;" name="id">
                           </div><!-- /ID -->
 
-                          <div class="form-group"><!-- Name -->
+                          <div class="form-group" style="margin-left: 0px;" ><!-- Name -->
                             <label for="rts-name">Tên quán ăn</label>
-                            <input type="text" class="form-control" id="inputRtsName" placeholder="" readonly="readonly">
+                            <input type="text" class="form-control" id="inputRtsName" placeholder="" readonly="readonly" name="tenQuanAn">
                           </div><!-- /Name -->
 
-                          <div class="form-group"><!-- Address -->
-                            <label for="rts-address">Địa chỉ</label>
-                           <input type="text" class="form-control" id="inputRtsAddress" placeholder="" readonly="readonly" style="margin-left: 40px;">
+                          <div class="form-group" style="margin-left: 0px;" ><!-- Address -->
+                            <label for="rts-address">Số nhà</label>
+                           <input type="text" class="form-control" id="inputRtsNumber" placeholder="" readonly="readonly" style="margin-left: 40px;" name="soNha">
+
+                          </div><!-- /Address -->
+                          
+                          <div class="form-group" style="margin-left: 0px;" ><!-- Address -->
+                            <label for="rts-address">Đường</label>
+                           <input type="text" class="form-control" id="inputRtsStreet" placeholder="" readonly="readonly" style="margin-left: 40px;" name="tenDuong">
+
+                          </div><!-- /Address -->
+                           <div class="form-group" style="margin-left: 0px;" ><!-- Address -->
+                            <label for="rts-address">Phường</label>
+                           <input type="text" class="form-control" id="inputRtsTown" placeholder="" readonly="readonly" style="margin-left: 35px;" name="tenPhuong">
+
+                          </div><!-- /Address -->
+                          <div class="form-group" style="margin-left: 0px;" ><!-- Describe -->
+                            <label for="rts-name">Mô tả</label>
+                           <input type="text" class="form-control" id="inputRtsDes" placeholder="" readonly="readonly" style="margin-left: 50px;" name="moTa">
+
+                          </div><!-- /Address -->
+                          
+                           <div class="form-group" style="margin-left: 0px;" ><!-- Famous -->
+                            <label for="rts-name">Món nổi tiếng</label>
+                           <input type="text" class="form-control" id="inputRtsFas" placeholder="" readonly="readonly" style="margin-left: 5px;" name="monNoiTieng">
 
                           </div><!-- /Address -->
                         </fieldset>
-
+						 <div class="btn-group btn-group-sm"><!-- btn gruop -->
+                        <a href="#" class="btn btn-default" id="btndetail"><span class="glyphicon glyphicon-th-list"></span> Chi tiết</a>
+                        <button type="button" name="button" id="btnedit" class="btn btn-default"> <span class="glyphicon glyphicon-pencil"></span> Chỉnh sửa</button>
+                        <button type="submit" name="button" id="btnsave" class="btn btn-default" disabled="disabled"> <span class="glyphicon glyphicon-plus"></span> Lưu</button>
+                      </div><!-- /btn gruop -->
 
 
                       </form>
-                      <div class="btn-group btn-group-sm"><!-- btn gruop -->
-                        <a href="#" class="btn btn-default" id="btndetail"><span class="glyphicon glyphicon-th-list"></span> Chi tiết</a>
-                        <button type="button" name="button" id="btnedit" class="btn btn-default"> <span class="glyphicon glyphicon-pencil"></span> Chỉnh sửa</button>
-                        <button type="button" name="button" id="btnsave" class="btn btn-default" disabled="disabled"> <span class="glyphicon glyphicon-plus"></span> Lưu</button>
-                      </div><!-- /btn gruop -->
+                     
 
                     </div><!-- /Each Info -->
 
@@ -74,10 +99,14 @@
                            <th>Mã quán</th>
                            <th>Tên quán</th>
                            <th>
-                             Địa chỉ
+                             Số nhà
                            </th>
+                           <th>Đường</th>
+                           <th>Phường</th>
                            <th> Lượt tra cứu </th>
                            <th> Ngày thêm</th>
+                           <th>Mô tả </th>
+                            <th>Món nổi tiếng</th>
                             <th hidden="hidden"></th>
                         </tr>
                       </thead>
@@ -87,9 +116,13 @@
                                 <td class="fund">${loop.index +1}</td>     
                                 <td>${l.id }</td>                      
 	                            <td>${l.tenQuanAn}</td>
-	                            <td>${l.soNha } , ${l.tenDuong },${l.tenPhuong } </td>
+	                            <td>${l.soNha }</td>
+	                            <td>${l.tenDuong } </td>
+	                            <td>${l.tenPhuong }</td>
 	                            <td>${l.luotTraCuu }</td>
 	                            <td>${l.ngayThem }</td>
+	                            <td>${l.moTa }</td>
+	                             <td>${l.monNoiTieng }</td>
 	                             <td hidden="hidden">${l.hinhAnh }</td>
                           </tr>
                           </c:forEach>
@@ -109,10 +142,14 @@
                            <th>Mã quán</th>
                            <th>Tên quán</th>
                            <th>
-                             Địa chỉ
+                             Số nhà
                            </th>
+                           <th>Đường</th>
+                           <th>Phường</th>
                            <th> Lượt tra cứu </th>
                            <th> Ngày thêm</th>
+                           <th>Mô tả </th>
+                           <th>Món nổi tiếng</th>
                            <th hidden="hidden"></th>
                         </tr>
                       </thead>
@@ -122,9 +159,13 @@
                                 <td class="fund">${loop.index +1}</td>     
                                 <td>${l.id }</td>                      
 	                            <td>${l.tenQuanAn}</td>
-	                            <td>${l.soNha } , ${l.tenDuong },${l.tenPhuong } </td>
+	                            <td>${l.soNha }</td>
+	                            <td>${l.tenDuong } </td>
+	                            <td>${l.tenPhuong }</td>
 	                            <td>${l.luotTraCuu }</td>
 	                            <td>${l.ngayThem }</td>
+	                             <td>${l.moTa }</td>
+	                             <td>${l.monNoiTieng }</td>
 	                            <td hidden="hidden">${l.hinhAnh }</td>
                           </tr>
                           </c:forEach>
@@ -153,37 +194,36 @@
     var btnedit = document.getElementById("btnedit");
     btnedit.setAttribute("disabled","disabled");
 
-    var field = document.getElementById("inputfield");
-    field.removeAttribute("disabled");
+    var inputRtsName = document.getElementById("inputRtsName");
+    inputRtsName.removeAttribute("readonly");
 
-
+    var inputRtsNumber = document.getElementById("inputRtsNumber");
+    inputRtsNumber.removeAttribute("readonly");
+    
+    var inputRtsStreet = document.getElementById("inputRtsStreet");
+    inputRtsStreet.removeAttribute("readonly");
+    
+    var inputRtsTown = document.getElementById("inputRtsTown");
+    inputRtsTown.removeAttribute("readonly");
+    
+    var inputRtsDes = document.getElementById("inputRtsDes");
+    inputRtsDes.removeAttribute("readonly");
+   
+    var inputRtsFas = document.getElementById("inputRtsFas");
+    inputRtsFas.removeAttribute("readonly");
   }
-  function save()
-  {
-    var btnsave = document.getElementById("btnsave");
-    btnsave.setAttribute("disabled","disabled");
-
-    var btnedit = document.getElementById("btnedit");
-    btnedit.removeAttribute("disabled");
-
-    var field = document.getElementById("inputfield");
-    field.setAttribute("disabled","disabled");
-
-  }
+ 
 
 
 
     $("#btnedit").click(function()
       {
         change();
+        $("table#tb1 :text").prop("disabled", true);
       }
     );
 
-    $("#btnsave").click(function()
-    {
-      save();
-    });
-
+   
 
   $(".clk").click(function()
   {
@@ -193,11 +233,21 @@
 
     $('input[id=inputRtsID]').val($tds[1].innerHTML);
     $('input[id=inputRtsName]').val($tds[2].innerHTML);
-    $('input[id=inputRtsAddress]').val($tds[3].innerHTML);
-	$('img[id="imgRts"]').attr("src","images/" + $tds[6].innerHTML);
+    $('input[id=inputRtsNumber]').val($tds[3].innerHTML);
+    $('input[id=inputRtsStreet]').val($tds[4].innerHTML);
+    $('input[id=inputRtsTown]').val($tds[5].innerHTML);
+    $('input[id=inputRtsDes]').val($tds[8].innerHTML);
+    $('input[id=inputRtsFas]').val($tds[9].innerHTML);
+	$('img[id="imgRts"]').attr("src","images/" + $tds[10].innerHTML);
 
     $row.addClass("active");
     $row.siblings().removeClass("active");
+    
+    $("#inputfield").find("input").attr("readonly", "readonly");
+    $("#btnedit").removeAttr("disabled");
+    $("#btnsave").attr("disabled",true);
+    
+    
   });
 
 </script>

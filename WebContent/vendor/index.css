@@ -359,6 +359,9 @@ margin: 0 10px 10px 0;
 img.img-item {
     padding: 15px;
 }
+.btn-group.btn-group-sm {
+    margin-left: 40px;
+}
 .rts-category{
   margin-top: 10px;
   margin-left: 100px;
