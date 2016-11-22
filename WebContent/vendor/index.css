@@ -11,6 +11,9 @@ footer a:hover{
 hr{
   max-width: 800px;
 }
+select.form-control.mySelect {
+    max-width: 200px;
+}
 .active{
 
 }

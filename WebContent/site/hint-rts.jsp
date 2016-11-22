@@ -10,28 +10,28 @@
     </div>
     <div class="col-lg-10" >
         <h3 style="disabled;color:white;background-color:#4733b7;text-align:center; padding:10px;"><b>Đóng góp thông tin quán ăn</b></h3>
-        <form class="form-horizontal" action="index.jsp" method="post">
+        <form class="form-horizontal" action="hint-rts.html" method="post">
           <div class="form-group">
             <label for="rts-name">Tên quán ăn</label>
-            <input type="text" class="form-control" id="rtsname" placeholder="Nhập tên quán ăn">
+            <input name="name-rts" type="text" class="form-control" id="rtsname" placeholder="Nhập tên quán ăn">
             <p class="help-block"><i>Vui lòng nhập tên quán ăn</i></p>
           </div>
           <div class="form-group">
             <label for="address">Địa chỉ</label>
-            <input type="text" class="form-control" id="rtsaddress" placeholder="Nhập địa chỉ quán ăn">
+            <input name="diachi" type="text" class="form-control" id="rtsaddress" placeholder="Nhập địa chỉ quán ăn">
             <p class="help-block"><i>Vui lòng nhập địa chỉ quán ăn</i></p>
           </div>
           <div class="form-group">
             <label for="rts-dish">Món ăn</label>
-            <textarea name="name" id="rtsdish" rows="8" cols="140" placeholder="Nhập những món ăn của quán ăn"></textarea>
+            <textarea name="monan" id="rtsdish" rows="8" cols="140" placeholder="Nhập những món ăn của quán ăn"></textarea>
             <p class="help-block"><i>Không bắt buộc</i></p>
           </div>
           <div class="form-group">
             <label for="rts-dish">Mô tả</label>
-            <textarea name="name" id="rtsessay" rows="10" cols="140" placeholder="Nhận xét của bạn về quán ăn"></textarea>
+            <textarea  name="mota" id="rtsessay" rows="10" cols="140" placeholder="Nhận xét của bạn về quán ăn"></textarea>
             <p class="help-block"><i>Không bắt buộc</i></p>
           </div>
-          <button type="button" class="btn btn-default" name="button" style="float:right;margin-right: 70px;">Gửi</button>
+          <button type="submit" class="btn btn-default" value="hint" name="command" style="float:right;margin-right: 70px;">Gửi</button>
         </form>
 
     </div>

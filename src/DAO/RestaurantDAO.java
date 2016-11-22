@@ -54,7 +54,148 @@ public class RestaurantDAO {
 		}
 		return null;
 	}
+	public ArrayList<Restaurant> findRTSByAddress(Integer soNha,String tenDuong,String tenPhuong,String tenQuan)
+	{
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		
+		Connection connection=DBConnect.getConnection();
+		ArrayList<Restaurant> list = new ArrayList<>();
+		String sql="SELECT * FROM quanan where soNha='"+soNha+"' "
+				+ "and tenDuong  LIKE N'%"+tenDuong+"%' "
+						+ "and tenPhuong LIKE N'%"+tenPhuong+"%'"
+								+ " and tenQuan LIKE N'%"+tenQuan+"%' ";
+		
+		try {
+			PreparedStatement ps;
+			ps = connection.prepareCall(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				Restaurant rts = new Restaurant();	
+				rts.setId(rs.getInt("id"));
+				rts.setTenQuanAn(rs.getString("tenQuanAn"));
+				rts.setSoNha(rs.getInt("soNha"));
+				rts.setTenDuong(rs.getString("tenDuong"));
+				rts.setTenPhuong(rs.getString("tenPhuong"));
+				rts.setHinhAnh(rs.getString("hinhAnh"));
+				rts.setMonNoiTieng(rs.getString("monNoiTieng"));
+				rts.setIdLoaiQuanAn(rs.getInt("idLoaiQuanAn"));
+				rts.setLat(rs.getString("lat"));
+				rts.setLng(rs.getString("lng"));
+				rts.setLuotTraCuu(rs.getInt("luotTraCuu"));
+				rts.setMoTa(rs.getString("moTa"));
+				rts.setNgayThem(rs.getDate("ngayThem"));
+				rts.setDiemTB(rs.getFloat("diemTB"));
+				rts.setLuotDanhGia(rs.getInt("luotDanhGia"));
+				list.add(rts);
+			}
+			ps.close();
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 	
+	public ArrayList<Restaurant> findRTSName(String tenQuanAn)
+	{
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		
+		Connection connection=DBConnect.getConnection();
+		ArrayList<Restaurant> list = new ArrayList<>();
+		String sql="SELECT * FROM quanan where tenQuanAn like '%"+tenQuanAn+"%' ";
+		
+		try {
+			PreparedStatement ps;
+			ps = connection.prepareCall(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				Restaurant rts = new Restaurant();	
+				rts.setId(rs.getInt("id"));
+				rts.setTenQuanAn(rs.getString("tenQuanAn"));
+				rts.setSoNha(rs.getInt("soNha"));
+				rts.setTenDuong(rs.getString("tenDuong"));
+				rts.setTenPhuong(rs.getString("tenPhuong"));
+				rts.setHinhAnh(rs.getString("hinhAnh"));
+				rts.setMonNoiTieng(rs.getString("monNoiTieng"));
+				rts.setIdLoaiQuanAn(rs.getInt("idLoaiQuanAn"));
+				rts.setLat(rs.getString("lat"));
+				rts.setLng(rs.getString("lng"));
+				rts.setLuotTraCuu(rs.getInt("luotTraCuu"));
+				rts.setMoTa(rs.getString("moTa"));
+				rts.setNgayThem(rs.getDate("ngayThem"));
+				rts.setDiemTB(rs.getFloat("diemTB"));
+				rts.setLuotDanhGia(rs.getInt("luotDanhGia"));
+				list.add(rts);
+			}
+			ps.close();
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	public ArrayList<Restaurant> findRTSFamous(String monNoiTieng)
+	{
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		
+		Connection connection=DBConnect.getConnection();
+		ArrayList<Restaurant> list = new ArrayList<>();
+		String sql="SELECT * FROM quanan WHERE quanan.monNoiTieng = '"+monNoiTieng+"'";
+		
+		try {
+			PreparedStatement ps;
+			ps = connection.prepareCall(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				Restaurant rts = new Restaurant();	
+				rts.setId(rs.getInt("id"));
+				rts.setTenQuanAn(rs.getString("tenQuanAn"));
+				rts.setSoNha(rs.getInt("soNha"));
+				rts.setTenDuong(rs.getString("tenDuong"));
+				rts.setTenPhuong(rs.getString("tenPhuong"));
+				rts.setHinhAnh(rs.getString("hinhAnh"));
+				rts.setMonNoiTieng(rs.getString("monNoiTieng"));
+				rts.setIdLoaiQuanAn(rs.getInt("idLoaiQuanAn"));
+				rts.setLat(rs.getString("lat"));
+				rts.setLng(rs.getString("lng"));
+				rts.setLuotTraCuu(rs.getInt("luotTraCuu"));
+				rts.setMoTa(rs.getString("moTa"));
+				rts.setNgayThem(rs.getDate("ngayThem"));
+				rts.setDiemTB(rs.getFloat("diemTB"));
+				rts.setLuotDanhGia(rs.getInt("luotDanhGia"));
+				list.add(rts);
+			}
+			ps.close();
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	public ArrayList<Restaurant> getTopRTS()
 	{
 

@@ -68,45 +68,23 @@
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
           <li><a href="nearby.html"><span class="glyphicon glyphicon-globe"></span> Tìm quanh đây</a></li>
-          <li><a href="hint-rts.jsp"><span class="glyphicon glyphicon-cutlery"></span> Đóng góp quán ăn mới</a></li>
+          <li><a href="hint-rts.html"><span class="glyphicon glyphicon-cutlery"></span> Đóng góp quán ăn mới</a></li>
         </ul>
   <div class="row nav navbar-nav navbar-right">
-    <div class = "col-lg-12 col-md-12 col-sm-12 search-bar fd-search">
+    <div class = "col-lg-12 col-md-12 col-sm-12 search-bar fd-search" style="    padding-bottom: 0px;">
       <div class="col-lg-6 col-md-6 col-sm-6">
         <div class="input-group" style="width:750px">
           <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  Địa chỉ<span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Địa chỉ</a></li>
-              <li><a href="#">Xếp hạng cao nhất</a></li>
-              <li><a href="#">Món ăn</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Khác...</a></li>
-            </ul><!-- button district -->
-          </div>
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  Thủ Đức<span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Thủ Đức</a></li>
-              <li><a href="#">Quận 9</a></li>
-              <li><a href="#">Bình Thạnh</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Khác...</a></li>
-            </ul><!-- button district -->
-          </div>
-
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Linh Chiểu<span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Linh Chiểu</a></li>
-              <li><a href="#">Bình Thọ</a></li>
-              <li><a href="#">Linh Trung</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Khác...</a></li>
-            </ul><!-- button guild -->
-          </div><!-- /btn-group -->
-          <input type="text" class="form-control fd-input" aria-label="" placeholder="Tìm kiếm theo địa chỉ" style="width:400px">
-          <button type="button" class="btn btn-default btn-icon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+           <form method="post" action="find.html">
+           		<select class="form-control mySelect" name="mySelect">
+           			<option value="0">Tìm kiếm theo địa chỉ</option>
+           			<option value="1">Tìm kiếm theo món nổi bật</option>
+           			<option value="2">Tìm kiếm theo tên quán ăn</option>
+           		</select>
+	          <input type="text" class="form-control fd-input" aria-label="" placeholder="Tìm kiếm theo địa chỉ" style="width:400px" id="myInput" name="myInput">
+	          <button type="submit" class="btn btn-default btn-icon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+           </form>
+         
         </div><!-- /input-group -->
       </div>
     </div>
@@ -120,3 +98,10 @@
     </nav>
   </div>
 </header>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwTYGP_-vrJ6AAmCuYPY8mFRso4jfCUsQ&v=3.exp&sensor=true&libraries=places"></script>
+
+<script type="text/javascript">
+var input =  document.getElementById('myInput');
+	var autocomplete = new google.maps.places.Autocomplete(input);
+	autocomplete.bindTo('bounds', map);
+</script>
