@@ -54,7 +54,7 @@ public class RestaurantDAO {
 		}
 		return null;
 	}
-	public ArrayList<Restaurant> findRTSByAddress(Integer soNha,String tenDuong,String tenPhuong,String tenQuan)
+	public ArrayList<Restaurant> findRTSByAddress(String[] split)
 	{
 
 		try {
@@ -65,11 +65,70 @@ public class RestaurantDAO {
 		
 		Connection connection=DBConnect.getConnection();
 		ArrayList<Restaurant> list = new ArrayList<>();
-		String sql="SELECT * FROM quanan where soNha='"+soNha+"' "
-				+ "and tenDuong  LIKE N'%"+tenDuong+"%' "
-						+ "and tenPhuong LIKE N'%"+tenPhuong+"%'"
-								+ " and tenQuan LIKE N'%"+tenQuan+"%' ";
-		
+		String sql="";
+		for (String  str : split) {
+			System.out.println("SELECT * FROM quanan where soNha='"+str+"' "
+					+ "or tenDuong  LIKE N'%"+str+"%' "
+							+ "or tenPhuong LIKE N'%"+str+"%'"
+									+ " or tenQuan LIKE N'%"+str+"%' ");
+			sql="SELECT * FROM quanan where soNha='"+str+"' "
+					+ "or tenDuong  LIKE N'%"+str+"%' "
+					+ "or tenPhuong LIKE N'%"+str+"%'"
+							+ " or tenQuan LIKE N'%"+str+"%' ";
+			try {
+				PreparedStatement ps;
+				ps = connection.prepareCall(sql);
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					Restaurant rts = new Restaurant();	
+					rts.setId(rs.getInt("id"));
+					rts.setTenQuanAn(rs.getString("tenQuanAn"));
+					rts.setSoNha(rs.getInt("soNha"));
+					rts.setTenDuong(rs.getString("tenDuong"));
+					rts.setTenPhuong(rs.getString("tenPhuong"));
+					rts.setTenQuan(rs.getString("tenQuan"));
+					rts.setHinhAnh(rs.getString("hinhAnh"));
+					rts.setMonNoiTieng(rs.getString("monNoiTieng"));
+					rts.setIdLoaiQuanAn(rs.getInt("idLoaiQuanAn"));
+					rts.setLat(rs.getString("lat"));
+					rts.setLng(rs.getString("lng"));
+					rts.setLuotTraCuu(rs.getInt("luotTraCuu"));
+					rts.setMoTa(rs.getString("moTa"));
+					rts.setNgayThem(rs.getDate("ngayThem"));
+					rts.setDiemTB(rs.getFloat("diemTB"));
+					rts.setLuotDanhGia(rs.getInt("luotDanhGia"));
+					list.add(rts);
+				}
+				ps.close();
+			}
+			catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		/*
+		if(soNha != null && tenDuong!= null && tenPhuong!= null && tenQuan!= null )
+		{
+			System.out.println("SELECT * FROM quanan where soNha='"+soNha+"' "
+					+ "and tenDuong  LIKE N'%"+tenDuong+"%' "
+							+ "and tenPhuong LIKE N'%"+tenPhuong+"%'"
+									+ " and tenQuan LIKE N'%"+tenQuan+"%' ");
+			sql="SELECT * FROM quanan where soNha='"+soNha+"' "
+					+ "and tenDuong  LIKE N'%"+tenDuong+"%' "
+							+ "and tenPhuong LIKE N'%"+tenPhuong+"%'"
+									+ " and tenQuan LIKE N'%"+tenQuan+"%' ";
+		}
+		else
+		{		System.out.println("SELECT * FROM quanan where soNha='"+soNha+"' "
+					+ "or tenDuong  LIKE N'%"+tenDuong+"%' "
+							+ "or tenPhuong LIKE N'%"+tenPhuong+"%'"
+									+ " or tenQuan LIKE N'%"+tenQuan+"%' ")	;
+			sql="SELECT * FROM quanan where soNha='"+soNha+"' "
+					+ "or tenDuong  LIKE N'%"+tenDuong+"%' "
+							+ "or tenPhuong LIKE N'%"+tenPhuong+"%'"
+									+ " or tenQuan LIKE N'%"+tenQuan+"%' ";
+		}
 		try {
 			PreparedStatement ps;
 			ps = connection.prepareCall(sql);
@@ -82,6 +141,7 @@ public class RestaurantDAO {
 				rts.setSoNha(rs.getInt("soNha"));
 				rts.setTenDuong(rs.getString("tenDuong"));
 				rts.setTenPhuong(rs.getString("tenPhuong"));
+				rts.setTenQuan(rs.getString("tenQuan"));
 				rts.setHinhAnh(rs.getString("hinhAnh"));
 				rts.setMonNoiTieng(rs.getString("monNoiTieng"));
 				rts.setIdLoaiQuanAn(rs.getInt("idLoaiQuanAn"));
@@ -100,8 +160,46 @@ public class RestaurantDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
+		boolean dup = false;
+		ArrayList<Restaurant> dublist = new ArrayList<>();
 		
-		return list;
+		for (int i=0;i<list.size();i++) {
+			System.out.println("xet: " + list.get(i).getId());
+			}
+		
+		for (int i=1;i<list.size();i++) {
+			for(int j=i-1;j>=0;j--){
+				if (list.get(i).getId()==list.get(j).getId()){
+					dublist.add(list.get(i));
+					dup = true;
+					break;
+				}
+			}
+		}
+		
+		System.out.println("size: "+dublist.size());
+		for (int i=0;i<dublist.size();i++) {
+			System.out.println("final: " + dublist.get(i).getId());
+			}
+		
+		if(dup) {
+			for (int i=1;i<dublist.size();i++) {
+				System.out.println("xet: " + i);
+				for(int j=i-1;j>=0;j--){
+					if (dublist.get(i).getId()==dublist.get(j).getId()){
+						dublist.remove(i);
+						System.out.println("remove at index: "+i);	
+						i--;
+						break;
+					}
+				}
+			}
+			System.out.println("XONG !");
+			return dublist;
+		}
+		else return list;
+		
 	}
 	
 	public ArrayList<Restaurant> findRTSName(String tenQuanAn)
@@ -129,6 +227,7 @@ public class RestaurantDAO {
 				rts.setSoNha(rs.getInt("soNha"));
 				rts.setTenDuong(rs.getString("tenDuong"));
 				rts.setTenPhuong(rs.getString("tenPhuong"));
+				rts.setTenQuan(rs.getString("tenQuan"));
 				rts.setHinhAnh(rs.getString("hinhAnh"));
 				rts.setMonNoiTieng(rs.getString("monNoiTieng"));
 				rts.setIdLoaiQuanAn(rs.getInt("idLoaiQuanAn"));
@@ -175,6 +274,7 @@ public class RestaurantDAO {
 				rts.setSoNha(rs.getInt("soNha"));
 				rts.setTenDuong(rs.getString("tenDuong"));
 				rts.setTenPhuong(rs.getString("tenPhuong"));
+				rts.setTenQuan(rs.getString("tenQuan"));
 				rts.setHinhAnh(rs.getString("hinhAnh"));
 				rts.setMonNoiTieng(rs.getString("monNoiTieng"));
 				rts.setIdLoaiQuanAn(rs.getInt("idLoaiQuanAn"));
@@ -219,6 +319,7 @@ public class RestaurantDAO {
 				rts.setSoNha(rs.getInt("soNha"));
 				rts.setTenDuong(rs.getString("tenDuong"));
 				rts.setTenPhuong(rs.getString("tenPhuong"));
+				rts.setTenQuan(rs.getString("tenQuan"));
 				rts.setHinhAnh(rs.getString("hinhAnh"));
 				rts.setMonNoiTieng(rs.getString("monNoiTieng"));
 				rts.setIdLoaiQuanAn(rs.getInt("idLoaiQuanAn"));
@@ -263,6 +364,7 @@ public class RestaurantDAO {
 				rts.setSoNha(rs.getInt("soNha"));
 				rts.setTenDuong(rs.getString("tenDuong"));
 				rts.setTenPhuong(rs.getString("tenPhuong"));
+				rts.setTenQuan(rs.getString("tenQuan"));
 				rts.setTenQuan(rs.getString("tenQuan"));
 				rts.setHinhAnh(rs.getString("hinhAnh"));
 				rts.setMonNoiTieng(rs.getString("monNoiTieng"));
@@ -309,6 +411,7 @@ public class RestaurantDAO {
 				rts.setTenDuong(rs.getString("tenDuong"));
 				rts.setTenPhuong(rs.getString("tenPhuong"));
 				rts.setTenQuan(rs.getString("tenQuan"));
+				rts.setTenQuan(rs.getString("tenQuan"));
 				rts.setHinhAnh(rs.getString("hinhAnh"));
 				rts.setMonNoiTieng(rs.getString("monNoiTieng"));
 				rts.setIdLoaiQuanAn(rs.getInt("idLoaiQuanAn"));
@@ -354,6 +457,7 @@ public class RestaurantDAO {
 				rts.setSoNha(rs.getInt("soNha"));
 				rts.setTenDuong(rs.getString("tenDuong"));
 				rts.setTenPhuong(rs.getString("tenPhuong"));
+				rts.setTenQuan(rs.getString("tenQuan"));
 				rts.setTenQuan(rs.getString("tenQuan"));
 				rts.setHinhAnh(rs.getString("hinhAnh"));
 				rts.setMonNoiTieng(rs.getString("monNoiTieng"));

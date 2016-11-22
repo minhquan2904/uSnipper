@@ -44,16 +44,58 @@ public class findController extends HttpServlet {
 		{
 			String address = (String) req.getParameter("myInput");
 			String []split = address.split(",");
-			Integer soNha = Integer.parseInt(split[0]);
-			String tenDuong = split[1];
-			tenDuong = tenDuong.trim();
-			String tenPhuong = split[2];
+			/* //xu ly so nha
+			Integer soNha = null;
+			Integer dem = 0;
+			try {
+				soNha = Integer.parseInt(split[dem]);
+				dem ++;
+			} catch (Exception e) {
+				soNha = null;
+			}
+			
+			
+			// xu ly ten duong
+			
+			String tenDuong = "";
+			try {
+				tenDuong = split[dem];
+				dem ++;
+			} catch (Exception e) {
+				tenDuong = "";
+			}
+			
+			tenDuong = tenDuong.trim(); // xoa khoang trang thua o dau va cuoi chuoi
+			tenDuong = tenDuong.replaceAll("\\s+", " "); // xoa khoang trang thua o giua chuoi
+			
+			// xu ly ten phuong
+			
+			String tenPhuong = "";
+			try {
+				tenPhuong = split[dem];
+				dem ++;
+			} catch (Exception e) {
+				tenPhuong = "";
+			}
+			
 			tenPhuong = tenPhuong.trim();
-			String tenQuan = split[3];
+			tenPhuong = tenPhuong.replaceAll("\\s+", " "); 
+			
+			
+			// xu ly ten quan
+			String tenQuan = "";
+			try {
+				tenQuan = split[3];
+			} catch (Exception e) {
+				tenQuan = "";
+			}
+			
 			tenQuan = tenQuan.trim();
+			tenPhuong = tenPhuong.replaceAll("\\s+", " "); */
+			
 			RestaurantDAO rdao = new  RestaurantDAO();
 			
-			ArrayList<Restaurant> list = rdao.findRTSByAddress(soNha, tenDuong, tenPhuong, tenQuan);
+			ArrayList<Restaurant> list = rdao.findRTSByAddress(split);
 			
 			if(list != null){
 				session.removeAttribute("errorM");

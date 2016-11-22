@@ -18,6 +18,7 @@
 		         <address class="address-rts">
 		           <i><span class="number">${i.soNha}</span> -
 		           <span class="street">${i.tenDuong }</span> -
+		           <span class="town">${i.tenPhuong }</span> -
 		           <span class="dist">${i.tenQuan}
 		           Thành phố Hồ Chí Minh</span></i>
 		         </address>

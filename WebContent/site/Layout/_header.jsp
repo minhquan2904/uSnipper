@@ -73,13 +73,13 @@
   <div class="row nav navbar-nav navbar-right">
     <div class = "col-lg-12 col-md-12 col-sm-12 search-bar fd-search" style="    padding-bottom: 0px;">
       <div class="col-lg-6 col-md-6 col-sm-6">
-        <div class="input-group" style="width:750px">
+        <div class="input-group" style="width:850px">
           <div class="input-group-btn">
            <form method="post" action="find.html">
-           		<select class="form-control mySelect" name="mySelect">
-           			<option value="0">Tìm kiếm theo địa chỉ</option>
-           			<option value="1">Tìm kiếm theo món nổi bật</option>
-           			<option value="2">Tìm kiếm theo tên quán ăn</option>
+           		<select class="form-control mySelect" id="ipmySelect" name="mySelect">
+           			<option value="0">Tìm theo địa chỉ</option>
+           			<option value="1">Tìm theo món nổi bật</option>
+           			<option value="2">Tìm theo tên quán ăn</option>
            		</select>
 	          <input type="text" class="form-control fd-input" aria-label="" placeholder="Tìm kiếm theo địa chỉ" style="width:400px" id="myInput" name="myInput">
 	          <button type="submit" class="btn btn-default btn-icon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -101,7 +101,23 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwTYGP_-vrJ6AAmCuYPY8mFRso4jfCUsQ&v=3.exp&sensor=true&libraries=places"></script>
 
 <script type="text/javascript">
-var input =  document.getElementById('myInput');
+$( document ).ready(function() {
+	var input =  document.getElementById('myInput');
 	var autocomplete = new google.maps.places.Autocomplete(input);
-	autocomplete.bindTo('bounds', map);
+	$( ".mySelect" ).change(function() {
+		var role = $(".mySelect option:selected").val();
+		if(role == 1 || role == 2)
+			{
+				
+			}
+		if(role == 0)
+			{
+				autocomplete = new google.maps.places.Autocomplete(input);
+			}
+		});
+
+	
+});
+
+	
 </script>
