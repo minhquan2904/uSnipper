@@ -8,7 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+
 
 import DAO.RestaurantDAO;
 import model.Restaurant;
@@ -25,7 +26,7 @@ public class homeController extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
+
 		
 		RestaurantDAO rdao = new RestaurantDAO();
 		ArrayList<Restaurant> listRts = rdao.getTopRTS();
@@ -34,6 +35,9 @@ public class homeController extends HttpServlet {
 		ArrayList<Restaurant> listnew = rdao.getNewRts();
 		req.setAttribute("listnew", listnew);
 		req.getRequestDispatcher("/site/Index.jsp").forward(req, resp);
+		
+		
+		
 	}
 
 	

@@ -1,17 +1,14 @@
 package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 import Connect.DBConnect;
 //import dao.UserDAO;
 //import connect.DBConnect;
-import model.Role;
-import model.User;
+
 import model.QuanAnTam;
 
 public class QuanAnTamDAO {
