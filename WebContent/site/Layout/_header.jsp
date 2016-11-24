@@ -10,7 +10,7 @@
 <base href="/Usnipper/"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="vendor/bootstrap.js"></script>
-<script type="text/javascript" src="1.js"></script>
+
 <link rel="stylesheet" href="vendor/bootstrap.css">
 <link rel="stylesheet" href="vendor/index.css">
 <link rel="stylesheet" href="vendor/font-awesome.css">
