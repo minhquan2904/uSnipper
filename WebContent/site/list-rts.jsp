@@ -28,7 +28,7 @@
                         <fieldset id="inputfield" style="    width: 800px;">
                           <div class="form-group" style="margin-left: 0px;"  ><!-- ID -->
                             <label for="rts-id">Mã Quán ăn</label>
-                            <input type="text" class="form-control" id="inputRtsID" placeholder="" readonly="readonly" style="margin-left: 5px;" name="id">
+                            <input type="text" class="form-control" id="inputRtsID" placeholder="" readonly="readonly" style="margin-left: 15px;" name="id">
                           </div><!-- /ID -->
 
                           <div class="form-group" style="margin-left: 0px;" ><!-- Name -->
@@ -38,7 +38,7 @@
 
                           <div class="form-group" style="margin-left: 0px;" ><!-- Address -->
                             <label for="rts-address">Số nhà</label>
-                           <input type="text" class="form-control" id="inputRtsNumber" placeholder="" readonly="readonly" style="margin-left: 40px;" name="soNha">
+                           <input type="text" class="form-control" id="inputRtsNumber" placeholder="" readonly="readonly" style="margin-left: 50px;" name="soNha">
 
                           </div><!-- /Address -->
                           
@@ -49,7 +49,7 @@
                           </div><!-- /Address -->
                            <div class="form-group" style="margin-left: 0px;" ><!-- Address -->
                             <label for="rts-address">Phường</label>
-                           <input type="text" class="form-control" id="inputRtsTown" placeholder="" readonly="readonly" style="margin-left: 35px;" name="tenPhuong">
+                           <input type="text" class="form-control" id="inputRtsTown" placeholder="" readonly="readonly" style="margin-left: 45px;" name="tenPhuong">
 
                           </div><!-- /Address -->
                           <div class="form-group" style="margin-left: 0px;" ><!-- Describe -->
@@ -64,10 +64,13 @@
 
                           </div><!-- /Address -->
                         </fieldset>
-						 <div class="btn-group btn-group-sm"><!-- btn gruop -->
-                        <a href="#" class="btn btn-default" id="btndetail"><span class="glyphicon glyphicon-th-list"></span> Chi tiết</a>
+						 <div class="btn-group btn-group-sm" style="width:800px;"><!-- btn gruop -->
+						<button type="button" class="btn btn-default" id="btncmt"><span class="glyphicon glyphicon-th-list"></span> Duyệt bình luận</button>
+                        <button type="button" class="btn btn-default" id="btndetail"><span class="glyphicon glyphicon-th-list"></span> Chi tiết món ăn</button>
                         <button type="button" name="button" id="btnedit" class="btn btn-default"> <span class="glyphicon glyphicon-pencil"></span> Chỉnh sửa</button>
                         <button type="submit" name="button" id="btnsave" class="btn btn-default" disabled="disabled"> <span class="glyphicon glyphicon-plus"></span> Lưu</button>
+                        
+                       
                       </div><!-- /btn gruop -->
 
 
@@ -247,7 +250,11 @@
     $("#btnedit").removeAttr("disabled");
     $("#btnsave").attr("disabled",true);
     
-    
+	$("#btndetail").click(function(){
+		var id = $tds[1].innerHTML;
+		
+		window.location.href="detailRts.html?id="+id;
+	});
   });
 
 </script>

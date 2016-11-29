@@ -14,12 +14,28 @@ hr{
 select.form-control.mySelect {
     max-width: 200px;
 }
+#btncmt{
+	margin-left: 40px;
+    margin-top: 10px;
+}
 .scs{
-	color:#3F51B5;
-	font-weight: bolder;
+	background-color: #00E676;
+	color:white;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
 }
 .fail{
-	color:red;
+	background-color: #E91E63;
+	color:white;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	
+ 	 
+}
+.position_ft{
+	position: absolute;
 }
 #top-link-block.affix-top {
 			    position: absolute; /* allows it to "slide" up into view */

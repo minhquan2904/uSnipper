@@ -82,4 +82,22 @@ public class DishInfoDAO {
 		
 	}
 	
+	public void updateInfo(Integer idQuanAn,Integer idMonAn,Integer giaTien)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="UPDATE quanan_monan SET giaTien =? "
+				+ "WHERE quanan_monan.idQuanAn = ? and quanan_monan.idMonAn = ?";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ps.setInt(1, giaTien);
+			ps.setInt(2, idQuanAn);
+			ps.setInt(3, idMonAn);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
 }

@@ -487,7 +487,7 @@ public class RestaurantDAO {
 		Integer total = 0;
 		String sql="SELECT COUNT(nhanxet.noiDung) as luotBinhLuan"
 				+ " FROM quanan join nhanxet on quanan.id = nhanxet.idQuanAn "
-				+ "WHERE quanan.id ="+id;
+				+ "WHERE nhanxet.trangthai=1 and quanan.id ="+id;
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();

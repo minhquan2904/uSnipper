@@ -11,10 +11,12 @@ public class Comment {
 	private String ghiChu;
 	private Date ngayThem;
 	private User user;
+	private Integer trangThai;
+	
 	
 	
 	public Comment(Integer id, String noiDung, Integer idQuanAn, Integer idNguoiDung, String ghiChu, Date ngayThem,
-			User user) {
+			User user, Integer trangThai) {
 		super();
 		this.id = id;
 		this.noiDung = noiDung;
@@ -23,11 +25,18 @@ public class Comment {
 		this.ghiChu = ghiChu;
 		this.ngayThem = ngayThem;
 		this.user = user;
+		this.trangThai = trangThai;
 	}
-	
 	public Comment() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	public Integer getTrangThai() {
+		return trangThai;
+	}
+	public void setTrangThai(Integer trangThai) {
+		this.trangThai = trangThai;
 	}
 	public Integer getId() {
 		return id;
