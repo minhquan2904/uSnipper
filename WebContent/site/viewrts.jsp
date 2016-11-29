@@ -2,6 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
 <%@ page pageEncoding="utf-8"%>
 <jsp:include page="Layout/_header.jsp"/>
+
 <div class="container">
   
 	<jsp:include page="Layout/_rtsinfo.jsp"/>
@@ -51,15 +52,10 @@
         <div class="row">
           <div class="addcmt">
             <form class="cmtform" action="index.jsp" method="post">
+            	<p id="result">Test</p>
               <label for="">Bình luận</label>
               <textarea name="name" >Nhập bình luận của bạn</textarea>
-              <ul>
-											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
-											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
-											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
-											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
-							</ul>
-							<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+			  <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
             </form>
           </div>
         </div>

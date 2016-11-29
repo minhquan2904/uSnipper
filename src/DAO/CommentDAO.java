@@ -16,7 +16,7 @@ public class CommentDAO {
 	public ArrayList<Comment> loadCommentByRtsId(Integer id)
 	{
 		Connection connection = DBConnect.getConnection();
-		String sql="SELECT * FROM nhanxet WHERE nhanxet.idQuanAn ="+id+" ORDER BY id DESC";
+		String sql="SELECT * FROM nhanxet WHERE nhanxet.idQuanAn ="+id+" and nhanxet.trangThai=1 ORDER BY id DESC";
 		
 		try {
 			
@@ -47,8 +47,25 @@ public class CommentDAO {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return null;		
 		
+	}
+	public void insertComment(Integer idQuanAn,Integer idNguoiDung,String noiDung)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="INSERT INTO nhanxet(noiDung,idQuanAn,idNguoiDung,ngayThem,trangThai) VALUES(?,?,?,CURDATE(),0)";
 		
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			
+			ps.setString(1, noiDung);
+			ps.setInt(2, idQuanAn);
+			ps.setInt(3, idNguoiDung);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
+
 <div class="rts-category">
         <ul>
           <li class="li-rts"><a href="viewrts.html?id=${id}"><label for="comment">Bình luận</label></a></li>

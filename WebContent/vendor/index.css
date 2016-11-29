@@ -14,6 +14,13 @@ hr{
 select.form-control.mySelect {
     max-width: 200px;
 }
+.scs{
+	color:#3F51B5;
+	font-weight: bolder;
+}
+.fail{
+	color:red;
+}
 #top-link-block.affix-top {
 			    position: absolute; /* allows it to "slide" up into view */
 			    bottom: -82px;

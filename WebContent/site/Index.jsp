@@ -31,7 +31,7 @@
                 <h3>${l.tenQuanAn}</h3>
                
                 <p>Lượt xem: ${l.luotTraCuu}</p><br>
-                <p>Đánh giá: ${l.diemTB }/10</p>
+                <p>Đánh giá: ${l.diemTB }/5</p>
                 
               </div>
             </div>

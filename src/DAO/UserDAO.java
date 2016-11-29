@@ -16,12 +16,34 @@ import model.User;
 
 
 public class UserDAO {
-
+	
 	public User findUserById(Integer id) throws SQLException{
 		Connection connection=DBConnect.getConnection();
 		User user=new User();
 		
 		String sql="Select * from nguoidung Where nguoidung.id="+id;
+		PreparedStatement ps=connection.prepareCall(sql);
+		ResultSet rs=ps.executeQuery();
+		if(rs.next()){
+			user.setId(rs.getInt("id"));
+			user.setUserName((rs.getString("userName")));
+			user.setEmail(rs.getString("email"));
+			user.setTenNguoiDung(rs.getString("tenNguoiDung"));
+			user.setPass(rs.getString("pass"));
+			user.setHinhAnh(rs.getString("hinhAnh"));
+			user.setSoThich(rs.getString("soThich"));
+			user.setQuyen(rs.getInt("Quyen"));
+			
+			return user;
+		}
+		
+		return null;
+	}
+	public User findUserByUsn(String userName) throws SQLException{
+		Connection connection=DBConnect.getConnection();
+		User user=new User();
+		
+		String sql="SELECT * FROM nguoidung WHERE userName='"+userName+"'";
 		PreparedStatement ps=connection.prepareCall(sql);
 		ResultSet rs=ps.executeQuery();
 		if(rs.next()){
