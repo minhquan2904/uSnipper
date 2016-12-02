@@ -50,6 +50,43 @@ public class CommentDAO {
 		return null;		
 		
 	}
+	public ArrayList<Comment> loadWaitCommentByRtsId(Integer id)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="SELECT * FROM nhanxet WHERE nhanxet.idQuanAn ="+id+" and nhanxet.trangThai=0 ";
+		
+		try {
+			
+			PreparedStatement ps = connection.prepareCall(sql);
+			ResultSet rs = ps.executeQuery();
+			ArrayList<Comment> list= new ArrayList<>();
+			while(rs.next())
+			{
+				Comment cm = new Comment();
+				
+				cm.setId(rs.getInt("id"));
+				cm.setNoiDung(rs.getString("noiDung"));
+				cm.setIdQuanAn(rs.getInt("idQuanAn"));
+				cm.setNgayThem(rs.getDate("ngayThem"));
+				cm.setIdNguoiDung(rs.getInt("idNguoiDung"));
+				cm.setGhiChu(rs.getString("ghiChu"));
+				User user = udao.findUserById(rs.getInt("idNguoiDung"));
+				cm.setUser(user);
+				
+				list.add(cm);
+			}
+			
+			
+			return list;
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;		
+		
+	}
 	public ArrayList<Comment> loadAllCommentByRtsId(Integer id)
 	{
 		Connection connection = DBConnect.getConnection();
@@ -105,5 +142,34 @@ public class CommentDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	public void updateStatus(Integer id,Integer status)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql = "UPDATE nhanxet SET trangThai = '"+status+"' WHERE nhanxet.id = '"+id+"' ";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);		
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public Boolean deleteComment(Integer id)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql=" DELETE FROM nhanxet WHERE id="+id;
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ps.executeUpdate();
+			return true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 }

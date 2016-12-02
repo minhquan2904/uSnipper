@@ -14,6 +14,10 @@ hr{
 select.form-control.mySelect {
     max-width: 200px;
 }
+a.disabled {
+   pointer-events: none;
+   cursor: default;
+}
 #btncmt{
 	margin-left: 40px;
     margin-top: 10px;
@@ -33,6 +37,13 @@ select.form-control.mySelect {
 	font-weight: bold;
 	
  	 
+}
+.delete{
+	background-color: #F44336;
+	color:white;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
 }
 .position_ft{
 	position: absolute;

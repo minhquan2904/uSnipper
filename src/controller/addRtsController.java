@@ -72,24 +72,30 @@ public class addRtsController extends HttpServlet {
 			String tenQuan = req.getParameter("dist");
 			String lat = req.getParameter("lat");
 			String lng = req.getParameter("lng");
+			String fileName ="";
+			try {
+				ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+				Part filePart = req.getPart("upfile"); 
+				
+				 fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); 
+				    InputStream fileContent = filePart.getInputStream();
+				  
+					byte[] block = new byte[10*1024];
+					while(true){
+						int n = fileContent.read(block);
+						if(n <= 0) break; // hết dữ liệu
+						buffer.write(block, 0, n);
+					}
+					fileContent.close();
+					
+					buffer.writeTo(new FileOutputStream(req.getServletContext().getRealPath("/images")
+			        										+ File.separator + fileName));
+					//gán giá trị  hiện tại
+					
+			} catch (Exception e) {
+				 fileName = "noimagefound.jpg";
+			}
 			
-			ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-			Part filePart = req.getPart("upfile"); 
-			 String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); 
-			    InputStream fileContent = filePart.getInputStream();
-			  
-				byte[] block = new byte[10*1024];
-				while(true){
-					int n = fileContent.read(block);
-					if(n <= 0) break; // hết dữ liệu
-					buffer.write(block, 0, n);
-				}
-				fileContent.close();
-				
-				buffer.writeTo(new FileOutputStream(req.getServletContext().getRealPath("/images")
-		        										+ File.separator + fileName));
-				//gán giá trị  hiện tại
-				
 				
 			RestaurantDAO dao = new RestaurantDAO();
 			dao.insertRts(tenQuanAn, idLoaiQuanAn, soNha, tenDuong, tenPhuong, tenQuan, lat, lng, fileName );

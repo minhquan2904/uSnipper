@@ -87,8 +87,9 @@
           <div class="row">
             <div class="tab-info"><!-- tab -->
               <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Thủ Đức</a></li>
+                <li class="active"><a data-toggle="tab" href="#home">Chính</a></li>
                 <li><a data-toggle="tab" href="#menu1">Quận 9</a></li>
+                <li><a data-toggle="tab" href="#menu2">Thủ Đức</a></li>
                 
               </ul>
             </div><!-- /tab -->
@@ -114,7 +115,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                      		<c:forEach var ="l" items ="${listTD }" varStatus="loop">
+                      		<c:forEach var ="l" items ="${list}" varStatus="loop">
                       		 <tr class="clk">
                                 <td class="fund">${loop.index +1}</td>     
                                 <td>${l.id }</td>                      
@@ -138,7 +139,7 @@
 
                 <div id="menu1" class="tab-pane fade"><!-- Menu1 -->
                  <div class="table-info">
-                    <table class="table table-bordered" id="tb1">
+                    <table class="table table-bordered" id="tb2">
                       <thead>
                         <tr>
                         	<th>STT</th>                         
@@ -179,7 +180,48 @@
                   </div>
                 </div><!-- /Menu1 -->
 
-                
+                <div id="menu2" class="tab-pane fade"><!-- Menu2 -->
+                 <div class="table-info">
+                    <table class="table table-bordered" id="tb3">
+                      <thead>
+                        <tr>
+                        	<th>STT</th>                         
+                           <th>Mã quán</th>
+                           <th>Tên quán</th>
+                           <th>
+                             Số nhà
+                           </th>
+                           <th>Đường</th>
+                           <th>Phường</th>
+                           <th> Lượt tra cứu </th>
+                           <th> Ngày thêm</th>
+                           <th>Mô tả </th>
+                           <th>Món nổi tiếng</th>
+                           <th hidden="hidden"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      		<c:forEach var ="l" items ="${listTD }" varStatus="loop">
+                      		 <tr class="clk">
+                                <td class="fund">${loop.index +1}</td>     
+                                <td>${l.id }</td>                      
+	                            <td>${l.tenQuanAn}</td>
+	                            <td>${l.soNha }</td>
+	                            <td>${l.tenDuong } </td>
+	                            <td>${l.tenPhuong }</td>
+	                            <td>${l.luotTraCuu }</td>
+	                            <td>${l.ngayThem }</td>
+	                             <td>${l.moTa }</td>
+	                             <td>${l.monNoiTieng }</td>
+	                            <td hidden="hidden">${l.hinhAnh }</td>
+                          </tr>
+                          </c:forEach>
+                         
+                         
+                      </tbody>
+                    </table>
+                  </div>
+                </div><!-- /Menu2 -->
 
             </div><!-- /Content -->
 
@@ -187,7 +229,13 @@
         </div>
 
       </div>
-    </div>
+   </div>
+ <link rel="stylesheet"
+href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"
+type="text/css">
+<script type="text/javascript"
+	src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
  <script type="text/javascript">
   function change()
   {
@@ -217,7 +265,11 @@
   }
  
 
-
+  $(document).ready(function() {
+		$('#tb1').DataTable();
+		$('#tb2').DataTable();
+		$('#tb3').DataTable();
+	});
 
     $("#btnedit").click(function()
       {
@@ -254,6 +306,12 @@
 		var id = $tds[1].innerHTML;
 		
 		window.location.href="detailRts.html?id="+id;
+	});
+	
+	$("#btncmt").click(function(){
+		var id = $tds[1].innerHTML;
+		
+		window.location.href="list-comment.html?id="+id;
 	});
   });
 

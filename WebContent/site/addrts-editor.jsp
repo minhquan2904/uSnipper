@@ -22,12 +22,12 @@
               <label for="type"  style="font-size: 20px;">Loại quán ăn</label>
               <br>
               <div class="checkbox-inline">
-                <label class="checkbox-inline"><input type="checkbox" value="1" name="type">Cơm bình dân</label>
-                <label class="checkbox-inline"><input type="checkbox" value="2" name="type">Cơm tấm</label>
-                <label class="checkbox-inline"><input type="checkbox" value="3" name="type">Cơm gà,bò xào</label>
-                <label class="checkbox-inline"><input type="checkbox" value="4" name="type">Cơm chay</label>
-                <label class="checkbox-inline"><input type="checkbox" value="5" name="type">Hủ tiếu</label>
-                <label class="checkbox-inline"><input type="checkbox" value="6" name="type">Phở</label>
+                <label class="checkbox-inline"><input type="radio" value="1" name="type"> Cơm bình dân</label>
+                <label class="checkbox-inline"><input type="radio" value="2" name="type"> Cơm tấm</label>
+                <label class="checkbox-inline"><input type="radio" value="3" name="type"> Cơm gà,bò xào</label>
+                <label class="checkbox-inline"><input type="radio" value="4" name="type"> Cơm chay</label>
+                <label class="checkbox-inline"><input type="radio" value="5" name="type"> Hủ tiếu</label>
+                <label class="checkbox-inline"><input type="radio" value="6" name="type"> Phở</label>
               </div><!-- /RTS type -->
               <hr>
 				<br>
@@ -66,7 +66,7 @@
          <hr>
         <div class="form-group" style="width:1400px;"><!-- Images -->
           <label for="" style="font-size:20px;">Hình ảnh quán ăn</label>
-       	  File to upload:  <input type="file" name="upfile" accept="image/*">
+       	 <input type="file" name="upfile" accept="image/x-png,image/gif,image/jpeg">
 			
           </div><!-- /Btn function -->
         <button type="submit" class="btn btn-primary" style="margin-left:40px;">Thêm</button>

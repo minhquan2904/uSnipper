@@ -4,7 +4,7 @@
 <html lang ="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="shortcut icon" href="images/rsz_snip.png" type="image/x-icon" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <base href="/Usnipper/"/>
@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="vendor/font-awesome.css">
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
 <title>UTE SNIPPER</title>
 </head>
 <body>
@@ -98,26 +99,3 @@
     </nav>
   </div>
 </header>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwTYGP_-vrJ6AAmCuYPY8mFRso4jfCUsQ&v=3.exp&sensor=true&libraries=places"></script>
-
-<script type="text/javascript">
-$( document ).ready(function() {
-	var input =  document.getElementById('myInput');
-	var autocomplete = new google.maps.places.Autocomplete(input);
-	$( ".mySelect" ).change(function() {
-		var role = $(".mySelect option:selected").val();
-		if(role == 1 || role == 2)
-			{
-				
-			}
-		if(role == 0)
-			{
-				autocomplete = new google.maps.places.Autocomplete(input);
-			}
-		});
-
-	
-});
-
-	
-</script>

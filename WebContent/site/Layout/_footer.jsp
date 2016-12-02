@@ -1,5 +1,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwTYGP_-vrJ6AAmCuYPY8mFRso4jfCUsQ&v=3.exp&sensor=true&libraries=places"></script>
 
+<script type="text/javascript">
+$( document ).ready(function() {
+	var input =  document.getElementById('myInput');
+	var autocomplete = new google.maps.places.Autocomplete(input);
+	$( ".mySelect" ).change(function() {
+		var role = $(".mySelect option:selected").val();
+		if(role == 1 || role == 2)
+			{
+				
+			}
+		if(role == 0)
+			{
+				autocomplete = new google.maps.places.Autocomplete(input);
+			}
+		});
+
+	
+});
+
+	
+</script>
  <footer class="site-footer">
     <div class="container-fluid">
       <div class="row">

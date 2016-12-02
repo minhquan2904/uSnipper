@@ -33,6 +33,8 @@ public class listRestaurantController extends HttpServlet {
 		if(role == 3)
 		{
 			RestaurantDAO rdao = new RestaurantDAO();
+			ArrayList<Restaurant> list = rdao.getListAllRts();
+			req.setAttribute("list", list);
 			ArrayList<Restaurant> listTD = rdao.getListRtsTD();
 			req.setAttribute("listTD", listTD);
 			ArrayList<Restaurant> listQ9 = rdao.getListRtsQ9();
