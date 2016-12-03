@@ -44,6 +44,7 @@
 				<p id="passwordHelpBlock" class="form-text text-muted">Lưu ý:
 					Nếu không có hình ảnh. Hệ thống sẽ tự động chọn hình ảnh mặc định
 					cho món ăn</p>
+				<input type="text" name="prc" value="new" hidden="hidden" > 
 				<button type="submit" class="btn btn-primary"
 					style="margin-top: 10px;">Tiếp tục</button>
 

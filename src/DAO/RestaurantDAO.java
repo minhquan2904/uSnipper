@@ -1,5 +1,6 @@
 package DAO;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -550,7 +551,15 @@ public class RestaurantDAO {
 		
 	}
 	//Tang luot view khi click vao quan an
-	
+	public static void delete(File file){
+		if(file.isDirectory()){
+			File[] subs = file.listFiles();
+			for(File sub: subs){
+				delete(sub);
+			}
+		}
+		file.delete();
+	}
 	public void updateView(Integer id)
 	{
 		Connection connection = DBConnect.getConnection();

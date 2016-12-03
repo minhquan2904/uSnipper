@@ -60,18 +60,36 @@ public class addDishToRtsController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		String rname = (String) session.getAttribute("rname");
-		RestaurantDAO rdao = new RestaurantDAO();
-		Integer idRts =  rdao.getIdByName(rname);
+		Integer idRts = null;
+		if(rname!= null)
+		{
+			RestaurantDAO rdao = new RestaurantDAO();
+			idRts =  rdao.getIdByName(rname);
+		}
+		else
+		{
+			idRts=Integer.parseInt(req.getParameter("inputRtsId"));
+		}
 		session.removeAttribute("hasDish");
 		
 		Integer idDish = Integer.parseInt(req.getParameter("idDish"));
 		String describe = (String) req.getParameter("describe");
 		Integer price = Integer.parseInt(req.getParameter("price")) ;
 		DishInfoDAO dao = new DishInfoDAO();
+		String prc = req.getParameter("prc"); // xet tinh trang them la them moi hay bo sung
 		if(dao.hasDish(idRts, idDish))
 		{
 			session.setAttribute("hasDish", "Quán ăn đã có món ăn này!!!!!!!");
-			resp.sendRedirect("addDishToRts.html");
+			if(prc == "new")
+			{
+				resp.sendRedirect("addDishToRts.html");
+			}
+			else
+			{
+				
+				resp.sendRedirect("detailRts.html?id="+idRts);
+			}
+			
 			
 		}
 		else
@@ -99,8 +117,18 @@ public class addDishToRtsController extends HttpServlet {
 			}
 			
 				dao.insertNewInfo(idRts, idDish, fileName, describe, price);
-				session.removeAttribute("hasDish");
-				resp.sendRedirect("addDishToRts.html");
+				
+				if(prc == "new")
+				{
+					session.removeAttribute("hasDish");
+					resp.sendRedirect("addDishToRts.html");
+				}
+				else
+				{
+					session.setAttribute("oldscs", "Thêm món ăn thành công");
+					resp.sendRedirect("detailRts.html?id="+idRts);
+				}
+				
 		}
 		
 		

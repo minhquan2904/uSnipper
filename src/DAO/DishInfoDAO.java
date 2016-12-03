@@ -99,5 +99,21 @@ public class DishInfoDAO {
 			e.printStackTrace();
 		}		
 	}
-	
+	public void updateImg(Integer idQuanAn,Integer idMonAn,String hinhAnh)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql="UPDATE quanan_monan SET hinhAnh =? "
+				+ "WHERE quanan_monan.idQuanAn = ? and quanan_monan.idMonAn = ?";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ps.setString(1, hinhAnh);
+			ps.setInt(2, idQuanAn);
+			ps.setInt(3, idMonAn);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
 }

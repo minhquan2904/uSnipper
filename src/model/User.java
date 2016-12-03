@@ -1,8 +1,7 @@
 package model;
 
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.List;
+
 
 public class User {
 	private Integer id;
@@ -14,12 +13,15 @@ public class User {
 	private String email;
 	private String hinhAnh;
 	private Date ngayDangKy;
+	private Integer trangThai;
+	private Date ngayBlock;
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public User(Integer id, String userName, String pass, String soThich, String tenNguoiDung, Integer quyen,
-			String email, String hinhAnh, Date ngayDangKy) {
+			String email, String hinhAnh, Date ngayDangKy, Integer trangThai, Date ngayBlock) {
 		super();
 		this.id = id;
 		this.userName = userName;
@@ -30,7 +32,26 @@ public class User {
 		this.email = email;
 		this.hinhAnh = hinhAnh;
 		this.ngayDangKy = ngayDangKy;
+		this.trangThai = trangThai;
+		this.ngayBlock = ngayBlock;
 	}
+
+	public Integer getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(Integer trangThai) {
+		this.trangThai = trangThai;
+	}
+
+	public Date getNgayBlock() {
+		return ngayBlock;
+	}
+
+	public void setNgayBlock(Date ngayBlock) {
+		this.ngayBlock = ngayBlock;
+	}
+
 	public Integer getId() {
 		return id;
 	}

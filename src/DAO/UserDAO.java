@@ -112,6 +112,8 @@ public class UserDAO {
 				user.setHinhAnh(rs.getString("hinhAnh"));
 				user.setNgayDangKy(rs.getDate("ngayDangKy"));
 				user.setQuyen(rs.getInt("Quyen"));
+				user.setTrangThai(rs.getInt("trangThai"));
+				user.setNgayBlock(rs.getDate("ngayBlock"));
 				conn.close();
 				return user;
 			}

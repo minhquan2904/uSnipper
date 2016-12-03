@@ -57,8 +57,8 @@
             <h3 class="panel-title">Danh sách món ăn</h3>
           </div><!-- /panel heading -->
           <div class="panel-body"><!-- Dish-Table -->
-              <div class="table-info">
-                <table class="table table-bordered">
+              <div class="table-info" >
+                <table class="table table-bordered" id="list-rts">
                   <thead><!-- T head -->
                     <tr>                     
                       <td>Mã số món ăn</td>
@@ -78,18 +78,26 @@
                 </table>
               </div>
           </div><!--/ Dish-Table -->
-          <div class="panel-footer"><!-- panel footer -->
-             
-
-              </div><!-- /edit -->
+          
 
           </div><!--/ panel footer -->
         </div>
       </div><!-- /dish area -->
     </div>
   </div><!-- /container -->
- 
+ <link rel="stylesheet"
+href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"
+type="text/css">
+<script type="text/javascript"
+	src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
  <script type="text/javascript">
+ $(document).ready(function() {
+		$('#list-rts').DataTable();
+		
+	});
+ 
+ 
+ 
 function change()
 {
   var btnsave = document.getElementById("btnsave");
