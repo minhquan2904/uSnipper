@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -152,13 +153,14 @@ public class UserDAO {
 	public boolean  insertUser(User user) {
 		
 		Connection connection=DBConnect.getConnection();
-		String sql= "INSERT INTO NguoiDung (userName,Pass,tenNguoiDung,Quyen) VALUES(?,?,?,?)";
+		String sql= "INSERT INTO NguoiDung (userName,Pass,tenNguoiDung,Quyen,trangThai) VALUES(?,?,?,?,?)";
 		 try {
 	            PreparedStatement ps = (PreparedStatement)connection.prepareCall(sql);         
 	            ps.setString(1, user.getUserName());	          
 	            ps.setString(2, user.getPass());
 	            ps.setString(3, user.getTenNguoiDung());
-	            ps.setInt(4,user.getQuyen());	            
+	            ps.setInt(4,user.getQuyen());
+	            ps.setInt(5, 1);
 	            ps.executeUpdate();
 	            ps.close();
 	            return true;
@@ -215,5 +217,159 @@ public class UserDAO {
 		}
 		return false;
 	}
-	
+	public Boolean unblockUser(String username)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		String sql = "UPDATE nguoidung SET trangThai = 1, ngayBlock = NULL WHERE userName = ?";
+		
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ps.setString(1, username);
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	public ArrayList<User> getListActiveEditorAdmin()
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		String sql = "SELECT * FROM nguoidung WHERE nguoidung.Quyen <> 1 and trangThai = 1";
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ArrayList<User> list = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setEmail(rs.getString("Email"));
+				user.setUserName(rs.getString("userName"));
+				user.setTenNguoiDung(rs.getString("tenNguoiDung"));
+				
+				list.add(user);
+							
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public ArrayList<User> getListBlockEditorAdmin()
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		String sql = "SELECT * FROM nguoidung WHERE nguoidung.Quyen <> 1 and trangThai = 0";
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ArrayList<User> list = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setEmail(rs.getString("Email"));
+				user.setUserName(rs.getString("userName"));
+				user.setTenNguoiDung(rs.getString("tenNguoiDung"));
+				
+				list.add(user);
+							
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public Boolean blockUser(Integer id,String userName)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		
+		String sql="UPDATE nguoidung SET trangThai = 0, ngayBlock = CURDATE() + 7 WHERE id = ? and userName =?";
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ps.setInt(1, id);
+			ps.setString(2, userName);
+			ps.executeUpdate();
+			
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	public Boolean checkBlock(Integer id)
+	{
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		String sql="SELECT * FROM nguoidung WHERE id=? and trangThai = 0";
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareCall(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public Boolean deleteUser(Integer id,String userName)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		String sql="DELETE FROM nguoidung WHERE nguoidung.id = ? and nguoidung.userName =?";
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ps.setInt(1, id);
+			ps.setString(2, userName);
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

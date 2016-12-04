@@ -31,16 +31,17 @@
 							<legend>Register</legend>
 
 							<div class="form-group">
+								<p class='fail' id="signupresult"></p>
 								<label for="">User Name</label>
-								<input name="username" type="text" class="form-control" id="" placeholder="user name">
+								<input name="signupusername" type="text" class="form-control" id="" placeholder="user name">
 								<label for="">Full name</label>
 								<input name="fullname" type="text" class="form-control" id="" placeholder="full name">
 								<label for="">Password</label>
-								<input name="password" type="password" class="form-control" id="" placeholder="Password">
+								<input name="signuppassword" type="password" class="form-control" id="" placeholder="Password">
 								<label for="">Confirm password</label>
 								<input name="confirm" type="password" class="form-control" id="" placeholder="Confirm Password">
 							</div>
-							<button type="submit" class="btn btn-primary" value="register" name="command">Submit</button>
+							<button type="button" class="btn btn-primary" value="register" name="command">Submit</button>
 
 						</form>
 					</div>
@@ -54,32 +55,75 @@
 
 	function singinProcess(data)
 	{
+		
 		if(data.result == 'fail')
 			{
 				if(data.type=='login')
 					{
-						$("#result").removeClass('scs');
-						$('#result').addClass('fail');
-						$('#signinresult').text('Đăng nhập thất bại.Vui lòng kiểm tra lại tên đăng nhập và mật khẩu');
+						$("#signinresult").removeClass('scs');
+						$('#signinresult').addClass('fail');
+						$('#signinresult').text('Đăng nhập thất bại.Vui lòng kiểm tra lại thông tin đăng nhập');
+					}
+				else
+					{
+						if(data.error=='hasUser')
+							{
+								$("#signupresult").removeClass('scs');
+								$('#signupresult').addClass('fail');
+								$('#signupresult').text('Đăng kí thất bại, tên đăng nhập đã tồn tại');
+							}
+						else
+							{
+								$("#signupresult").removeClass('scs');
+								$('#signupresult').addClass('fail');
+								$('#signupresult').text('Đăng kí thất bại, mật khẩu xác nhận không trùng khớp');
+							}
+						
 					}
 			}
 		else
 			{
-				if(data.status == 0)
+				if(data.type=='login')
 					{
-						var dateBlock = data.dateBlock;
-						$("#result").removeClass('scs');
-						$('#result').addClass('fail');
-						$('#signinresult').text('Tài khoản của bạn bị khóa đến : '+ dateBlock);
+						if(data.status == 0)
+						{
+							var dateBlock = data.dateBlock;
+							$("#signinresult").removeClass('scs');
+							$('#signinresult').addClass('fail');
+							$('#signinresult').text('Tài khoản của bạn bị khóa đến : '+ dateBlock);
+						}
+						else
+						{					
+							window.location.href= "profile.html";
+						}
 					}
+				if(data.type=='signup')
+					{
+						$("#signupresult").removeClass('fail');
+						$('#signupresult').addClass('scs');
+						$('#signupresult').text('Đăng kí thành công');
+					}
+				
 			}
 	}
 	$('button[name=command]').click(function(){
 		var usn = $('input[name=username]').val();
 		var pass = $('input[name=password]').val();
 		var cmd = $(this).val();
-		var dataToSubmit = {'username':usn,'password':pass,'command':cmd};
-		
+		var dataToSubmit = '';
+		if(cmd=='login')
+			{
+			dataToSubmit = {'username':usn,'password':pass,'command':cmd};
+			}
+		else
+			{
+			usn = $('input[name=signupusername]').val();
+			pass = $('input[name=signuppassword]').val();
+			var fullname=$('input[name=fullname]').val();
+			var confirm=$('input[name=confirm]').val();
+			dataToSubmit = {'username':usn,'password':pass,'command':cmd,'fullname':fullname,'confirm':confirm};
+			}
+		console.log(dataToSubmit);
 		
 		$.ajax({
 			url:'signin.html',

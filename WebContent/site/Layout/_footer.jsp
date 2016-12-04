@@ -1,5 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwTYGP_-vrJ6AAmCuYPY8mFRso4jfCUsQ&v=3.exp&sensor=true&libraries=places"></script>
 
 <script type="text/javascript">
 $( document ).ready(function() {

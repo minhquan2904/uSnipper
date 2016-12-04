@@ -105,6 +105,10 @@ address {
   background-color: #E0E0E0;
   cursor: pointer;
 }
+.clk2:hover{
+  background-color: #E0E0E0;
+  cursor: pointer;
+}
 .col-lg-12.col-md-12.col-sm-12.fd-container.top {
     background-color: #E8EAF6;
 }
@@ -269,9 +273,10 @@ border-left-color: #2dcb73;
 .addcmt form button > i {
 margin-right: 7px;
 }
-.search-box{
+.info{
   padding: 10px;
   border: 0.5px solid gray;
+  width:800px;
 }
 .site-footer {
 

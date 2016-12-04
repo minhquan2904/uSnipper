@@ -87,6 +87,7 @@
     
     <script type="text/javascript">
     function processJson(data){
+    	
     	if(data.result == 'success' )
     		{	$("#result").removeClass('fail');
     			$('#result').addClass('scs');

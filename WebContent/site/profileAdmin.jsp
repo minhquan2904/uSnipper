@@ -3,11 +3,7 @@
   <div class="container">
     <div class="col-lg-2"><!-- List function -->
       <div class="row">
-        <ul class="list-group" style="position:fixed;">
-          <li class="list-group-item" style="disabled;color:white;background-color:#4733b7;">Dành cho Admin</li>
-          <li class="list-group-item"><a href="add-editor.jsp">Thêm tài khoản mới</a></li>
-          <li class="list-group-item"><a href="list-editor.jsp">Quản lý tài khoản quản trị viên</a></li>
-        </ul>
+        <jsp:include page="Layout/_list-group-admin.jsp"></jsp:include>
       </div>
     </div><!-- /List function -->
     <div class="col-lg-10" >
@@ -19,7 +15,7 @@
             <div class="panel-body">
               <div class="col-lg-3">
                   <div class="avt"><!-- avt -->
-                    <img src="images/mqavt.jpg" alt=""  />
+                    <img src="images/${user.hinhAnh}" alt=""  />
                   </div><!-- avt -->
               </div>
               <div class="col-lg-7">

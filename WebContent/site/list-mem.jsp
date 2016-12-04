@@ -3,16 +3,7 @@
   <div class="container"><!-- container -->
     <div class="col-lg-2"><!-- List function -->
       <div class="row">
-        <ul class="list-group" style="position:fixed;">
-          <li class="list-group-item" style="disabled;color:white;background-color:#4733b7;">Dành cho quẩn trị viên</li>
-          <li class="list-group-item"><a href="addrts-admin.jsp">Thêm quán ăn mới</a></li>
-          <li class="list-group-item"><a href="list-dish.jsp">Thêm món ăn mới</a></li>
-          <li class="list-group-item"><a href="list-rts.jsp">Quản lý thông tin quán ăn</a></li>
-          <li class="list-group-item"><a href="list-mem.jsp">Quản lý tài khoản người dùng</a></li>
-
-
-
-        </ul>
+       <jsp:include page="Layout/_list-group-admin.jsp"></jsp:include>
       </div>
     </div><!-- /List function -->
 

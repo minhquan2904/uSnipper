@@ -68,7 +68,32 @@ public class signinController extends HttpServlet {
 							if(status == 0)
 							{
 								Date block = user.getNgayBlock();
-								json = "{\"result\": \"success\",\"type\":\"login\",\"status\":\""+status+"\",\"dateBlock\":\""+block+"\"}";
+								Date cur = new Date();
+								System.out.println(cur);
+								if(cur.before(block))  // kiểm tra ngày hiện tại so với ngày bị khóa
+								{
+									json = "{\"result\": \"success\",\"type\":\"login\",\"status\":\""+status+"\",\"dateBlock\":\""+block+"\"}";
+								}
+								else //tai khoan da het bi khoa
+								{
+									if(dao.unblockUser(username))
+									{
+										status = 1;
+										session.setAttribute("user", user);	
+										session.setAttribute("username", user.getUserName());
+										session.setAttribute("tenNguoiDung", user.getTenNguoiDung());
+										session.setAttribute("Quyen", user.getQuyen());
+										json = "{\"result\": \"success\",\"type\":\"login\",\"status\":\""+status+"\"}";
+									}
+									else
+									{
+										System.out.println("cannot unblock");
+									}
+									
+								}
+								
+								
+								
 							}
 							else
 							{
@@ -76,6 +101,7 @@ public class signinController extends HttpServlet {
 								session.setAttribute("username", user.getUserName());
 								session.setAttribute("tenNguoiDung", user.getTenNguoiDung());
 								session.setAttribute("Quyen", user.getQuyen());
+								json = "{\"result\": \"success\",\"type\":\"login\",\"status\":\""+status+"\"}";
 							}
 							
 								
@@ -92,7 +118,7 @@ public class signinController extends HttpServlet {
 					if (confirm.equals(password)) {
 						User user = new User();
 						UserDAO dao = new UserDAO();
-						PrintWriter out = resp.getWriter();
+						
 						if (!UserDAO.hasUser(username)) {
 							user.setUserName(username);
 							user.setPass(password);
@@ -100,12 +126,15 @@ public class signinController extends HttpServlet {
 							user.setQuyen(1);
 							dao.insertUser(user);			
 							session.setAttribute("user", user);
-							resp.sendRedirect("home.html");						
+							json = "{\"result\": \"success\",\"type\":\"signup\"}";					
 						}
 						else{
-							resp.sendRedirect("signin.html");
-							//url = "/site/login.jsp";
+							json = "{\"result\": \"fail\",\"type\":\"signup\",\"error\":\"hasUser\"}";	
 						}			
+					}
+					else
+					{
+						json = "{\"result\": \"fail\",\"type\":\"signup\",\"error\":\"confirmfail\"}";
 					}
 					break;
 				}
