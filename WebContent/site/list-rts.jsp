@@ -15,7 +15,16 @@
               <div class="panel-body">
                   <div class="col-lg-4"><!-- RTS Avatar -->
                     <div class="rts-avt">
-                      <img src="" alt="" class="img-rts-avt"  id="imgRts" style="width: 400px; height: 200px;"/>
+                    	<form action="updateRtsImg.html" method="post"  enctype="multipart/form-data">
+                    		 <img src="" alt="" class="img-rts-avt"  id="imgRts" style="width: 400px; height: 200px;"/>
+                    		  <input type="file" name="upfile" accept="image/x-png,image/gif,image/jpeg" id="upfile" disabled="disabled">
+                    		   <input type = "text" name ="file" id="file" hidden>
+							  	  <input type = "text" name ="inputRtsId"  hidden>
+							  	 
+							  	 
+                    		  <button type="submit" class ="btn btn-success" style="margin-top:5px;">Lưu thay đổi</button>
+                    	</form>
+                     
                       
                     </div>
                   </div><!-- /RTS Avatar -->
@@ -285,7 +294,7 @@ type="text/css">
     var $row = $(this);       // Finds the closest row <tr>
     $tds = $row.find("td");             // Finds all children <td> elements
 
-
+    $('input[name=upfile]').removeAttr("disabled");
     $('input[id=inputRtsID]').val($tds[1].innerHTML);
     $('input[id=inputRtsName]').val($tds[2].innerHTML);
     $('input[id=inputRtsNumber]').val($tds[3].innerHTML);
@@ -293,8 +302,9 @@ type="text/css">
     $('input[id=inputRtsTown]').val($tds[5].innerHTML);
     $('input[id=inputRtsDes]').val($tds[8].innerHTML);
     $('input[id=inputRtsFas]').val($tds[9].innerHTML);
+    $('input[id=file]').val($tds[10].innerHTML);
 	$('img[id="imgRts"]').attr("src","images/" + $tds[10].innerHTML);
-
+	$('input[name=inputRtsId]').val($tds[1].innerHTML);
     $row.addClass("active");
     $row.siblings().removeClass("active");
     

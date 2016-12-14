@@ -657,4 +657,19 @@ public class RestaurantDAO {
 		}
 		return null;
 	}
+	public void updateImg(Integer id, String file)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql = "UPDATE quanan SET hinhAnh = ? WHERE id=?";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ps.setString(1, file);
+			ps.setInt(2, id);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

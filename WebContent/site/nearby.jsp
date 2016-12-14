@@ -179,7 +179,7 @@
 	   		lng = ${lng};
 	   	 var lat =${lat};
 	  	  var lng = ${lng};
-	  	 var image = "images/1.png";
+	  	 var image = "http://2.pik.vn/2016d1c7ab21-652e-435a-a193-358eaafc1f50.png";
 	  	  var infoWindow = new google.maps.InfoWindow({
 	          content : "Vị trí của bạn"
 	        });
@@ -208,7 +208,7 @@
    	  marker1.setMap(map);
    	  for (var i = 0; i < newlocation.length; i++) {
 	   		 
-   		      var image = "images/rts-icon.png";
+   		      var image = "http://2.pik.vn/20162448607e-35a4-4505-8070-9ee784a7bce6.png";
 			  var marker = new google.maps.Marker({
 		          position: newlocation[i],
 		          map: map,
