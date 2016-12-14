@@ -9,9 +9,10 @@
   	var myId = [];
 	</script>
   <div class ="myRow">
-  	
+  	<h4>Nếu vị trí không chính xác/thiết bị không hỗ trợ GPS hoặc muốn tìm kiếm ở địa điểm bạn mong muốn, Click <a href="get-location.html">vào đây</a> để nhập vị trí của bạn</h4>
   	
   	<div class="col-lg-6" >
+  		
   		 <div id="googleMap" style="width: 600px; height: 500px; position: fixed;">Google Map</div>
   	</div>
   	<c:if test="${empty hasLct }">
@@ -196,9 +197,7 @@
    	      }
      
      	map = new google.maps.Map(document.getElementById("googleMap"),myOptions);  
-    	 var infoWindow = new google.maps.InfoWindow({
-             content : "Vị trí của bạn"
-           });
+    	
     	 google.maps.event.addListener(marker1, 'click', function(){
              
              map.setCenter(marker1.getPosition());
