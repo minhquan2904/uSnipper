@@ -20,7 +20,7 @@ public class MessageDAO {
 			PreparedStatement ps = connection.prepareCall(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			if(rs.next())
+			while(rs.next())
 			{
 				Message ms = new Message();
 				ms.setId(rs.getInt("id"));
@@ -53,6 +53,45 @@ public class MessageDAO {
 			ps.setInt(4, ms.getStatus());
 			
 			ps.executeUpdate();
+			connection.close();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Boolean hasMs(Integer id)
+	{
+		Connection connection=DBConnect.getConnection();
+		String sql = "SELECT id FROM thongbao WHERE idNguoiDung = ? and trangThai = 1";
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+			{
+				connection.close();
+				ps.close();
+				rs.close();
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	public void seenMs(Integer id)
+	{
+		Connection connection=DBConnect.getConnection();
+		String sql = "UPDATE thongbao SET trangThai = 0 WHERE id = ?";
+		try {
+			PreparedStatement ps =connection.prepareCall(sql);
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			
 			connection.close();
 			ps.close();
 		} catch (SQLException e) {

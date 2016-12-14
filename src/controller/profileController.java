@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.MessageDAO;
+import model.User;
+
 
 @WebServlet("/profile.html")
 public class profileController extends HttpServlet {
@@ -35,8 +38,20 @@ public class profileController extends HttpServlet {
 			switch(role)
 			{
 			case 1:
+			{
 				url="/site/profileView.jsp";
+				MessageDAO mdao = new MessageDAO();
+				User user = (User) session.getAttribute("user");		
+				
+				
+				Integer id = user.getId();
+				if(mdao.hasMs(id))
+				{
+					session.setAttribute("hasMs", 1);
+				}
 				break;
+			}
+				
 			case 2:
 				url="/site/profileAdmin.jsp";
 				break;
