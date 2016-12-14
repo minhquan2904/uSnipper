@@ -45,11 +45,19 @@
 													placeholder="/">
 											</div>
 											<!-- /Name -->
-
+											
 
 										</fieldset>
 
-
+									<div class="none"  id = "newpass" style="margin-left: 85px;" >
+												<!-- Name -->
+												<label for="rts-name">Mật khẩu mới</label>
+												 <input
+													type="text" class="form-control" id="inputNewPass"
+													placeholder="/">
+													<button type="button" class="btn btn-success" id="svpass">Save</button>
+											</div>
+											<!-- /Name -->
 
 									</form>
 									<div class="btn-group btn-group-sm">
@@ -70,6 +78,12 @@
 											style="margin-left: 40px; margin-top: 10px;"
 											disabled="disabled">
 											<span class="glyphicon glyphicon-wrench"></span> Mở khóa
+										</button>
+										<button type="button" name="button" id="btnchangePass"
+											class="btn btn-default"
+											style="margin-left: 40px; margin-top: 10px;"
+											disabled="disabled">
+											<span class="glyphicon glyphicon-wrench"></span> Đổi mật khẩu
 										</button>
 										<a class="btn btn-danger btn-minier disabled" id="btndelete" href="#edit-modal" role="button" data-toggle="modal"  style="margin-left: 40px; margin-top: 10px;"><i class="icon-edit bigger-120"></i>Xóa</a> &nbsp;
 									</div>
@@ -263,6 +277,21 @@
 		}
 		
 	}
+	function processUser4(data) {
+
+		if (data.result == "success") {
+			$('#changeResult').removeClass('fail');
+			$('#changeResult').addClass('scs');
+			$('#changeResult').text('Đã thay đổi mật khẩu tài khoản này')
+		} else {
+
+			$('#changeResult').removeClass('scs');
+			$('#changeResult').addClass('fail');			
+			$('#changeResult').text('Lỗi!!!');
+			
+
+		}
+	};
 	$('#edit-modal').on('show.bs.modal', function(e) {
 			
 		  var id = $('input[id=inputUserID]').val();
@@ -324,7 +353,7 @@
 				'userName' : usn,
 				'type' : "unblock"
 			};
-		console.log(dataToSubmit);
+		
 		$.ajax({
 			url : 'list-editor.html',
 			type : 'POST',
@@ -333,6 +362,30 @@
 			success : processUser2
 		});
 	});
+	$("#btnchangePass").click(function(){
+	
+		$("#newpass").removeClass('none');
+		$("#svpass").click(function(){
+			var id = $('input[id=inputUserID]').val();
+			var usn = $('input[id=inputUserName]').val();
+			var newpass = $('input[id=inputNewPass]').val();
+			var dataToSubmit = {
+					'id' : id,
+					'userName' : usn,
+					'newpass' : newpass,
+					'type' : "changePass"
+			}
+			$.ajax({
+				url : 'list-editor.html',
+				type : 'POST',
+				data : dataToSubmit,
+				dataType : 'json',
+				success : processUser4
+			});
+		})
+		
+		
+	});
 	$(".clk").click(function() {
 		var $row = $(this); // Finds the closest row <tr>
 		$tds = $row.find("td"); // Finds all children <td> elements
@@ -340,6 +393,7 @@
 		$('input[id=inputUserID]').val($tds[1].innerHTML);
 		$('input[id=inputUserName]').val($tds[2].innerHTML);
 		$("#btnblock").removeAttr('disabled');
+		$("#btnchangePass").removeAttr('disabled');
 		$("#btnunblock").attr('disabled','disabled');
 		$('#btndelete').addClass('disabled');
 		$row.addClass("active");

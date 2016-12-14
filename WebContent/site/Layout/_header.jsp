@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="vendor/font-awesome.css">
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwTYGP_-vrJ6AAmCuYPY8mFRso4jfCUsQ&v=3.exp&sensor=true&libraries=places"></script>
 
 <title>UTE SNIPPER</title>

@@ -22,6 +22,12 @@ a.disabled {
 	margin-left: 40px;
     margin-top: 10px;
 }
+label.error {
+    color: red;
+}
+.none{
+	display: none;
+}
 .scs{
 	background-color: #00E676;
 	color:white;

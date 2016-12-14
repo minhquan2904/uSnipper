@@ -513,5 +513,28 @@ public class UserDAO {
 		
 		return false;
 	}
-	
+	public void changePass(Integer id, String userName,String pass)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		String sql = "UPDATE nguoidung SET pass=? WHERE id=? and userName= ?";
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ps.setString(1, pass);
+			ps.setInt(2, id);
+			ps.setString(3, userName);
+			ps.executeUpdate();
+			
+			conn.close();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+	}
 }

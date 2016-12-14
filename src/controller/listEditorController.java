@@ -154,6 +154,14 @@ public class listEditorController extends HttpServlet {
 				}
 				break;
 			}
+			case "changePass" :
+			{
+				String userName = req.getParameter("userName");
+				String newpass = req.getParameter("newpass");
+				udao.changePass(id, userName, newpass);
+				json = "{\"result\": \"success\"}";
+				break;
+			}
 			default:
 				break;
 			}
