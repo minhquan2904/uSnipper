@@ -172,4 +172,34 @@ public class CommentDAO {
 		}
 		
 	}
+	public Comment findCommentById(Integer id)
+	{
+		Connection connection = DBConnect.getConnection();
+		String sql = "SELECT * FROM nhanxet WHERE id=? ";
+		Comment cm = new Comment();
+		try {
+			PreparedStatement ps = connection.prepareCall(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+			{
+				cm.setId(rs.getInt("id"));
+				cm.setNoiDung(rs.getString("noiDung"));
+				cm.setIdQuanAn(rs.getInt("idQuanAn"));
+				cm.setNgayThem(rs.getDate("ngayThem"));
+				cm.setIdNguoiDung(rs.getInt("idNguoiDung"));
+				cm.setGhiChu(rs.getString("ghiChu"));
+				User user = udao.findUserById(rs.getInt("idNguoiDung"));
+				cm.setUser(user);
+			}
+			connection.close();
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return cm;
+	}
 }

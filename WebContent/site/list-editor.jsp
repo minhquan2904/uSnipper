@@ -27,8 +27,9 @@
 							<div class="col-lg-12">
 								<div class="info">
 									<!-- Each Info -->
-									<form class="form-inline" action="index.jsp" method="post">
+									<form class="form-inline" action="" method="post">
 										<fieldset disabled="disabled" id="inputfield">
+										<label style="font-size: 20px;">Thông tin tài khoản</label>
 											<p id="changeResult" class="fail"></p>
 											<div class="form-group">
 												<!-- ID -->
@@ -76,8 +77,7 @@
 
 								</div>
 								<!-- Each Info -->
-
-
+								
 							</div>
 						</div>
 					</div>
@@ -340,6 +340,8 @@
 		$('input[id=inputUserID]').val($tds[1].innerHTML);
 		$('input[id=inputUserName]').val($tds[2].innerHTML);
 		$("#btnblock").removeAttr('disabled');
+		$("#btnunblock").attr('disabled','disabled');
+		$('#btndelete').addClass('disabled');
 		$row.addClass("active");
 		$row.siblings().removeClass("active");
 

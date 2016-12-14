@@ -68,10 +68,7 @@ public class RestaurantDAO {
 		ArrayList<Restaurant> list = new ArrayList<>();
 		String sql="";
 		for (String  str : split) {
-			System.out.println("SELECT * FROM quanan where soNha='"+str+"' "
-					+ "or tenDuong  LIKE N'%"+str+"%' "
-							+ "or tenPhuong LIKE N'%"+str+"%'"
-									+ " or tenQuan LIKE N'%"+str+"%' ");
+			
 			sql="SELECT * FROM quanan where soNha='"+str+"' "
 					+ "or tenDuong  LIKE N'%"+str+"%' "
 					+ "or tenPhuong LIKE N'%"+str+"%'"

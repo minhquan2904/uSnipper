@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.CommentDAO;
+import DAO.MessageDAO;
+import model.Comment;
+import model.Message;
 
 /**
  * Servlet implementation class deleteCommentController
@@ -44,11 +47,23 @@ public class deleteCommentController extends HttpServlet {
 		{
 			Integer id = Integer.parseInt(req.getParameter("id"));
 			CommentDAO cdao = new CommentDAO();
+			Comment cm = cdao.findCommentById(id);
+			Integer idViewer = cm.getIdNguoiDung();
+			String textcmt = cm.getNoiDung();
 			String json="";
 			if(cdao.deleteComment(id))
 			{
 				
 				json = "{\"result\": \"success\"}";
+				MessageDAO mdao = new MessageDAO();
+				String text ="Đã xóa bình luận: "+ textcmt + " . Vì lí do vi phạm tiêu chuẩn cộng đồng";
+				String sender = "Quản trị viên";
+				Message ms = new Message();
+				ms.setIdViewer(idViewer);
+				ms.setSender(sender);
+				ms.setText(text);
+				ms.setStatus(1);
+				mdao.sendMessage(ms);
 				
 			}
 			else

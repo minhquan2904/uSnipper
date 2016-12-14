@@ -20,7 +20,7 @@
             <div class="panel-body">
               <div class="col-lg-3">
                   <div class="avt"><!-- avt -->
-                    <img src="images/mqavt.jpg" alt=""  />
+                    <img src="images/${user.hinhAnh }" alt=""  />
                   </div><!-- avt -->
               </div>
               <div class="col-lg-7">

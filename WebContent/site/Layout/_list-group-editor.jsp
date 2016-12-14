@@ -7,5 +7,6 @@
           <li class="list-group-item"><a href="addRts.html">Thêm quán ăn mới</a></li>
           <li class="list-group-item"><a href="add-new-dish.html">Thêm món ăn mới</a></li>
           <li class="list-group-item"><a href="listRestaurant.html">Quản lý thông tin quán ăn</a></li>
+          <li class="list-group-item"><a href="list-mem.html">Quản lý tài khoản người dùng</a></li>
         </ul>
       </div>

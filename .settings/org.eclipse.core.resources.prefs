@@ -7,5 +7,6 @@ encoding//src/DAO/RestaurantDAO.java=UTF-8
 encoding//src/controller/addDishToRtsController.java=UTF-8
 encoding//src/controller/addNewDishController.java=UTF-8
 encoding//src/controller/addRtsController.java=UTF-8
+encoding//src/controller/deleteCommentController.java=UTF-8
 encoding//src/controller/signinController.java=UTF-8
 encoding//src/controller/updateFileController.java=UTF-8

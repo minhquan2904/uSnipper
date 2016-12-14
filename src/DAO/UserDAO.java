@@ -34,7 +34,9 @@ public class UserDAO {
 			user.setHinhAnh(rs.getString("hinhAnh"));
 			user.setSoThich(rs.getString("soThich"));
 			user.setQuyen(rs.getInt("Quyen"));
-			
+			ps.close();
+			connection.close();
+			rs.close();
 			return user;
 		}
 		
@@ -56,11 +58,42 @@ public class UserDAO {
 			user.setHinhAnh(rs.getString("hinhAnh"));
 			user.setSoThich(rs.getString("soThich"));
 			user.setQuyen(rs.getInt("Quyen"));
-			
+			ps.close();
+			connection.close();
+			rs.close();
 			return user;
 		}
 		
 		return null;
+	}
+	public ArrayList<User> findUserByUsnForAdmin(String userName) throws SQLException{
+		Connection connection=DBConnect.getConnection();	
+		
+		String sql="SELECT id,email,tenNguoiDung,trangThai FROM nguoidung WHERE Quyen=1 and tenNguoiDung  LIKE N'%"+userName+"%' ";
+		PreparedStatement ps=connection.prepareCall(sql);
+		ResultSet rs=ps.executeQuery();
+		ArrayList<User> list = new ArrayList<>();
+		while(rs.next()){
+			User user=new User();
+			user.setId(rs.getInt("id"));			
+			user.setEmail(rs.getString("email"));	
+			user.setTenNguoiDung(rs.getString("tenNguoiDung"));
+			user.setTrangThai(rs.getInt("trangThai"));
+			list.add(user);
+			
+		}
+		ps.close();
+		connection.close();
+		rs.close();
+		if(!list.isEmpty())
+		{
+			return list;
+		}
+		else
+		{
+			return null;
+		}
+		
 	}
 	public static User getInfo(String userName) {
 		User user = new User();
@@ -88,11 +121,16 @@ public class UserDAO {
 					userRole.setRoleId(roleid);
 					user.setQuyen(userRole.getRoleId());
 				}
+				stm.close();
+				con.close();
+				rs.close();	
 			}
+			
 		}catch(SQLException e){
 			System.out.println("executeQuery Fail !");
 			e.printStackTrace();
 		}
+		
 		return user;
 	}
 	public User Login(String userName,String pass)
@@ -115,6 +153,8 @@ public class UserDAO {
 				user.setQuyen(rs.getInt("Quyen"));
 				user.setTrangThai(rs.getInt("trangThai"));
 				user.setNgayBlock(rs.getDate("ngayBlock"));
+				ps.close();
+				rs.close();
 				conn.close();
 				return user;
 			}
@@ -142,6 +182,9 @@ public class UserDAO {
 			stm=con.createStatement();
 			rs=stm.executeQuery("SELECT * FROM nguoidung WHERE userName='"+userName+"'");
 			if(rs.next()){
+				stm.close();
+				con.close();
+				rs.close();	
 				return true;
 			}
 		}catch(SQLException e){
@@ -162,6 +205,7 @@ public class UserDAO {
 	            ps.setInt(4,user.getQuyen());
 	            ps.setInt(5, 1);
 	            ps.executeUpdate();
+	            connection.close();
 	            ps.close();
 	            return true;
 	        } catch (SQLException ex) {
@@ -185,6 +229,9 @@ public class UserDAO {
 			stm=con.createStatement();
 			rs=stm.executeQuery("SELECT * FROM nguoidung WHERE email='"+email+"'");
 			if(rs.next()){
+				stm.close();
+				con.close();
+				rs.close();	
 				return true;
 			}
 		}catch(SQLException e){
@@ -209,6 +256,9 @@ public class UserDAO {
 			stm=con.createStatement();
 			rs=stm.executeQuery("select * from nguoidung where userName= '" +userName+ "' and pass= '" +pass+ "'");
 			if(rs.next()){
+				stm.close();
+				con.close();
+				rs.close();	
 				return true;
 			}
 		}catch(SQLException e){
@@ -231,6 +281,32 @@ public class UserDAO {
 			PreparedStatement ps = conn.prepareCall(sql);
 			ps.setString(1, username);
 			ps.executeUpdate();
+			ps.close();
+			conn.close();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	public Boolean unblockMem(Integer id)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		String sql = "UPDATE nguoidung SET trangThai = 1, ngayBlock = NULL WHERE id = ?";
+		
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			ps.close();
+			conn.close();
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -263,6 +339,9 @@ public class UserDAO {
 				list.add(user);
 							
 			}
+			conn.close();
+			ps.close();
+			rs.close();	
 			return list;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -294,6 +373,9 @@ public class UserDAO {
 				list.add(user);
 							
 			}
+			ps.close();
+			conn.close();
+			rs.close();
 			return list;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -316,6 +398,34 @@ public class UserDAO {
 			ps.setInt(1, id);
 			ps.setString(2, userName);
 			ps.executeUpdate();
+			ps.close();
+			conn.close();
+			
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	public Boolean blockMem(Integer id)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		
+		String sql="UPDATE nguoidung SET trangThai = 0, ngayBlock = CURDATE() + 7 WHERE id = ?";
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ps.setInt(1, id);
+			
+			ps.executeUpdate();
+			ps.close();
+			conn.close();
 			
 			return true;
 		} catch (SQLException e) {
@@ -342,12 +452,16 @@ public class UserDAO {
 			ResultSet rs = ps.executeQuery();
 			if(rs.next())
 			{
+				ps.close();
+				conn.close();
+				rs.close();
 				return true;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return false;
 	}
 	public Boolean deleteUser(Integer id,String userName)
@@ -364,6 +478,9 @@ public class UserDAO {
 			ps.setInt(1, id);
 			ps.setString(2, userName);
 			ps.executeUpdate();
+			ps.close();
+			conn.close();
+			
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -372,4 +489,29 @@ public class UserDAO {
 		
 		return false;
 	}
+	public Boolean deleteMem(Integer id)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {			
+			System.out.println("can not load jdbc Driver !");
+		}
+		Connection conn = DBConnect.getConnection();
+		String sql="DELETE FROM nguoidung WHERE nguoidung.id = ? ";
+		try {
+			PreparedStatement ps = conn.prepareCall(sql);
+			ps.setInt(1, id);			
+			ps.executeUpdate();
+			ps.close();
+			conn.close();
+			
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
 }
