@@ -305,7 +305,7 @@ public class RestaurantDAO {
 		
 		Connection connection=DBConnect.getConnection();
 		ArrayList<Restaurant> list = new ArrayList<>();
-		String sql="SELECT * FROM toprts";
+		String sql="SELECT * FROM `quanan` ORDER BY diemTB DESC LIMIT 6";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -596,8 +596,8 @@ public class RestaurantDAO {
 	{
 		
 		Connection connection = DBConnect.getConnection();
-		String sql = "INSERT INTO quanan(tenQuanAn,soNha,tenDuong,tenPhuong,tenQuan,lat,lng,idLoaiQuanAn,hinhAnh,ngayThem) "
-				+ "VALUES(?,?,?,?,?,?,?,?,?,CURDATE())";
+		String sql = "INSERT INTO quanan(tenQuanAn,soNha,tenDuong,tenPhuong,tenQuan,lat,lng,idLoaiQuanAn,hinhAnh,ngayThem,luotTraCuu) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?,CURDATE(),1)";
 		
 		try {
 			PreparedStatement ps = connection.prepareCall(sql);

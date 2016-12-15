@@ -80,15 +80,25 @@ public class addDishToRtsController extends HttpServlet {
 		if(dao.hasDish(idRts, idDish))
 		{
 			session.setAttribute("hasDish", "Quán ăn đã có món ăn này!!!!!!!");
-			if(prc == "new")
+			switch (prc) {
+			case "new":
 			{
 				resp.sendRedirect("addDishToRts.html");
+				break;
 			}
-			else
+			case "old":
 			{
-				
 				resp.sendRedirect("detailRts.html?id="+idRts);
+				break;
 			}
+
+			default:
+				break;
+			}
+			
+				
+			
+			
 			
 			
 		}
@@ -117,17 +127,24 @@ public class addDishToRtsController extends HttpServlet {
 			}
 			
 				dao.insertNewInfo(idRts, idDish, fileName, describe, price);
-				
-				if(prc == "new")
+				switch (prc) {
+				case "new":
 				{
 					session.removeAttribute("hasDish");
 					resp.sendRedirect("addDishToRts.html");
+					break;
 				}
-				else
+				case "old":
 				{
 					session.setAttribute("oldscs", "Thêm món ăn thành công");
 					resp.sendRedirect("detailRts.html?id="+idRts);
+					break;
 				}
+
+				default:
+					break;
+				}
+				
 				
 		}
 		

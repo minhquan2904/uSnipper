@@ -102,58 +102,7 @@
           </div>
         </div><!-- /New rts -->
 
-        <div class="new-rts"><!-- Best rts -->
-          <div class="panel panel-default" style="margin-top:20px;">
-            <div class="panel-heading">
-              <h3 class="panel-title">Quán nổi bật</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row"><!-- RTS -->
-                <div class="rts-item" style="max-width:200px; max-height:200px;float:left"><!-- RTS Item -->
-                  <img src="images/vitamincantho4.jpg" alt="" />
-                  <p class= "img-info">
-                    Lẩu nướng <br>
-                    <address class="address-rts">
-                      <span class="number">01</span>-<span class="street">Le Van Viet</span>-<span class="dist">Q.9</span>
-                    </address>
-                  </p>
-                </div><!-- /RTS Item -->
-
-                <div class="rts-item" style="max-width:200px; max-height:200px;float:left"><!-- RTS Item -->
-                  <img src="images/han1.png" alt="" />
-                  <p class= "img-info">
-                    Lẩu nướng <br>
-                    <address class="address-rts">
-                      <span class="number">01</span>-<span class="street">Le Van Viet</span>-<span class="dist">Q.9</span>
-                    </address>
-                  </p>
-                </div><!-- /RTS Item -->
-
-                <div class="rts-item" style="max-width:200px; max-height:200px;float:left"><!-- RTS Item -->
-                  <img src="images/vitamincantho4.jpg" alt="" />
-                  <p class= "img-info">
-                    Lẩu nướng <br>
-                    <address class="address-rts">
-                      <span class="number">01</span>-<span class="street">Le Van Viet</span>-<span class="dist">Q.9</span>
-                    </address>
-                  </p>
-                </div><!-- /RTS Item -->
-
-                <div class="rts-item" style="max-width:200px; max-height:200px;float:left"><!-- RTS Item -->
-                  <img src="images/han1.png" alt="" />
-                  <p class= "img-info">
-                    Lẩu nướng <br>
-                    <address class="address-rts">
-                      <span class="number">01</span>-<span class="street">Le Van Viet</span>-<span class="dist">Q.9</span>
-                    </address>
-                  </p>
-                </div><!-- /RTS Item -->
-              </div><!-- /RTS -->
-
-            </div>
-
-          </div>
-        </div><!-- /New rts -->
+     
     </div><!-- /main page -->
     <div class="col-lg-3">
       <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthongtindoanhoiute%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="400" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true">

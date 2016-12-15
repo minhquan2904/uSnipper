@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="rating/jquery-rating.css">
   <div class="row" style="margin:20px 100px; ">
       <div class="col-lg-5"><!-- image restaurant -->
-         <a href="#"><img src="images/${rts.hinhAnh}" alt="" /></a>
+         <a href="#"><img src="images/${rts.hinhAnh}" alt="" style="max-height: 300px;"/></a>
          <div class="rating">
          	<h3>Đánh giá quán ăn</h3>
 	         <div class="group1">

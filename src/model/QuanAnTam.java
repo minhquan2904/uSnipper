@@ -7,44 +7,67 @@ public class QuanAnTam {
 	private String	diaChi;
 	private String monAn;
 	private String moTa;
+	private String hinhAnh;
+	private Integer trangThai;
 	public QuanAnTam(){
 		super();
 	}
-	public QuanAnTam(int Id,String tenQuanAn, String monAn,String moTa){
+	
+	public QuanAnTam(int id, String tenQuanAn, String diaChi, String monAn, String moTa, String hinhAnh,
+			Integer trangThai) {
 		super();
-		this.Id=Id;
-		this.tenQuanAn=tenQuanAn;
-		this.monAn=monAn;
-		this.moTa=moTa;	
+		Id = id;
+		this.tenQuanAn = tenQuanAn;
+		this.diaChi = diaChi;
+		this.monAn = monAn;
+		this.moTa = moTa;
+		this.hinhAnh = hinhAnh;
+		this.trangThai = trangThai;
 	}
-	public String getDiaChi(){
-		return this.diaChi;
+	
+	public String getHinhAnh() {
+		return hinhAnh;
 	}
-	public void setDiaChi(String diaChi){
-		this.diaChi=diaChi;
+
+	public void setHinhAnh(String hinhAnh) {
+		this.hinhAnh = hinhAnh;
 	}
-	public Integer getId(){
+
+	public int getId() {
 		return Id;
 	}
-	public void setId(int Id){
-		this.Id=Id;
+	public void setId(int id) {
+		Id = id;
 	}
-	public String getTenQuanAn(){
+	public String getTenQuanAn() {
 		return tenQuanAn;
 	}
-	public void setTenQuanAn(String tenQuanAn){
-		this.tenQuanAn=tenQuanAn;
+	public void setTenQuanAn(String tenQuanAn) {
+		this.tenQuanAn = tenQuanAn;
 	}
-	public String getMonAn(){
+	public String getDiaChi() {
+		return diaChi;
+	}
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+	public String getMonAn() {
 		return monAn;
 	}
-	public void setMonAn(String monAn){
-		this.monAn=monAn;
+	public void setMonAn(String monAn) {
+		this.monAn = monAn;
 	}
-	public String getMoTa(){
+	public String getMoTa() {
 		return moTa;
 	}
-	public void setMoTa(String moTa){
-		this.moTa=moTa;
+	public void setMoTa(String moTa) {
+		this.moTa = moTa;
 	}
+	public Integer getTrangThai() {
+		return trangThai;
+	}
+	public void setTrangThai(Integer trangThai) {
+		this.trangThai = trangThai;
+	}
+	
 }
