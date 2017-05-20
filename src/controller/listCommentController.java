@@ -14,7 +14,7 @@ import DAO.CommentDAO;
 import model.Comment;
 
 
-@WebServlet("/list-comment.html")
+@WebServlet("/admin/list-comment.html")
 public class listCommentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

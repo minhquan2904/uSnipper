@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:include page="Layout/_header.jsp" />
 
 <div class="container">
@@ -27,7 +28,7 @@
 							<div class="form-group">
 								<!-- Name -->
 								<label for="rts-name">Tên tài khoản</label> <input type="text"
-									class="form-control" name="inputUserName"
+									class="form-control" name="inputUserName" value="${fn:escapeXml(param.inputUserName)}"
 									style="max-width: 200px" placeholder="Nhập tên tài khoản">
 							</div>
 							<div class="form-group">
@@ -83,7 +84,7 @@
 										<tr class="clk">
 											<td class="fund">${loop.index +1}</td>
 											<td class='org'>${l.id }</td>
-											<td>${l.userName}</td>
+											<td>${fn:escapeXml(l.userName)}</td>
 											<td>${l.tenNguoiDung}</td>
 											<td>${l.email}</td>
 										</tr>
@@ -154,7 +155,7 @@
 				/*console.log(dataToSubmit); */
 	 			
 				$.ajax({
-					url : 'add-editor.html',
+					url : 'admin/add-editor.html',
 					type : 'POST',
 					data : dataToSubmit,
 					dataType : 'json',

@@ -2,7 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
  
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="now" class="java.util.Date" />
+
 
 
 <jsp:include page="Layout/_header.jsp"/>

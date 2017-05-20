@@ -16,7 +16,7 @@ import DAO.UserDAO;
 import model.User;
 
 
-@WebServlet("/list-mem.html")
+@WebServlet("/admin/list-mem.html")
 public class listmemController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

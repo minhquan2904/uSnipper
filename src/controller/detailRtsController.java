@@ -19,7 +19,7 @@ import model.DishInfo;
 import model.Restaurant;
 
 
-@WebServlet("/detailRts.html")
+@WebServlet("/admin/detailRts.html")
 public class detailRtsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

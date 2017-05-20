@@ -35,10 +35,7 @@ public class profileController extends HttpServlet {
 		}
 		else
 		{
-			switch(role)
-			{
-			case 1:
-			{
+			
 				url="/site/profileView.jsp";
 				MessageDAO mdao = new MessageDAO();
 				User user = (User) session.getAttribute("user");		
@@ -49,16 +46,8 @@ public class profileController extends HttpServlet {
 				{
 					session.setAttribute("hasMs", 1);
 				}
-				break;
-			}
 				
-			case 2:
-				url="/site/profileAdmin.jsp";
-				break;
-			case 3:
-				url="/site/profileEditor.jsp";
-				break;
-			}
+			
 			req.getRequestDispatcher(url).forward(req, resp);
 			
 		}

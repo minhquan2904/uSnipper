@@ -13,7 +13,7 @@ import DAO.UserDAO;
 import model.User;
 
 
-@WebServlet("/add-editor.html")
+@WebServlet("/admin/add-editor.html")
 public class addEditorController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

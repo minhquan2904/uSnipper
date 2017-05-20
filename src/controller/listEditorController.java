@@ -15,7 +15,7 @@ import model.User;
 /**
  * Servlet implementation class listEditorController
  */
-@WebServlet("/list-editor.html")
+@WebServlet("/admin/list-editor.html")
 public class listEditorController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    

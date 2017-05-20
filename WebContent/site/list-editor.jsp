@@ -1,6 +1,7 @@
 <%@ page pageEncoding="utf-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <jsp:include page="Layout/_header.jsp" />
 <div class="container">
 	<div class="col-lg-2">
@@ -125,9 +126,9 @@
 										<tr class="clk">
 											<td class="fund">${loop.index +1}</td>
 											<td class='org'>${l.id }</td>
-											<td>${l.userName}</td>
-											<td>${l.tenNguoiDung}</td>
-											<td>${l.email}</td>
+											<td>${fn:escapeXml(l.userName)}</td>
+											<td>${fn:escapeXml(l.tenNguoiDung)}</td>
+											<td>${fn:escapeXml(l.email)}</td>
 										</tr>
 									</c:forEach>
 
@@ -169,9 +170,9 @@
 										<tr class="clk2">
 											<td class="fund">${loop.index +1}</td>
 											<td class='org'>${l.id }</td>
-											<td>${l.userName}</td>
-											<td>${l.tenNguoiDung}</td>
-											<td>${l.email}</td>
+											<td>${fn:escapeXml(l.userName)}</td>
+											<td>${fn:escapeXml(l.tenNguoiDung)}</td>
+											<td>${fn:escapeXml(l.email)}</td>
 										</tr>
 									</c:forEach>
 
@@ -330,7 +331,7 @@
 			};
 
 			$.ajax({
-				url : 'list-editor.html',
+				url : 'admin/list-editor.html',
 				type : 'POST',
 				data : dataToSubmit,
 				dataType : 'json',
@@ -355,7 +356,7 @@
 			};
 		
 		$.ajax({
-			url : 'list-editor.html',
+			url : 'admin/list-editor.html',
 			type : 'POST',
 			data : dataToSubmit,
 			dataType : 'json',
@@ -376,7 +377,7 @@
 					'type' : "changePass"
 			}
 			$.ajax({
-				url : 'list-editor.html',
+				url : 'admin/list-editor.html',
 				type : 'POST',
 				data : dataToSubmit,
 				dataType : 'json',

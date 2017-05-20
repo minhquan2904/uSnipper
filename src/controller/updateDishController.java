@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import DAO.DishDAO;
 
 
-@WebServlet("/updateDish.html")
+@WebServlet("/admin/updateDish.html")
 public class updateDishController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

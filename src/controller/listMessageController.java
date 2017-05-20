@@ -15,7 +15,7 @@ import model.Message;
 import model.User;
 
 
-@WebServlet("/list-message.html")
+@WebServlet("/admin/list-message.html")
 public class listMessageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

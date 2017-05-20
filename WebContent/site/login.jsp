@@ -136,7 +136,16 @@ $(document).ready(function () {
 						}
 						else
 						{					
-							window.location.href= "profile.html";
+							var role = data.role;
+							if(role == 1)
+								{
+									window.location.replace("profile.html");
+								}
+							else
+								{
+									window.location.replace("admin/profile.html");
+								}
+							
 						}
 					}
 				if(data.type=='signup')

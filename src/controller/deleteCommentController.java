@@ -15,7 +15,7 @@ import model.Message;
 /**
  * Servlet implementation class deleteCommentController
  */
-@WebServlet("/delete-cmt.html")
+@WebServlet("/admin/delete-cmt.html")
 public class deleteCommentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

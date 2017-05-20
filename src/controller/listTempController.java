@@ -15,7 +15,7 @@ import model.QuanAnTam;
 /**
  * Servlet implementation class listTempController
  */
-@WebServlet("/list-temp.html")
+@WebServlet("/admin/list-temp.html")
 public class listTempController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

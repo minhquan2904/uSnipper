@@ -247,17 +247,19 @@ public class UserDAO {
 		} catch (ClassNotFoundException e) {			
 			System.out.println("can not load jdbc Driver !");
 		}
-		Connection con=null;
-		Statement stm=null;
-		ResultSet rs;
+		Connection conn = DBConnect.getConnection();
+		String sql = "select * from nguoidung where userName= ? and pass= ?";
+		
 		try
 		{
-			con=DBConnect.getConnection();
-			stm=con.createStatement();
-			rs=stm.executeQuery("select * from nguoidung where userName= '" +userName+ "' and pass= '" +pass+ "'");
+			
+			PreparedStatement ps = conn.prepareCall(sql);
+			ps.setString(1, userName);
+			ps.setString(2, pass);
+			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
-				stm.close();
-				con.close();
+				ps.close();
+				conn.close();
 				rs.close();	
 				return true;
 			}

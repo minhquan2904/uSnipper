@@ -14,7 +14,7 @@ import DAO.DishDAO;
 import model.Dish;
 
 
-@WebServlet("/add-new-dish.html")
+@WebServlet("/admin/add-new-dish.html")
 public class addNewDishController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

@@ -24,7 +24,7 @@ import model.DishInfo;
 /**
  * Servlet implementation class updateFileController
  */
-@WebServlet("/updateFile.html")
+@WebServlet("/admin/updateFile.html")
 @MultipartConfig
 public class updateFileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

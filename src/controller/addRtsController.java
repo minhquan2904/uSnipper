@@ -20,7 +20,7 @@ import DAO.RestaurantDAO;
 import model.Restaurant;
 
 
-@WebServlet("/addRts.html")
+@WebServlet("/admin/addRts.html")
 @MultipartConfig
 public class addRtsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

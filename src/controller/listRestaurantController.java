@@ -14,7 +14,7 @@ import DAO.RestaurantDAO;
 import model.Restaurant;
 
 
-@WebServlet("/listRestaurant.html")
+@WebServlet("/admin/listRestaurant.html")
 public class listRestaurantController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

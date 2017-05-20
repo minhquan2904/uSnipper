@@ -101,7 +101,9 @@ public class signinController extends HttpServlet {
 								session.setAttribute("username", user.getUserName());
 								session.setAttribute("tenNguoiDung", user.getTenNguoiDung());
 								session.setAttribute("Quyen", user.getQuyen());
-								json = "{\"result\": \"success\",\"type\":\"login\",\"status\":\""+status+"\"}";
+								
+								//resp.sendRedirect("admin/profile.html");
+								json = "{\"result\": \"success\",\"type\":\"login\",\"role\":\""+user.getQuyen()+"\",\"status\":\""+status+"\"}";
 							}
 							
 								

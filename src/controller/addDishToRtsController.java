@@ -24,7 +24,7 @@ import model.Dish;
 import model.DishInfo;
 
 
-@WebServlet("/addDishToRts.html")
+@WebServlet("/admin/addDishToRts.html")
 @MultipartConfig
 
 public class addDishToRtsController extends HttpServlet {
