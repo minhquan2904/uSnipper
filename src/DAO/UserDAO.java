@@ -137,10 +137,12 @@ public class UserDAO {
 	{
 		
 		Connection conn = DBConnect.getConnection();
-		String sql="select * from nguoidung where userName= '" +userName+ "' and pass= '" +pass+ "'";
+		String sql="select * from nguoidung where userName= ? and pass= ?";
 		PreparedStatement ps;
 		try {
 			ps=conn.prepareCall(sql);
+			ps.setString(1, userName);
+			ps.setString(2, pass);
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()){
 				User user=new User();

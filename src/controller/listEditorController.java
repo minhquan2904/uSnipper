@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.UserDAO;
+import Tools.MD5;
 import model.User;
 
 /**
@@ -157,7 +158,7 @@ public class listEditorController extends HttpServlet {
 			case "changePass" :
 			{
 				String userName = req.getParameter("userName");
-				String newpass = req.getParameter("newpass");
+				String newpass = MD5.encryption(req.getParameter("newpass"));
 				udao.changePass(id, userName, newpass);
 				json = "{\"result\": \"success\"}";
 				break;

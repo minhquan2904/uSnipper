@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.User;
-import DAO.UserDAO;;
+import DAO.UserDAO;
+import Tools.MD5;;
 
 @WebServlet("/signin.html")
 public class signinController extends HttpServlet {
@@ -48,8 +49,8 @@ public class signinController extends HttpServlet {
 			String com = req.getParameter("command");
 			HttpSession session = req.getSession();
 			String username = req.getParameter("username");
-			String password = req.getParameter("password");
-			
+			String password = MD5.encryption(req.getParameter("password"));
+			System.out.println(password);
 			String json = "";
 			switch(com){
 				case  "login":			
