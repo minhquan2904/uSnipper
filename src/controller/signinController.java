@@ -117,7 +117,7 @@ public class signinController extends HttpServlet {
 				{
 					//String username = req.getParameter("username");
 					String fullname = req.getParameter("fullname");
-					String confirm = req.getParameter("confirm");
+					String confirm = MD5.encryption(req.getParameter("confirm"));
 					if (confirm.equals(password)) {
 						User user = new User();
 						UserDAO dao = new UserDAO();
