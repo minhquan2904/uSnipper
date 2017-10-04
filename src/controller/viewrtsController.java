@@ -40,7 +40,7 @@ public class viewrtsController extends HttpServlet {
 		TypeDAO tdao = new TypeDAO();
 		
 		Restaurant rts = rdao.getInfoById(id);
-		Integer tid = rts.getIdLoaiQuanAn();
+		Integer tid = 1;
 		Type t = tdao.getTypeNameById(tid);
 		String type = t.getTenLoai();
 		

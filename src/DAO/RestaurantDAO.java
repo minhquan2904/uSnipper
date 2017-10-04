@@ -21,7 +21,7 @@ public class RestaurantDAO {
 		}
 		Connection connection = DBConnect.getConnection();
 		Restaurant rts = new Restaurant();		
-		String sql = "SELECT * from quanan WHERE id="+id+";UPDATE `danhgia` SET `idNguoiDung`=11 WHERE danhgia.idQuanAn = 2 ";
+		String sql = "SELECT * from quanan WHERE id="+id+"";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
