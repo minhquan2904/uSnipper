@@ -84,8 +84,30 @@
       <div class="col-lg-6 col-md-6 col-sm-6">
         <div class="input-group" style="width:850px">
           <div class="input-group-btn">
+           <script>
+          
+         	function myFunction()
+         	{
+         		
+         		var x = document.getElementById('ipmySelect').value;
+         		
+         		switch(x)
+         		{
+         		case "0":
+         			console.log(x);
+         			document.getElementById('myInput').placeholder='Tìm kiếm theo địa chỉ';
+         			break;
+         		case "1": 
+         			document.getElementById('myInput').placeholder='Tìm kiếm theo món nổi bật';
+         			break;
+         		case "2": 
+         			document.getElementById('myInput').placeholder='Tìm kiếm theo tên quán ăn';
+         			break;
+         		}
+         	}
+         </script>
            <form method="post" action="find.html">
-           		<select class="form-control mySelect" id="ipmySelect" name="mySelect">
+           		<select class="form-control mySelect" id="ipmySelect" name="mySelect" onchange="myFunction()">
            			<option value="0">Tìm theo địa chỉ</option>
            			<option value="1">Tìm theo món nổi bật</option>
            			<option value="2">Tìm theo tên quán ăn</option>
@@ -93,7 +115,7 @@
 	          <input type="text" class="form-control fd-input" aria-label="" placeholder="Tìm kiếm theo địa chỉ" style="width:400px" id="myInput" name="myInput">
 	          <button type="submit" class="btn btn-default btn-icon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
            </form>
-         
+        
         </div><!-- /input-group -->
       </div>
     </div>
