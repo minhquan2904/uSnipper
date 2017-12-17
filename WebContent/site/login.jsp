@@ -87,7 +87,7 @@ $(document).ready(function () {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Thoát</button>
-                <button type="button" class="btn btn-primary" value="register" name="command">Submit</button>
+                <button type="button" class="btn btn-primary" value="register" data-dismiss="modal" name="command">Submit</button>
 
             </div>
         </div>

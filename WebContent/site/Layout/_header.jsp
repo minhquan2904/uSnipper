@@ -37,12 +37,18 @@
 				<c:when test="${empty sessionScope.username }">
 	                      		<li><a href="signin.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
 	                      		<li><a href="signin.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-send"></span> Đăng kí</a></li>
-	                      	</c:when>
+	             </c:when>
 				<c:otherwise>
-	                  			<li><a href="profile.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-user"></span>${sessionScope.tenNguoiDung}</a></li>
+					<c:if test="${sessionScope.Quyen == 1 }">
+						<li><a href="profile.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-user"></span>${sessionScope.tenNguoiDung}</a></li>
+					</c:if>
+					<c:if test="${sessionScope.Quyen != 1 }">
+						<li><a href="admin/profile.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-user"></span>${sessionScope.tenNguoiDung}</a></li>
+					</c:if>
+	                  			
 	                  			<li><a href="signout.html" class="footer-a" style="color: #4733b7;"><span class="glyphicon glyphicon-send"></span> Đăng xuất</a></li>
 	                  			
-	                  					</c:otherwise>
+	            </c:otherwise>
 			</c:choose>
             
             
