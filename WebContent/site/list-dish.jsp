@@ -28,7 +28,7 @@
 		  		
 		      </form><!--  Update form -->
 				 <div class="edit-dish"><!-- edit -->
-               <form class="form-inline" action="updateDish.html" method="post">
+               <form class="form-inline" action="admin/updateDish.html" method="post">
                 <h3 class="panel-title">Chỉnh sửa món ăn </h3>
                   <div class="form-group">
                     <label for="Id">Mã món ăn</label>
