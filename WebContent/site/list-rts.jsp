@@ -33,7 +33,7 @@
                   	<c:if test="${not empty success }">Chỉnh sửa thành công</c:if>
                   </font>
                     <div class="info"><!-- Each Info -->
-                      <form class="form-inline" action="listRestaurant.html" method="post">
+                      <form class="form-inline" action="admin/listRestaurant.html" method="post">
                         <fieldset id="inputfield" style="    width: 800px;">
                           <div class="form-group" style="margin-left: 0px;"  ><!-- ID -->
                             <label for="rts-id">Mã Quán ăn</label>
@@ -315,13 +315,13 @@ type="text/css">
 	$("#btndetail").click(function(){
 		var id = $tds[1].innerHTML;
 		
-		window.location.href="detailRts.html?id="+id;
+		window.location.href="admin/detailRts.html?id="+id;
 	});
 	
 	$("#btncmt").click(function(){
 		var id = $tds[1].innerHTML;
 		
-		window.location.href="list-comment.html?id="+id;
+		window.location.href="admin/list-comment.html?id="+id;
 	});
   });
 

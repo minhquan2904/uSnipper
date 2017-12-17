@@ -191,7 +191,7 @@
 						  status = 0;
 						  var dataToSm = {'id':id};
 						  $.ajax({
-								url : 'delete-cmt.html',
+								url : 'admin/delete-cmt.html',
 								type : 'POST',
 								data : dataToSm,
 								dataType : 'json',
@@ -223,7 +223,7 @@
 					};
 
 					$.ajax({
-						url : 'list-comment.html',
+						url : 'admin/list-comment.html',
 						type : 'POST',
 						data : dataToSubmit,
 						dataType : 'json',
@@ -245,7 +245,7 @@
 					console.log(dataToSubmit);
 
 					$.ajax({
-						url : 'list-comment.html',
+						url : 'admin/list-comment.html',
 						type : 'POST',
 						data : dataToSubmit,
 						dataType : 'json',
