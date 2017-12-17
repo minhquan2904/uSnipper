@@ -249,7 +249,7 @@
 
 			
 			$.ajax({
-				url : 'list-editor.html',
+				url : 'admin/list-editor.html',
 				type : 'POST',
 				data : dataToSubmit,
 				dataType : 'json',
@@ -265,7 +265,7 @@
 				'type' : "unblockmem"
 			}
 			$.ajax({
-				url : 'list-editor.html',
+				url : 'admin/list-editor.html',
 				type : 'POST',
 				data : dataToSubmit,
 				dataType : 'json',
