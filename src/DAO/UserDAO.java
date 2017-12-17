@@ -198,7 +198,7 @@ public class UserDAO {
 	public boolean  insertUser(User user) {
 		
 		Connection connection=DBConnect.getConnection();
-		String sql= "INSERT INTO NguoiDung (userName,Pass,tenNguoiDung,Quyen,trangThai) VALUES(?,?,?,?,?)";
+		String sql= "INSERT INTO NguoiDung (userName,Pass,tenNguoiDung,Quyen,trangThai,ngayDangKy) VALUES(?,?,?,?,?,CURDATE())";
 		 try {
 	            PreparedStatement ps = (PreparedStatement)connection.prepareCall(sql);         
 	            ps.setString(1, user.getUserName());	          
@@ -206,6 +206,7 @@ public class UserDAO {
 	            ps.setString(3, user.getTenNguoiDung());
 	            ps.setInt(4,user.getQuyen());
 	            ps.setInt(5, 1);
+	            
 	            ps.executeUpdate();
 	            connection.close();
 	            ps.close();
