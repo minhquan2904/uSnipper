@@ -206,7 +206,7 @@
            });
    	  marker1.setMap(map);
    	  for (var i = 0; i < newlocation.length; i++) {
-	   		 
+	   		 console.log(newlocation);
    		      var image = "http://2.pik.vn/20162448607e-35a4-4505-8070-9ee784a7bce6.png";
 			  var marker = new google.maps.Marker({
 		          position: newlocation[i],
@@ -256,6 +256,7 @@
  				}
  			
  		}
+ 		
  		
 		</script>
 	</c:if>

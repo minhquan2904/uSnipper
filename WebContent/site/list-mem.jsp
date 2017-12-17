@@ -34,7 +34,7 @@
 								<h4 style="text-align: center">Tìm kiếm</h4>
 								<div class="search-form">
 									<!-- search form -->
-									<form class="form-inline" action="list-mem.html" method="post">
+									<form class="form-inline" action="admin/list-mem.html" method="post">
 										<div class="form-group">
 											<label for="name">Tên người dùng</label> <input type="text"
 												class="form-control" name="name" id="" placeholder="">

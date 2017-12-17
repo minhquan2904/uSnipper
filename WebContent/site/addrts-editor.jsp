@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-10"  >
       <div class="row" >
-        <form class="form-inline" action="addRts.html" method="post" enctype="multipart/form-data">
+        <form class="form-inline" action="admin/addRts.html" method="post" enctype="multipart/form-data">
           <h3 style="disabled;color:white;background-color:#4733b7;text-align:center; padding:10px;margin-left:10px;"><b>Thêm quán ăn</b></h3>
 			<font color="red" size="20px;"><c:if test="${not empty errorMs }">
            				 <c:out value="${errorMs}" />

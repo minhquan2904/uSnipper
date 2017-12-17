@@ -17,7 +17,7 @@
 			<font size="12" color="red"><c:if test="${not empty hasDish }">Món ăn đã tồn tại !!!!</c:if>
 
 			</font> <label for="rts-name" style="font-size: 20px;">Thêm món ăn</label>
-			<form action="addDishToRts.html" method="post"
+			<form action="admin/addDishToRts.html" method="post"
 				enctype="multipart/form-data">
 				<label for="rts-id" style="font-size: 15px;">Nhập id</label> <input
 					type="text" class="form-control" placeholder="Nhập idMonAn"
@@ -53,10 +53,10 @@
 				style="margin-top: 10px;">Hoàn tất</button>
 			<script type="text/javascript">
 				$("#scs").click(function() {
-					window.location.replace("profile.html");
+					window.location.replace("admin/profile.html");
 				});
 				$("#abtn").click(function() {
-					window.location.replace("add-new-dish.html");
+					window.location.replace("admin/add-new-dish.html");
 				});
 			</script>
 

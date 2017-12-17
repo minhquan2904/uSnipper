@@ -95,6 +95,7 @@ public class LocationDAO {
 			}
 				
 		}
+		System.out.println("There are : " + finalList.size());
 		return finalList;
 	}
 }
