@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBwTYGP_-vrJ6AAmCuYPY8mFRso4jfCUsQ&sensor=false"></script>
+
   <script type="text/javascript">
   var gmap = new google.maps.LatLng(${rts.lat},  ${rts.lng});
   var marker;
