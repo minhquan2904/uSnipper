@@ -11,7 +11,7 @@
 	<jsp:include page="Layout/_category.jsp"/>
 
       <div class="col-lg-8" style="margin-top:20px;"><!-- Comment -->
-        <div id="googleMap" style="width: 800px; height: 300px;">Google Map</div>
+        <div id="googleMap" style="width: 800px; height: 600px;">Google Map</div>
 
       </div><!-- /comment -->
       <div class="col-lg-4" style="margin-top:20px;">
